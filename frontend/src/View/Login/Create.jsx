@@ -18,7 +18,6 @@ class Create extends Component {
         this.inputPass = this.inputPass.bind(this)
         this.inputEmail = this.inputEmail.bind(this)
         this.inputRePassword = this.inputRePassword.bind(this)
-        this.login = this.login.bind(this)
     }
     inputUser(e) {
         let userName = e.target.value

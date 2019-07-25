@@ -1,6 +1,5 @@
 import React, { Component } from '../../../node_modules/react'
 import withStyles from '@material-ui/core/styles/withStyles';
-import '../../App.css'
 import Grid from '@material-ui/core/Grid';
 import { Paper, Button } from '@material-ui/core';
 import { IoIosLock } from "react-icons/io";
@@ -9,6 +8,11 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const style = theme => ({
+    background: {
+        background: 'url(background/bgr_login.jpg)',
+        width: '100%',
+        height: '100%'
+    },
     root: {
         flexGrow: 1,
     },
@@ -17,7 +21,8 @@ const style = theme => ({
         height: '400px',
         marginTop: '100px',
         marginLeft: '10%',
-        textAlign: 'center'
+        textAlign: 'center',
+        background: '#ebebe0'
     },
     logo: {
         width: '100%',
@@ -38,6 +43,9 @@ class index extends Component {
     }
 createUser(){
     this.props.history.push('Create/1')
+}
+homePage(){
+    this.props.history.push('./Trangchu/00')
 }
 
     render() {
@@ -83,11 +91,12 @@ createUser(){
                             <Button
                                 variant="contained" 
                                 color="primary"
+                                onClick={() =>this.homePage()}
                             >
                                 Đăng Nhập
                             </Button>
-                            <a onClick={() => this.createUser()} style={{ color: "black" }}>
-                                <p>Tạo tài khoản</p>
+                            <a onClick={() => this.createUser()} >
+                                <p style={{ marginTop: '10px'}}>Tạo tài khoản</p>
                             </a>
                         </Paper>
                     </Grid>
