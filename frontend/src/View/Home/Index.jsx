@@ -7,7 +7,6 @@ import InputBase from '@material-ui/core/InputBase'
 import { fade } from '@material-ui/core/styles'
 import Avatar from '@material-ui/core/Avatar';
 import img from '../../../src/PTIT.png'
-import Paper from '@material-ui/core/Paper';
 import { Fade } from 'react-slideshow-image';
 import slide1 from '../../Mypham/o_hui.jpg'
 import slide2 from '../../Mypham/sulwhasoo.jpg'
@@ -27,6 +26,12 @@ const style = theme => ({
         textAlign: 'center',
         width: '100%',
         height: '150px'
+    },
+    body: {
+        textAlign: 'center',
+        width: '100%',
+        height: '150px',
+        marginTop: '450px',
     },
     avatar: {
         margin: 20,
@@ -129,7 +134,46 @@ class Home extends Component {
                 <Col xs={{ size: 12 }} md={{ size: 12 }} className={classes.header}>
                     <Row>
                         <Col xs="12" md="12" style={{marginTop: '20px', marginBottom: '10px'}}>
-                            <h2>Costimer</h2>
+                            <h2>Mỹ Phẩm</h2>
+                        </Col>
+                        <Col xs="12" md="12" >
+                            <Fade>
+                                <div className={classes.paper}>
+                                    <img src={slide1} style={{
+                                        width: '100%',
+                                        height: '500px',
+                                    }}/>
+                                    <span>Ô hui</span>
+                                </div>
+                                <div className={classes.paper}>
+                                    <img src={slide2} style={{
+                                        width: '100%',
+                                        height: '500px',
+                                    }}/>
+                                    <span>sulwhasoo</span>
+                                </div>
+                                <div className={classes.paper}>
+                                    <img src={slide3} style={{
+                                        width: '100%',
+                                        height: '500px',
+                                    }}/>
+                                    <span>SUM Time ENERGY</span>
+                                </div>
+                                <div className={classes.paper}>
+                                    <img src={slide4} style={{
+                                        width: '100%',
+                                        height: '500px',
+                                    }}/>
+                                    <span>Nước hoa hồng laneige</span>
+                                </div>
+                            </Fade>
+                        </Col>
+                    </Row>
+                </Col>
+                <Col xs="12" md="12" className={classes.body}>
+                <Row>
+                        <Col xs="12" md="12" style={{marginTop: '20px', marginBottom: '10px'}}>
+                            <h2>Thực phẩm chức năng</h2>
                         </Col>
                         <Col xs="12" md="12" >
                             <Fade>
