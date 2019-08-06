@@ -1,7 +1,7 @@
-import React, { Component } from '../../../../node_modules/react'
+import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Avatar from '@material-ui/core/Avatar'
-import img from '../../../../src/PTIT.png'
+import img from '../../../src/PTIT.png'
 import { FaBars } from "react-icons/fa"
 import { Col, Row } from 'reactstrap'
 import { FaSistrix } from "react-icons/fa"

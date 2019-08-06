@@ -8,7 +8,7 @@ import Login from '../src/View/Login/Index'
 import Create from '../src/View/Login/Create'
 import Trangchu from '../src/View/Home/Index'
 import Custetics from '../src/View/Cusmetics/Index'
-import Ohui from '../src/View/Cusmetics/Details/Ohui'
+import Ohui from './View/Details/Ohui'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
