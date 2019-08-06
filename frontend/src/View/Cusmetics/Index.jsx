@@ -90,16 +90,6 @@ const style = theme => ({
         height: 0,
         paddingTop: '56.25%', // 16:9
     },
-    expand: {
-        transform: 'rotate(0deg)',
-        marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
-            duration: theme.transitions.duration.shortest,
-        }),
-    },
-    expandOpen: {
-        transform: 'rotate(180deg)',
-    },
     avatarCard: {
         backgroundColor: red[500],
     },
@@ -114,9 +104,12 @@ class Index extends Component {
         }
     }
 
-    Home() {
+Home() {
         this.props.history.push('/Trangchu/00')
     }
+Ohui(){
+    this.props.history.push('/Ohui/1')
+}
 
     render() {
         const { classes } = this.props
@@ -193,7 +186,7 @@ class Index extends Component {
                             </Typography>
                                         </CardContent>
                                         <CardActions disableSpacing>
-                                            <IconButton aria-label="add to favorites">
+                                            <IconButton aria-label="add to favorites" onClick={() => this.Ohui()}>
                                                 <FavoriteIcon />
                                             </IconButton>
                                             <IconButton aria-label="share">
