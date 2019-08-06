@@ -7,6 +7,7 @@ import './index.css';
 import Login from '../src/View/Login/Index'
 import Create from '../src/View/Login/Create'
 import Trangchu from '../src/View/Home/Index'
+import Custetics from '../src/View/Cusmetics/Index'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -15,6 +16,7 @@ ReactDOM.render(
         <Route exact path="/" component={Login} />
         <Route exact path="/Create/:id" component={Create} />
         <Route exact path="/Trangchu/:id" component={Trangchu} />
+        <Route exact path="/Cusmetics/:id" component={Custetics}/>
     </BrowserRouter>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

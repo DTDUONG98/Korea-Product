@@ -88,8 +88,12 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-           
+
         }
+    }
+
+    Cusmetics() {
+        this.props.history.push('/Cusmetics/001')
     }
     render() {
         const { classes } = this.props
@@ -104,26 +108,23 @@ class Home extends Component {
                             <a>HOME</a>
                         </Col>
                         <Col xs="1" md="1" style={{ marginTop: '25px' }}>
-                            <a>MỸ PHẨM</a>
+                            <a onClick={() => this.Cusmetics()}
+                            >MỸ PHẨM</a>
                         </Col>
                         <Col xs="2" md="2" style={{ marginTop: '25px' }}>
                             <a>
                                 THỰC PHẨM CHỨC NĂNG
-                        </a>
+        </a>
                         </Col>
                         <Col xs="3" md={{ size: 3, offset: 2 }}>
                             <div className={classes.search}>
                                 <div className={classes.searchIcon}>
                                     <FaSistrix style={{ fontSize: '25px' }} />
                                 </div>
-                                <InputBase
-                                    placeholder="Search…"
-                                    classes={{
-                                        root: classes.inputRoot,
-                                        input: classes.inputInput,
-                                    }}
-                                    inputProps={{ 'aria-label': 'Search' }}
-                                />
+                                <InputBase placeholder="Search…" classes={{
+                                    root: classes.inputRoot,
+                                    input: classes.inputInput,
+                                }} inputProps={{ 'aria-label': 'Search' }} />
                             </div>
                         </Col>
                         <Col>
@@ -133,37 +134,37 @@ class Home extends Component {
                 </Col>
                 <Col xs={{ size: 12 }} md={{ size: 12 }} className={classes.header}>
                     <Row>
-                        <Col xs="12" md="12" style={{marginTop: '20px', marginBottom: '10px'}}>
+                        <Col xs="12" md="12" style={{ marginTop: '20px', marginBottom: '10px' }}>
                             <h2>Mỹ Phẩm</h2>
                         </Col>
-                        <Col xs="12" md="12" >
+                        <Col xs="12" md="12">
                             <Fade>
                                 <div className={classes.paper}>
                                     <img src={slide1} style={{
                                         width: '100%',
                                         height: '500px',
-                                    }}/>
+                                    }} />
                                     <span>Ô hui</span>
                                 </div>
                                 <div className={classes.paper}>
                                     <img src={slide2} style={{
                                         width: '100%',
                                         height: '500px',
-                                    }}/>
+                                    }} />
                                     <span>sulwhasoo</span>
                                 </div>
                                 <div className={classes.paper}>
                                     <img src={slide3} style={{
                                         width: '100%',
                                         height: '500px',
-                                    }}/>
+                                    }} />
                                     <span>SUM Time ENERGY</span>
                                 </div>
                                 <div className={classes.paper}>
                                     <img src={slide4} style={{
                                         width: '100%',
                                         height: '500px',
-                                    }}/>
+                                    }} />
                                     <span>Nước hoa hồng laneige</span>
                                 </div>
                             </Fade>
@@ -171,38 +172,38 @@ class Home extends Component {
                     </Row>
                 </Col>
                 <Col xs="12" md="12" className={classes.body}>
-                <Row>
-                        <Col xs="12" md="12" style={{marginTop: '20px', marginBottom: '10px'}}>
+                    <Row>
+                        <Col xs="12" md="12" style={{ marginTop: '20px', marginBottom: '10px' }}>
                             <h2>Thực phẩm chức năng</h2>
                         </Col>
-                        <Col xs="12" md="12" >
+                        <Col xs="12" md="12">
                             <Fade>
                                 <div className={classes.paper}>
                                     <img src={slide1} style={{
                                         width: '100%',
                                         height: '500px',
-                                    }}/>
+                                    }} />
                                     <span>Ô hui</span>
                                 </div>
                                 <div className={classes.paper}>
                                     <img src={slide2} style={{
                                         width: '100%',
                                         height: '500px',
-                                    }}/>
+                                    }} />
                                     <span>sulwhasoo</span>
                                 </div>
                                 <div className={classes.paper}>
                                     <img src={slide3} style={{
                                         width: '100%',
                                         height: '500px',
-                                    }}/>
+                                    }} />
                                     <span>SUM Time ENERGY</span>
                                 </div>
                                 <div className={classes.paper}>
                                     <img src={slide4} style={{
                                         width: '100%',
                                         height: '500px',
-                                    }}/>
+                                    }} />
                                     <span>Nước hoa hồng laneige</span>
                                 </div>
                             </Fade>
