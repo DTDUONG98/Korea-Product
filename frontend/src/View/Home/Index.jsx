@@ -8,10 +8,8 @@ import { fade } from '@material-ui/core/styles'
 import Avatar from '@material-ui/core/Avatar';
 import img from '../../../src/PTIT.png'
 import { Fade } from 'react-slideshow-image';
-import slide1 from '../../Mypham/o_hui.jpg'
-import slide2 from '../../Mypham/sulwhasoo.jpg'
-import slide3 from '../../Mypham/SUM Time ENERGY 02.jpg'
-import slide4 from '../../Mypham/Nước hoa hồng laneige.jpg'
+import { Grid, Paper } from '@material-ui/core';
+import Card from '@material-ui/core/Card'
 
 const style = theme => ({
     root: {
@@ -83,6 +81,16 @@ const style = theme => ({
     eachFade: {
         display: true,
     },
+    card: {
+        maxWidth: 345,
+        marginLeft: '40px',
+    },
+    paper:{
+        widht: '90%',
+        height: '100px',
+        marginTop: '20px',
+        marginLeft: '10px',
+    },
 })
 class Home extends Component {
     constructor(props) {
@@ -108,13 +116,14 @@ class Home extends Component {
                             <a>HOME</a>
                         </Col>
                         <Col xs="1" md="1" style={{ marginTop: '25px' }}>
-                            <a onClick={() => this.Cusmetics()}
-                            >MỸ PHẨM</a>
+                            <a onClick={() => this.Cusmetics()}>
+                                MỸ PHẨM
+                            </a>
                         </Col>
                         <Col xs="2" md="2" style={{ marginTop: '25px' }}>
                             <a>
                                 THỰC PHẨM CHỨC NĂNG
-        </a>
+                            </a>
                         </Col>
                         <Col xs="3" md={{ size: 3, offset: 2 }}>
                             <div className={classes.search}>
@@ -133,82 +142,32 @@ class Home extends Component {
                     </Row>
                 </Col>
                 <Col xs={{ size: 12 }} md={{ size: 12 }} className={classes.header}>
-                    <Row>
-                        <Col xs="12" md="12" style={{ marginTop: '20px', marginBottom: '10px' }}>
-                            <h2>Mỹ Phẩm</h2>
-                        </Col>
-                        <Col xs="12" md="12">
-                            <Fade>
-                                <div className={classes.paper}>
-                                    <img src={slide1} style={{
-                                        width: '100%',
-                                        height: '500px',
-                                    }} />
-                                    <span>Ô hui</span>
-                                </div>
-                                <div className={classes.paper}>
-                                    <img src={slide2} style={{
-                                        width: '100%',
-                                        height: '500px',
-                                    }} />
-                                    <span>sulwhasoo</span>
-                                </div>
-                                <div className={classes.paper}>
-                                    <img src={slide3} style={{
-                                        width: '100%',
-                                        height: '500px',
-                                    }} />
-                                    <span>SUM Time ENERGY</span>
-                                </div>
-                                <div className={classes.paper}>
-                                    <img src={slide4} style={{
-                                        width: '100%',
-                                        height: '500px',
-                                    }} />
-                                    <span>Nước hoa hồng laneige</span>
-                                </div>
-                            </Fade>
-                        </Col>
-                    </Row>
+                    <Grid container item md={12} spacing={0}>
+                        <Grid item md={6}>
+                            <Paper className={classes.paper}>
+                                    <h1>AAAAAAA</h1>
+                            </Paper>
+                        </Grid>
+                        <Grid item md={6}>
+                            <Paper  className={classes.paper}>
+                                    <h1>BBBBBBBB</h1>
+                            </Paper>
+                        </Grid>
+                    </Grid>
                 </Col>
-                <Col xs="12" md="12" className={classes.body}>
-                    <Row>
-                        <Col xs="12" md="12" style={{ marginTop: '20px', marginBottom: '10px' }}>
-                            <h2>Thực phẩm chức năng</h2>
-                        </Col>
-                        <Col xs="12" md="12">
-                            <Fade>
-                                <div className={classes.paper}>
-                                    <img src={slide1} style={{
-                                        width: '100%',
-                                        height: '500px',
-                                    }} />
-                                    <span>Ô hui</span>
-                                </div>
-                                <div className={classes.paper}>
-                                    <img src={slide2} style={{
-                                        width: '100%',
-                                        height: '500px',
-                                    }} />
-                                    <span>sulwhasoo</span>
-                                </div>
-                                <div className={classes.paper}>
-                                    <img src={slide3} style={{
-                                        width: '100%',
-                                        height: '500px',
-                                    }} />
-                                    <span>SUM Time ENERGY</span>
-                                </div>
-                                <div className={classes.paper}>
-                                    <img src={slide4} style={{
-                                        width: '100%',
-                                        height: '500px',
-                                    }} />
-                                    <span>Nước hoa hồng laneige</span>
-                                </div>
-                            </Fade>
-                        </Col>
-                    </Row>
+                <Col xs={{ size: 12 }} md={{ size: 12 }} className={classes.header}>
+                    <Grid container item md={12} spacing={0}>
+                        <Grid item md={6}>
+                            <Paper className={classes.paper}>
+                                    <h1>C</h1>
+                            </Paper>
+                        </Grid>
+                        <Grid item md={6}>
+                            <Paper  className={classes.paper}>
+                                    <h1>D</h1>
+                            </Paper>
+                        </Grid>
+                    </Grid>
                 </Col>
             </div>
         )

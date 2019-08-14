@@ -18,10 +18,6 @@ import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import slide1 from '../../Mypham/o_hui.jpg'
-import slide2 from '../../Mypham/sulwhasoo.jpg'
-import slide3 from '../../Mypham/SUM Time ENERGY.jpg'
-import slide4 from '../../Mypham/Nước hoa hồng laneige.jpg'
 
 const style = theme => ({
     root: {
@@ -101,6 +97,8 @@ class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            items : [],
+            vasible: 4,
         }
     }
 
@@ -110,7 +108,19 @@ Home() {
 Ohui(){
     this.props.history.push('/Ohui/1')
 }
-
+// Khai báo data product ở file datanbase/db.json
+componentDidMount() {
+    fetch(`http://localhost:3333/products`)
+      // We get the API response and receive data in JSON format...
+      .then(response => response.json())
+      // ...then we update the users state
+      .then(data =>
+        this.setState({ items: data })
+      )
+      // Catch any errors we hit and update the app
+      .catch(error => console.log('error ', error));
+    // console.log('result ', result)
+  }
     render() {
         const { classes } = this.props
         return (
@@ -160,30 +170,26 @@ Ohui(){
                         >O-Hui</p>
                     </Row>
                     <Row>
-                        {
-                            [slide1, slide2, slide3, slide4].map((e, index) => {
-                                let name = (e.split('/')[3]).split('.')[0]
-                                console.log('name', name)
-                                return (
-                                    <Card key={index} className={classes.card}>
+                                {this.state.items.slice(0, this.state.visible).map((item, index) =>
+                                    <Card className={classes.card} key={index}>
                                         <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
-                                            {name}
-                                </Avatar>
+                                           {item.title}
+                                        </Avatar>
                                         }
                                             action={
                                                 <IconButton aria-label="settings">
                                                     <MoreVertIcon />
                                                 </IconButton>
                                             }
-                                            title={name}
+                                            title={item.title}
                                             subheader="September 14, 2016"
                                         />
-                                        <CardMedia className={classes.media} image={`${e}`} title={name} />
+                                        <CardMedia className={classes.media} title='123' />
                                         <CardContent>
                                             <Typography variant="body2" color="textSecondary" component="p">
                                                 This impressive paella is a perfect party dish and a fun meal to cook together with your
                                                 guests. Add 1 cup of frozen peas along with the mussels, if you like.
-                            </Typography>
+                                            </Typography>
                                         </CardContent>
                                         <CardActions disableSpacing>
                                             <IconButton aria-label="add to favorites" onClick={() => this.Ohui()}>
@@ -194,60 +200,7 @@ Ohui(){
                                             </IconButton>
                                         </CardActions>
                                     </Card>
-                                )
-                            })
-                        }
-                    </Row>
-                    <Row>
-                        <p 
-                            style={{
-                                textAlign: 'center',
-                                fontSize: '30px',
-                                marginBottom: '20px',
-                                marginTop: '20px',
-                            }}
-                        >
-                            SamPoo
-                        </p>
-                    </Row>
-                    <Row>
-                        {
-                            [slide1, slide2, slide3, slide4].map((e, index) => {
-                                let name = (e.split('/')[3]).split('.')[0]
-                                console.log('name', name)
-                                return (
-                                    <Card key={index} className={classes.card}>
-                                        <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
-                                            {name}
-                                </Avatar>
-                                        }
-                                            action={
-                                                <IconButton aria-label="settings">
-                                                    <MoreVertIcon />
-                                                </IconButton>
-                                            }
-                                            title={name}
-                                            subheader="September 14, 2016"
-                                        />
-                                        <CardMedia className={classes.media} image={`${e}`} title={name} />
-                                        <CardContent>
-                                            <Typography variant="body2" color="textSecondary" component="p">
-                                                This impressive paella is a perfect party dish and a fun meal to cook together with your
-                                                guests. Add 1 cup of frozen peas along with the mussels, if you like.
-                            </Typography>
-                                        </CardContent>
-                                        <CardActions disableSpacing>
-                                            <IconButton aria-label="add to favorites">
-                                                <FavoriteIcon />
-                                            </IconButton>
-                                            <IconButton aria-label="share">
-                                                <ShareIcon />
-                                            </IconButton>
-                                        </CardActions>
-                                    </Card>
-                                )
-                            })
-                        }
+                                )}            
                     </Row>
                 </Col>
             </div>

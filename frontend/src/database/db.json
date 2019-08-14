@@ -1,0 +1,54 @@
+{
+  "products": [
+  {
+    "id": 1,
+    "url": "/Mypham/o_hui.jpg",
+    "title": "O-Hui",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "O-Hui"
+  },
+  {
+    "id": 2,
+    "url": "/Mypham/sulwhasoo.jpg",
+    "title": "Sulwhasoo",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Sulwhasoo"
+  },
+  {
+    "id": 3,
+    "url": "/Mypham/Nước hoa hồng laneige.jpg",
+    "title": "Nước hoa hồng laneige",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Nước hoa hồng laneige"
+  },
+  {
+    "id": 4,
+    "url": "/Mypham/SUM Time ENERGY.jpg",
+    "title": "SUM Time ENERGY",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "SUM Time ENERGY"
+  }
+],
+
+  "background": [
+    {
+      "id": 1,
+      "url": "/background/background.jpg",
+      "title": "SuShi Nhật Bản",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 17, 2019"
+    } 
+  ]
+}
