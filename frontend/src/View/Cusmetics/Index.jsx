@@ -97,30 +97,30 @@ class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items : [],
+            items: [],
             vasible: 4,
         }
     }
 
-Home() {
+    Home() {
         this.props.history.push('/Trangchu/00')
     }
-Ohui(){
-    this.props.history.push('/Ohui/1')
-}
-// Khai báo data product ở file datanbase/db.json
-componentDidMount() {
-    fetch(`http://localhost:3333/products`)
-      // We get the API response and receive data in JSON format...
-      .then(response => response.json())
-      // ...then we update the users state
-      .then(data =>
-        this.setState({ items: data })
-      )
-      // Catch any errors we hit and update the app
-      .catch(error => console.log('error ', error));
-    // console.log('result ', result)
-  }
+    Ohui() {
+        this.props.history.push('/Ohui/1')
+    }
+    // Khai báo data Cosmetics ở file datanbase/db.json
+    componentDidMount() {
+        fetch(`http://localhost:3333/Cosmetics`)
+            // We get the API response and receive data in JSON format...
+            .then(response => response.json())
+            // ...then we update the users state
+            .then(data =>
+                this.setState({ items: data })
+            )
+            // Catch any errors we hit and update the app
+            .catch(error => console.log('error ', error));
+        // console.log('result ', result)
+    }
     render() {
         const { classes } = this.props
         return (
@@ -161,7 +161,7 @@ componentDidMount() {
                 </Col>
                 <Col xs="12" md="12" className={classes.lipstick}>
                     <Row>
-                        <p 
+                        <p
                             style={{
                                 textAlign: 'center',
                                 fontSize: '30px',
@@ -170,37 +170,36 @@ componentDidMount() {
                         >O-Hui</p>
                     </Row>
                     <Row>
-                                {this.state.items.slice(0, this.state.visible).map((item, index) =>
-                                    <Card className={classes.card} key={index}>
-                                        <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
-                                           {item.title}
-                                        </Avatar>
-                                        }
-                                            action={
-                                                <IconButton aria-label="settings">
-                                                    <MoreVertIcon />
-                                                </IconButton>
-                                            }
-                                            title={item.title}
-                                            subheader="September 14, 2016"
-                                        />
-                                        <CardMedia className={classes.media} title='123' />
-                                        <CardContent>
-                                            <Typography variant="body2" color="textSecondary" component="p">
-                                                This impressive paella is a perfect party dish and a fun meal to cook together with your
-                                                guests. Add 1 cup of frozen peas along with the mussels, if you like.
-                                            </Typography>
-                                        </CardContent>
-                                        <CardActions disableSpacing>
-                                            <IconButton aria-label="add to favorites" onClick={() => this.Ohui()}>
-                                                <FavoriteIcon />
-                                            </IconButton>
-                                            <IconButton aria-label="share">
-                                                <ShareIcon />
-                                            </IconButton>
-                                        </CardActions>
-                                    </Card>
-                                )}            
+                        {this.state.items.slice(0, this.state.visible).map((item, index) =>
+                            <Card className={classes.card} key={index}>
+                                <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
+                                    {item.title}
+                                </Avatar>
+                                }
+                                    action={
+                                        <IconButton aria-label="settings">
+                                            <MoreVertIcon />
+                                        </IconButton>
+                                    }
+                                    title={item.title}
+                                    subheader={item.date}
+                                />
+                                <CardMedia className={classes.media}   image={item.url} title={item.title} />
+                                <CardContent>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        {item.content}
+                                    </Typography>
+                                </CardContent>
+                                <CardActions disableSpacing>
+                                    <IconButton aria-label="add to favorites" onClick={() => this.Ohui()}>
+                                        <FavoriteIcon />
+                                    </IconButton>
+                                    <IconButton aria-label="share">
+                                        <ShareIcon />
+                                    </IconButton>
+                                </CardActions>
+                            </Card>
+                        )}
                     </Row>
                 </Col>
             </div>
