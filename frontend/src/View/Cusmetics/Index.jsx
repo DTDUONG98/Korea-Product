@@ -79,8 +79,9 @@ const style = theme => ({
         display: true,
     },
     card: {
-        maxWidth: 345,
+        maxWidth: 290,
         marginLeft: '40px',
+        marginTop: '30px'
     },
     media: {
         height: 0,
@@ -108,9 +109,10 @@ class Index extends Component {
     Ohui() {
         this.props.history.push('/Ohui/1')
     }
+    // để chạy db.json/database :  json-server --watch db.json --port 3333
     // Khai báo data Cosmetics ở file datanbase/db.json
     componentDidMount() {
-        fetch(`http://localhost:3333/Cosmetics`)
+        fetch(`http://localhost:3333/Cusmetics`)
             // We get the API response and receive data in JSON format...
             .then(response => response.json())
             // ...then we update the users state
@@ -160,15 +162,6 @@ class Index extends Component {
                     </Row>
                 </Col>
                 <Col xs="12" md="12" className={classes.lipstick}>
-                    <Row>
-                        <p
-                            style={{
-                                textAlign: 'center',
-                                fontSize: '30px',
-                                marginBottom: '20px'
-                            }}
-                        >O-Hui</p>
-                    </Row>
                     <Row>
                         {this.state.items.slice(0, this.state.visible).map((item, index) =>
                             <Card className={classes.card} key={index}>

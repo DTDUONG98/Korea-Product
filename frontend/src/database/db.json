@@ -1,5 +1,5 @@
 {
-  "Cosmetics": [
+  "Cusmetics": [
   {
     "id": 1,
     "url": "/Mypham/o_hui.jpg",
@@ -39,9 +39,187 @@
     "price" : "250.000 đ",
     "status" : "Còn hàng",
     "ingredient" : "SUM Time ENERGY"
+  },
+  {
+    "id": 5,
+    "url": "/Mypham/Dung dịch vệ sinh phụ nữ PH Care Nhật Bản.jpg",
+    "title": "Dung dịch vệ sinh phụ nữ PH Care Nhật Bản",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Dung dịch vệ sinh phụ nữ PH Care Nhật Bản"
+  },
+  {
+    "id": 6,
+    "url": "/Mypham/Kem chống nắng Cell fusion C.jpg",
+    "title": "Kem chống nắng Cell fusion",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Kem chống nắng Cell fusion"
+  },
+  {
+    "id": 6,
+    "url": "/Mypham/Viên uống trắng da DHC.jpg",
+    "title": "Viên uống trắng da DHC",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Viên uống trắng da DHC"
   }
 ],
 
+"Mushroom": [
+  {
+    "id": 1,
+    "url": "/TPchucnang/Nấm/Đông trùng hạ thảo 01.jpg",
+    "title": "Đông trùng hạ thảo",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Đông trùng hạ thảo"
+  },
+  {
+    "id": 2,
+    "url": "/TPchucnang/Nấm/Nấm linh chi thái lát.jpg",
+    "title": "Nấm linh chi thái lát",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Nấm linh chi thái lát"
+  }
+],
+"Giseng": [
+  {
+    "id": 1,
+    "url": "/TPchucnang/Sâm/Hồng sâm baby.jpg",
+    "title": "Hồng sâm baby",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Hồng sâm baby"
+  },
+  {
+    "id": 2,
+    "url": "/TPchucnang/Sâm/sâm 01.jpg",
+    "title": "Sâm Ống",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Sâm"
+  },
+  {
+    "id": 3,
+    "url": "/TPchucnang/Sâm/sâm 05.jpg",
+    "title": "Sâm Gói",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Sâm Gói"
+  },
+  {
+    "id": 4,
+    "url": "/TPchucnang/Sâm/sâm vụn.jpg",
+    "title": "Sâm vụn",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Sâm vụn"
+  }
+],
+"Milk": [
+  {
+    "id": 1,
+    "url": "/TPchucnang/Sữa/LỢI SỬA ITOH.jpg",
+    "title": "LỢI SỬA ITOH",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "LỢI SỬA ITOH"
+  },
+  {
+    "id": 2,
+    "url": "/TPchucnang/Sữa/Sữa hikid.jpg",
+    "title": "Sữa hikid",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Sữa hikid"
+  },
+  {
+    "id": 3,
+    "url": "/TPchucnang/Sữa/sữa_non_ildong.jpg",
+    "title": "Sữa non ildong",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Sữa non ildong"
+  }
+],
+"Helthy": [
+  {
+    "id": 1,
+    "url": "/TPchucnang/Suckhoe/Glucosamine Nhật.jpg",
+    "title": "Glucosamine Nhật",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Glucosamine Nhật"
+  },
+  {
+    "id": 2,
+    "url": "/TPchucnang/Suckhoe/MIẾNG DÁN NHIỆT MIỆNG TAISHO.jpg",
+    "title": "Miếng dán nhiệt miệng Taisho",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Miếng dán nhiệt miệng Taisho"
+  },
+  {
+    "id": 3,
+    "url": "/TPchucnang/Suckhoe/SIDMOOL.jpg",
+    "title": "Sidmool",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Sidmool"
+  },
+  {
+    "id": 4,
+    "url": "/TPchucnang/Suckhoe/Xịt khoáng Ý dĩ HATOMUGI.jpg",
+    "title": "Xịt khoáng Ý dĩ HATOMUGI",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "Xịt khoáng Ý dĩ HATOMUGI"
+  },
+  {
+    "id": 5,
+    "url": "/TPchucnang/Suckhoe/TONEW MUJI LIGHT TONING WATER.jpg",
+    "title": "toner muji light toning water",
+    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+    "date": "July 14, 2019",
+    "price" : "250.000 đ",
+    "status" : "Còn hàng",
+    "ingredient" : "toner muji light toning water"
+  }
+],
   "background": [
     {
       "id": 1,

@@ -9,7 +9,11 @@ import Avatar from '@material-ui/core/Avatar';
 import img from '../../../src/PTIT.png'
 import { Fade } from 'react-slideshow-image';
 import { Grid, Paper } from '@material-ui/core';
-import Card from '@material-ui/core/Card'
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 const style = theme => ({
     root: {
@@ -85,9 +89,9 @@ const style = theme => ({
         maxWidth: 345,
         marginLeft: '40px',
     },
-    paper:{
+    paper: {
         widht: '90%',
-        height: '100px',
+        height: 'auto',
         marginTop: '20px',
         marginLeft: '10px',
     },
@@ -99,12 +103,25 @@ class Home extends Component {
 
         }
     }
-
+    // để chạy db.json/database :  json-server --watch db.json --port 3333
+    // Khai báo data Cosmetics ở file datanbase/db.json
+    componentDidMount() {
+        fetch(`http://localhost:3333/Cusmetics`)
+            // We get the API response and receive data in JSON format...
+            .then(response => response.json())
+            // ...then we update the users state
+            .then(data =>
+                this.setState({ items: data })
+            )
+            // Catch any errors we hit and update the app
+            .catch(error => console.log('error ', error));
+        // console.log('result ', result)
+    }
     Cusmetics() {
         this.props.history.push('/Cusmetics/001')
     }
     render() {
-        const { classes } = this.props
+        const { classes } = this.props;
         return (
             <div>
                 <Col xs="12" md="12" className={classes.title}>
@@ -142,32 +159,66 @@ class Home extends Component {
                     </Row>
                 </Col>
                 <Col xs={{ size: 12 }} md={{ size: 12 }} className={classes.header}>
-                    <Grid container item md={12} spacing={0}>
-                        <Grid item md={6}>
+                    <p
+                        style={{
+                            textAlign: 'center',
+                            fontSize: '30px',
+                            marginTop: '20px',
+                        }}
+                    >
+                        Mỹ Phẩm
+                    </p>
+                    <Row>
+                        <Col md={6} xs={6}>
                             <Paper className={classes.paper}>
-                                    <h1>AAAAAAA</h1>
+                                <Col xs={12} md={12} style={{ textAlign: 'center', backgroundColor: '#F57249', padding: '10px' }}>
+                                    Giao dich gần đây
+                               </Col>
+                                <Col xs={12} md={12}>
+                                    <Table>
+                                        <TableHead>
+                                            <TableRow>
+                                                <TableCell align="left">Tên sản phẩm</TableCell>
+                                                <TableCell align="left">Số Lượng</TableCell>
+                                                <TableCell align="left">Đơn giá(vnđ)</TableCell>
+                                                <TableCell align="left">Tổng(vnđ)</TableCell>
+                                            </TableRow>
+                                        </TableHead>
+                                        <TableBody>
+                                            <TableRow>
+                                                <TableCell>SUM Time ENERGY</TableCell>
+                                                <TableCell>2</TableCell>
+                                                <TableCell>250.000</TableCell>
+                                                <TableCell>500.000</TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell>Nước hoa hồng laneige</TableCell>
+                                                <TableCell>3</TableCell>
+                                                <TableCell>250.000</TableCell>
+                                                <TableCell>750.000</TableCell>
+                                            </TableRow>
+                                        </TableBody>
+                                    </Table>
+                                </Col>
                             </Paper>
-                        </Grid>
-                        <Grid item md={6}>
-                            <Paper  className={classes.paper}>
-                                    <h1>BBBBBBBB</h1>
-                            </Paper>
-                        </Grid>
-                    </Grid>
-                </Col>
-                <Col xs={{ size: 12 }} md={{ size: 12 }} className={classes.header}>
-                    <Grid container item md={12} spacing={0}>
-                        <Grid item md={6}>
+                        </Col>
+                        <Col md={6} xs={6}>
                             <Paper className={classes.paper}>
-                                    <h1>C</h1>
+                                <Col xs={12} md={12} style={{ textAlign: 'center', backgroundColor: '#F57249', padding: '10px' }}>
+                                    Những sản phẩm mới gần đây
+                                </Col>
                             </Paper>
-                        </Grid>
-                        <Grid item md={6}>
-                            <Paper  className={classes.paper}>
-                                    <h1>D</h1>
-                            </Paper>
-                        </Grid>
-                    </Grid>
+                        </Col>
+                    </Row>
+                    <p
+                        style={{
+                            textAlign: 'center',
+                            fontSize: '30px',
+                            marginTop: '20px',
+                        }}
+                    >
+                        Thực phẩm chức năng
+                    </p>
                 </Col>
             </div>
         )
