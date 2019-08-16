@@ -136,6 +136,9 @@ class Home extends Component {
     Cusmetics() {
         this.props.history.push('/Cusmetics/001')
     }
+    HelthyFood(){
+        this.props.history.push('/HelthyFood/002')
+    }
     render() {
         const { classes } = this.props;
         return (
@@ -154,7 +157,7 @@ class Home extends Component {
                             </a>
                         </Col>
                         <Col xs="2" md="2" style={{ marginTop: '25px' }}>
-                            <a>
+                            <a onClick={() => this.HelthyFood()}>
                                 THỰC PHẨM CHỨC NĂNG
                             </a>
                         </Col>

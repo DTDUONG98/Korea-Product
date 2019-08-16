@@ -80,6 +80,7 @@ class Ohui extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            items: [],
         }
     }
 
@@ -88,6 +89,20 @@ class Ohui extends Component {
     }
     Cusmetics() {
         this.props.history.push('/Cusmetics/001')
+    }
+    // để chạy db.json/database :  json-server --watch db.json --port 3333
+    // Khai báo data Cosmetics ở file datanbase/db.json
+    componentDidMount() {
+        fetch(`http://localhost:3333/Cusmetics`)
+            // We get the API response and receive data in JSON format...
+            .then(response => response.json())
+            // ...then we update the users state
+            .then(data =>
+                this.setState({ items: data })
+            )
+            // Catch any errors we hit and update the app
+            .catch(error => console.log('error ', error));
+        // console.log('result ', result)
     }
     render() {
         const { classes } = this.props
@@ -126,6 +141,22 @@ class Ohui extends Component {
                         </Col>
                         <Col>
                             <Avatar alt="PTIT" src={img} className={classes.avatar} />
+                        </Col>
+                    </Row>
+                </Col>
+                <Col xs={12} md={12}>
+                    <Row>
+                        <Col xs={12} md={6}>
+                            {this.state.items.slice(0, this.state.visible).map((e, index) => {
+                                if(e.title == "O-Hui") {
+                                    console.log('AAAAA')
+                                    return (
+                                        <div key={index}>
+                                            {e.title}
+                                        </div>
+                                    )
+                                }
+                            })}
                         </Col>
                     </Row>
                 </Col>

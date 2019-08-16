@@ -139,13 +139,13 @@
 "Milk": [
   {
     "id": 1,
-    "url": "/TPchucnang/Sữa/LỢI SỬA ITOH.jpg",
-    "title": "LỢI SỬA ITOH",
+    "url": "/TPchucnang/Sữa/LỢI SỮA ITOH.jpg",
+    "title": "LỢI SỮA ITOH",
     "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
     "date": "July 14, 2019",
     "price" : "250.000 đ",
     "status" : "Còn hàng",
-    "ingredient" : "LỢI SỬA ITOH"
+    "ingredient" : "LỢI SỮA ITOH"
   },
   {
     "id": 2,

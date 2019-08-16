@@ -106,14 +106,16 @@ class Index extends Component {
     Home() {
         this.props.history.push('/Trangchu/00')
     }
-    Ohui(e) {
-        console.log('XXXX', e.currentTarget.value)
+    Ohui() {
         this.props.history.push('/Ohui/1')
+    }
+    Cusmetics() {
+        this.props.history.push('/Cusmetics/001')
     }
     // để chạy db.json/database :  json-server --watch db.json --port 3333
     // Khai báo data Cosmetics ở file datanbase/db.json
     componentDidMount() {
-        fetch(`http://localhost:3333/Cusmetics`)
+        fetch(`http://localhost:3333/Milk` )
             // We get the API response and receive data in JSON format...
             .then(response => response.json())
             // ...then we update the users state
@@ -123,9 +125,6 @@ class Index extends Component {
             // Catch any errors we hit and update the app
             .catch(error => console.log('error ', error));
         // console.log('result ', result)
-    }
-    HelthyFood(){
-        this.props.history.push('/HelthyFood/002')
     }
     render() {
         const { classes } = this.props
@@ -142,10 +141,10 @@ class Index extends Component {
                             >HOME</a>
                         </Col>
                         <Col xs="1" md="1" style={{ marginTop: '25px' }}>
-                            <a>MỸ PHẨM</a>
+                            <a onClick={() => this.Cusmetics()}>MỸ PHẨM</a>
                         </Col>
                         <Col xs="2" md="2" style={{ marginTop: '25px' }}>
-                            <a onClick={() => this.HelthyFood()}>
+                            <a>
                                 THỰC PHẨM CHỨC NĂNG
                             </a>
                         </Col>
@@ -188,7 +187,7 @@ class Index extends Component {
                                     </Typography>
                                 </CardContent>
                                 <CardActions disableSpacing>
-                                    <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Ohui(e)}>
+                                    <IconButton aria-label="add to favorites" onClick={() => this.Ohui()}>
                                         <FavoriteIcon />
                                     </IconButton>
                                     <IconButton aria-label="share">
