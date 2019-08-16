@@ -122,7 +122,7 @@ class Home extends Component {
     // để chạy db.json/database :  json-server --watch db.json --port 3333
     // Khai báo data Cosmetics ở file datanbase/db.json
     componentDidMount() {
-        fetch(`http://localhost:3333/Cusmetics`)
+        fetch(`http://localhost:3333/Products`)
             // We get the API response and receive data in JSON format...
             .then(response => response.json())
             // ...then we update the users state
@@ -133,8 +133,8 @@ class Home extends Component {
             .catch(error => console.log('error ', error));
         // console.log('result ', result)
     }
-    Cusmetics() {
-        this.props.history.push('/Cusmetics/001')
+    Cosmetics() {
+        this.props.history.push('/Cosmetics/001')
     }
     HelthyFood(){
         this.props.history.push('/HelthyFood/002')
@@ -152,7 +152,7 @@ class Home extends Component {
                             <a>HOME</a>
                         </Col>
                         <Col xs="1" md="1" style={{ marginTop: '25px' }}>
-                            <a onClick={() => this.Cusmetics()}>
+                            <a onClick={() => this.Cosmetics()}>
                                 MỸ PHẨM
                             </a>
                         </Col>

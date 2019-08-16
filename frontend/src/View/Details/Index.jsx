@@ -7,17 +7,6 @@ import { Col, Row } from 'reactstrap'
 import { FaSistrix } from "react-icons/fa"
 import InputBase from '@material-ui/core/InputBase'
 import { fade } from '@material-ui/core/styles'
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const style = theme => ({
     root: {
@@ -79,41 +68,35 @@ const style = theme => ({
         display: true,
     },
     card: {
-        maxWidth: 290,
+        maxWidth: 345,
         marginLeft: '40px',
-        marginTop: '30px'
     },
     media: {
         height: 0,
         paddingTop: '56.25%', // 16:9
     },
-    avatarCard: {
-        backgroundColor: red[500],
-    },
-    lipstick: {
-        padding: '20px'
-    },
 })
-class Index extends Component {
+class Details extends Component {
     constructor(props) {
         super(props);
         this.state = {
             items: [],
-            vasible: 4,
         }
     }
 
     Home() {
         this.props.history.push('/Trangchu/00')
     }
-    Ohui(e) {
-        console.log('XXXX', e.currentTarget.value)
-        this.props.history.push('/Ohui/1')
+    Cosmetics() {
+        this.props.history.push('/Cosmetics/001')
+    }
+    HelthyFood(){
+        this.props.history.push('/HelthyFood/002')
     }
     // để chạy db.json/database :  json-server --watch db.json --port 3333
     // Khai báo data Cosmetics ở file datanbase/db.json
     componentDidMount() {
-        fetch(`http://localhost:3333/Cusmetics`)
+        fetch(`http://localhost:3333/Products`)
             // We get the API response and receive data in JSON format...
             .then(response => response.json())
             // ...then we update the users state
@@ -124,11 +107,10 @@ class Index extends Component {
             .catch(error => console.log('error ', error));
         // console.log('result ', result)
     }
-    HelthyFood(){
-        this.props.history.push('/HelthyFood/002')
-    }
     render() {
         const { classes } = this.props
+        let data = this.props.match.params.id
+        console.log('data', data)
         return (
             <div>
                 <Col xs="12" md="12" className={classes.title}>
@@ -142,7 +124,9 @@ class Index extends Component {
                             >HOME</a>
                         </Col>
                         <Col xs="1" md="1" style={{ marginTop: '25px' }}>
-                            <a>MỸ PHẨM</a>
+                            <a 
+                                onClick={() => this.Cosmetics()}
+                            >MỸ PHẨM</a>
                         </Col>
                         <Col xs="2" md="2" style={{ marginTop: '25px' }}>
                             <a onClick={() => this.HelthyFood()}>
@@ -165,42 +149,24 @@ class Index extends Component {
                         </Col>
                     </Row>
                 </Col>
-                <Col xs="12" md="12" className={classes.lipstick}>
+                <Col xs={12} md={12}>
                     <Row>
-                        {this.state.items.slice(0, this.state.visible).map((item, index) =>
-                            <Card className={classes.card} key={index}>
-                                <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
-                                    {item.title}
-                                </Avatar>
+                        <Col xs={12} md={6}>
+                            {this.state.items.slice(0, this.state.visible).map((e, index) => {
+                                if(e.title == data) {
+                                    console.log('AAAAA')
+                                    return (
+                                        <div key={index}>
+                                            {e.title}
+                                        </div>
+                                    )
                                 }
-                                    action={
-                                        <IconButton aria-label="settings">
-                                            <MoreVertIcon />
-                                        </IconButton>
-                                    }
-                                    title={item.title}
-                                    subheader={item.date}
-                                />
-                                <CardMedia className={classes.media}   image={item.url} title={item.title} />
-                                <CardContent>
-                                    <Typography variant="body2" color="textSecondary" component="p">
-                                        {item.content}
-                                    </Typography>
-                                </CardContent>
-                                <CardActions disableSpacing>
-                                    <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Ohui(e)}>
-                                        <FavoriteIcon />
-                                    </IconButton>
-                                    <IconButton aria-label="share">
-                                        <ShareIcon />
-                                    </IconButton>
-                                </CardActions>
-                            </Card>
-                        )}
+                            })}
+                        </Col>
                     </Row>
                 </Col>
             </div>
         )
     }
 }
-export default withStyles(style)(Index);
+export default withStyles(style)(Details);

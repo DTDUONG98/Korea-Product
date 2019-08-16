@@ -106,22 +106,29 @@ class Index extends Component {
     Home() {
         this.props.history.push('/Trangchu/00')
     }
-    Ohui() {
-        this.props.history.push('/Ohui/1')
+    Details(e) {
+        let name = e.currentTarget.value
+        this.props.history.push(`/Details/${name}`)
     }
-    Cusmetics() {
-        this.props.history.push('/Cusmetics/001')
+    Cosmetics() {
+        this.props.history.push('/Cosmetics/001')
     }
     // để chạy db.json/database :  json-server --watch db.json --port 3333
     // Khai báo data Cosmetics ở file datanbase/db.json
     componentDidMount() {
-        fetch(`http://localhost:3333/Milk` )
+        fetch(`http://localhost:3333/Products` )
             // We get the API response and receive data in JSON format...
             .then(response => response.json())
             // ...then we update the users state
-            .then(data =>
-                this.setState({ items: data })
-            )
+            .then(data =>{
+                let arrData = []
+                data.map((e) => {
+                    if(e.type !== "Cosmetics"){
+                        arrData.push(e)
+                    }
+                })
+                this.setState({ items: arrData })
+            })
             // Catch any errors we hit and update the app
             .catch(error => console.log('error ', error));
         // console.log('result ', result)
@@ -141,7 +148,7 @@ class Index extends Component {
                             >HOME</a>
                         </Col>
                         <Col xs="1" md="1" style={{ marginTop: '25px' }}>
-                            <a onClick={() => this.Cusmetics()}>MỸ PHẨM</a>
+                            <a onClick={() => this.Cosmetics()}>MỸ PHẨM</a>
                         </Col>
                         <Col xs="2" md="2" style={{ marginTop: '25px' }}>
                             <a>
@@ -187,7 +194,7 @@ class Index extends Component {
                                     </Typography>
                                 </CardContent>
                                 <CardActions disableSpacing>
-                                    <IconButton aria-label="add to favorites" onClick={() => this.Ohui()}>
+                                    <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
                                         <FavoriteIcon />
                                     </IconButton>
                                     <IconButton aria-label="share">

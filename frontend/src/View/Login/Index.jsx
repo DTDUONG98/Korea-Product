@@ -82,7 +82,7 @@ homePage(){
                                     checked={this.state.checkedA}
                                     onChange={handleChange('checkedA')}
                                     value="checkedA"
-                                    color="Secondary"
+                                    color="secondary"
                                 />
                                 }
                                 label="Ghi nhớ tài khoản"
