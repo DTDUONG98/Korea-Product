@@ -5,15 +5,15 @@ import { Col, Row } from 'reactstrap'
 import { FaSistrix } from "react-icons/fa"
 import InputBase from '@material-ui/core/InputBase'
 import { fade } from '@material-ui/core/styles'
-import Avatar from '@material-ui/core/Avatar';
+import Avatar from '@material-ui/core/Avatar'
 import img from '../../../src/PTIT.png'
-import { Grid, Paper, Container } from '@material-ui/core';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import { Zoom } from 'react-slideshow-image';
+import { Grid, Paper, Container } from '@material-ui/core'
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
+import { Zoom } from 'react-slideshow-image'
 
 const style = theme => ({
     root: {
@@ -293,7 +293,6 @@ class Home extends Component {
                         </Col>
                     </Row>
                 </Col>
-               
                 <Col md={{size: 12}} xs={{size: 12}} className={classes.footer}>
                 <Container>
                     <Row>
@@ -318,7 +317,6 @@ class Home extends Component {
                     </Row>
                     </Container>
                 </Col>
-                
             </div>
         )
     }

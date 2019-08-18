@@ -7,17 +7,18 @@ import { Col, Row } from 'reactstrap'
 import { FaSistrix } from "react-icons/fa"
 import InputBase from '@material-ui/core/InputBase'
 import { fade } from '@material-ui/core/styles'
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Card from '@material-ui/core/Card'
+import CardHeader from '@material-ui/core/CardHeader'
+import CardMedia from '@material-ui/core/CardMedia'
+import CardContent from '@material-ui/core/CardContent'
+import CardActions from '@material-ui/core/CardActions'
+import IconButton from '@material-ui/core/IconButton'
+import Typography from '@material-ui/core/Typography'
+import { red } from '@material-ui/core/colors'
+import FavoriteIcon from '@material-ui/icons/Favorite'
+import ShareIcon from '@material-ui/icons/Share'
+import MoreVertIcon from '@material-ui/icons/MoreVert'
+import { Grid, Paper, Container } from '@material-ui/core'
 
 const style = theme => ({
     root: {
@@ -30,6 +31,14 @@ const style = theme => ({
     },
     avatar: {
         margin: 20,
+    },
+    footer: {
+        background: '#adc1eb',
+        marginTop: '20px',
+    },
+    service: {
+        marginTop: '20px',
+        marginBottom: '10px',
     },
     search: {
         position: 'relative',
@@ -117,10 +126,10 @@ class Index extends Component {
             // We get the API response and receive data in JSON format...
             .then(response => response.json())
             // ...then we update the users state
-            .then((data) =>{
+            .then((data) => {
                 let arrData = []
                 data.map((e) => {
-                    if(e.type == "Cosmetics"){
+                    if (e.type == "Cosmetics") {
                         arrData.push(e)
                     }
                 })
@@ -130,7 +139,7 @@ class Index extends Component {
             .catch(error => console.log('error ', error));
         // console.log('result ', result)
     }
-    HelthyFood(){
+    HelthyFood() {
         this.props.history.push('/HelthyFood/002')
     }
     render() {
@@ -187,7 +196,7 @@ class Index extends Component {
                                     title={item.title}
                                     subheader={item.date}
                                 />
-                                <CardMedia className={classes.media}   image={item.url} title={item.title} />
+                                <CardMedia className={classes.media} image={item.url} title={item.title} />
                                 <CardContent>
                                     <Typography variant="body2" color="textSecondary" component="p">
                                         {item.content}
@@ -204,6 +213,30 @@ class Index extends Component {
                             </Card>
                         )}
                     </Row>
+                </Col>
+                <Col md="12" xs="12" className={classes.footer}>
+                    <Container>
+                        <Row>
+                            <Col md={4} xs={{ size: 12 }}>
+                                <h2 className={classes.service}>Thống Kê</h2>
+                                <p style={{ border: '1px solid black' }}></p>
+                                <p>Tổng số sản phẩm bán ra : </p>
+                                <p style={{ marginBottom: '20px' }}>Số sản phẩm đang còn: </p>
+                            </Col>
+                            <Col md={4} xs={{ size: 12 }}>
+                                <h2 className={classes.service} >Liên hệ</h2>
+                                <p style={{ border: '1px solid black' }}></p>
+                                <p>FaceBook: Đỗ Tiến Dương</p>
+                                <p style={{ marginBottom: '20px' }}>SĐT: 0326609183</p>
+                            </Col>
+                            <Col md={4} xs={{ size: 12 }}>
+                                <h2 className={classes.service} >Dịch vụ khác</h2>
+                                <p style={{ border: '1px solid black' }}></p>
+                                <p></p>
+                                <p style={{ marginBottom: '20px' }}></p>
+                            </Col>
+                        </Row>
+                    </Container>
                 </Col>
             </div>
         )
