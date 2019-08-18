@@ -19,7 +19,7 @@ import Typography from '@material-ui/core/Typography'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import ShareIcon from '@material-ui/icons/Share'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
-
+import { Rating } from 'material-ui-rating'
 const style = theme => ({
     root: {
         flexGrow: 1,
@@ -129,6 +129,10 @@ class Details extends Component {
             soluong: parseInt(soluong) + parseInt(this.state.soluong)
         })
     }
+    Details(e) {
+        let name = e.currentTarget.value
+        this.props.history.push(`/Details/${name}`)
+    }
     // để chạy db.json/database :  json-server --watch db.json --port 3333
     // Khai báo data Cosmetics ở file datanbase/db.json
     componentDidMount() {
@@ -206,7 +210,7 @@ class Details extends Component {
                                                                 <h2>{e.title}</h2>
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
-                                                                Đánh giá :
+                                                                Đánh giá : 
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
                                                                 Thương hiệu: {e.title}
