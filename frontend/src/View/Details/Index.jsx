@@ -133,6 +133,10 @@ class Details extends Component {
         let name = e.currentTarget.value
         this.props.history.push(`/Details/${name}`)
     }
+    Bills(e){ 
+        let name = e.title
+        this.props.history.push(`/Bills/${name}`)
+    }
     // để chạy db.json/database :  json-server --watch db.json --port 3333
     // Khai báo data Cosmetics ở file datanbase/db.json
     componentDidMount() {
@@ -264,6 +268,8 @@ class Details extends Component {
                                                                             variant="contained"
                                                                             color="secondary"
                                                                             size="large"
+                                                                            value={e.title}
+                                                                            onClick={() => this.Bills(e)}
                                                                         >Đặt hàng ngay</Button>
                                                                     </Col>
                                                                 </Row>
