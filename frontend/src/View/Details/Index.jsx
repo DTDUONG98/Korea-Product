@@ -124,7 +124,6 @@ class Details extends Component {
     }
     Soluong(e) {
         let soluong = e.currentTarget.value
-        console.log('value', soluong)
         this.setState({
             soluong: parseInt(soluong) + parseInt(this.state.soluong)
         })

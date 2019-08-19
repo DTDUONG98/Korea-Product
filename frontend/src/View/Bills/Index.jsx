@@ -139,6 +139,7 @@ class Details extends Component {
     render() {
         const { classes } = this.props
         let data = this.props.match.params.id
+        console.log('data', data)
         return (
             <div>
                 <Col xs="12" md="12" className={classes.title}>
@@ -178,7 +179,52 @@ class Details extends Component {
                     </Row>
                 </Col>
                 <Col xs={12} md={12}>
-                  
+                  <Row>
+                      {this.state.items.slice(0, this.state.visible).map((item, index) => {
+                          if(item.title == data){
+                              return(
+                                  <div key={index}>
+                                      <Col xs="12" md="12">
+                                        <Container>
+                                            <Row>
+                                                <Col xs="12" md="6">
+                                                    <Paper className={classes.paper}>
+                                                        <img src={item.url} style={{width: '100%', height: 'auto'}} />
+                                                    </Paper>
+                                                </Col>
+                                                <Col xs="12" md="6">
+                                                    <Row>
+                                                        <Col xs="12" md="12" className={classes.comtents} style={{
+                                                                marginTop: '40px',
+                                                            }}>
+                                                                <h2>Thông tin khách hàng</h2>
+                                                            </Col>
+                                                            <Col xs="12" md="12" className={classes.comtents}>
+                                                                Name : 
+                                                            </Col>
+                                                            <Col xs="12" md="12" className={classes.comtents}>
+                                                                Phone : 
+                                                            </Col>
+                                                            <Col xs="12" md="12" className={classes.comtents}>
+                                                                Địa chỉ : 
+                                                            </Col>
+                                                            <Col xs={{ size: 12 }} md={{ size: 12 }}>
+                                                                <p
+                                                                    style={{
+                                                                        border: '1px solid red',
+                                                                    }}
+                                                                ></p>
+                                                            </Col>
+                                                    </Row>
+                                                </Col>
+                                            </Row>
+                                        </Container>
+                                      </Col>
+                                  </div>
+                              )
+                          }
+                      })}
+                  </Row>
                 </Col>
                 <Col md="12" xs="12" className={classes.footer}>
                     <Container>

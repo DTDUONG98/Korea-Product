@@ -116,7 +116,8 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: [],
+            Cosmetics: [],
+            HelthyFood: [],
         }
     }
     // để chạy db.json/database :  json-server --watch db.json --port 3333
@@ -126,9 +127,22 @@ class Home extends Component {
             // We get the API response and receive data in JSON format...
             .then(response => response.json())
             // ...then we update the users state
-            .then(data =>
-                this.setState({ items: data })
-            )
+            .then(data => {
+                let DataCosmetics = []
+                let DataFelthyFood = []
+                data.map((e) => {
+                    if(e.type == "Cosmetics"){
+                        DataCosmetics.push(e)
+                    }
+                    else{
+                        DataFelthyFood.push(e)
+                    }
+                })
+                this.setState({
+                    Cosmetics: DataCosmetics,
+                    HelthyFood: DataFelthyFood,
+                })
+            })
             // Catch any errors we hit and update the app
             .catch(error => console.log('error ', error));
         // console.log('result ', result)
@@ -204,7 +218,7 @@ class Home extends Component {
                                         </TableHead>
                                         <TableBody>
                                             <TableRow>
-                                                <TableCell>SUM Time ENERGY</TableCell>
+                                                <TableCell>Đông trùng hạ thảo</TableCell>
                                                 <TableCell>2</TableCell>
                                                 <TableCell>250.000</TableCell>
                                             </TableRow>
@@ -226,7 +240,7 @@ class Home extends Component {
                                 <Col xs={12} md={12}>
                                     <Zoom className={classes.zoomOutProperties}>
                                         {
-                                            this.state.items.slice(0, this.state.visible).map((e, index) => (
+                                            this.state.Cosmetics.slice(0, this.state.visible).map((e, index) => (
                                                 <img key={index} src={e.url} style={{ width: '100%', height: '400px' }} />
                                             ))
                                         }
@@ -253,7 +267,7 @@ class Home extends Component {
                                 <Col xs={12} md={12}>
                                     <Zoom className={classes.zoomOutProperties}>
                                         {
-                                            this.state.items.slice(0, this.state.visible).map((e, index) => (
+                                            this.state.HelthyFood.slice(0, this.state.visible).map((e, index) => (
                                                 <img key={index} src={e.url} style={{ width: '100%', height: '400px' }} />
                                             ))
                                         }
@@ -277,12 +291,12 @@ class Home extends Component {
                                         </TableHead>
                                         <TableBody>
                                             <TableRow>
-                                                <TableCell>SUM Time ENERGY</TableCell>
+                                                <TableCell>Đông trùng hạ thảo</TableCell>
                                                 <TableCell>2</TableCell>
                                                 <TableCell>250.000</TableCell>
                                             </TableRow>
                                             <TableRow>
-                                                <TableCell>Nước hoa hồng laneige</TableCell>
+                                                <TableCell>Lợi sữa ITOH</TableCell>
                                                 <TableCell>3</TableCell>
                                                 <TableCell>250.000</TableCell>
                                             </TableRow>
