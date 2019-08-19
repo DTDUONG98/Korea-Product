@@ -153,6 +153,10 @@ class Home extends Component {
     HelthyFood(){
         this.props.history.push('/HelthyFood/002')
     }
+    Details(e) {
+        let name = e.currentTarget.value
+        this.props.history.push(`/Details/${name}`)
+    }
     render() {
         const { classes } = this.props;
         return (
@@ -241,7 +245,11 @@ class Home extends Component {
                                     <Zoom className={classes.zoomOutProperties}>
                                         {
                                             this.state.Cosmetics.slice(0, this.state.visible).map((e, index) => (
-                                                <img key={index} src={e.url} style={{ width: '100%', height: '400px' }} />
+                                                    <img 
+                                                        key={index} 
+                                                        src={e.url}
+                                                        style={{ width: '100%', height: '400px' }}
+                                                    />
                                             ))
                                         }
                                     </Zoom>

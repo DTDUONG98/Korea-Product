@@ -242,9 +242,12 @@ class Details extends Component {
                                                                 ></p>
                                                             </Col>
                                                             <Col xs="12" md="12"
-                                                                className={classes.comtents}>
+                                                                className={classes.comtents}
+                                                                >
                                                                 <Row>
-                                                                    <Col xs="12" md="4">
+                                                                    <Col xs="12" md="4" style={{
+                                                                    marginTop: '20px'
+                                                                }}>
                                                                         <Button
                                                                             value="-1"
                                                                             variant="contained"
@@ -262,7 +265,11 @@ class Details extends Component {
                                                                             onClick={(e) => this.Soluong(e)}
                                                                         >+</Button>
                                                                     </Col>
-                                                                    <Col xs="12" md={{ size: 4, offset: 2 }}>
+                                                                    <Col xs="12" md={{ size: 4, offset: 2 }}
+                                                                        style={{
+                                                                            marginTop: '20px'
+                                                                        }}
+                                                                    >
                                                                         <Button
                                                                             variant="contained"
                                                                             color="secondary"
