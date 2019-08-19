@@ -7,7 +7,7 @@ import InputBase from '@material-ui/core/InputBase'
 import { fade } from '@material-ui/core/styles'
 import Avatar from '@material-ui/core/Avatar'
 import img from '../../../src/PTIT.png'
-import { Grid, Paper, Container } from '@material-ui/core'
+import { Paper, Container } from '@material-ui/core'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -16,9 +16,6 @@ import TableRow from '@material-ui/core/TableRow'
 import { Zoom } from 'react-slideshow-image'
 
 const style = theme => ({
-    root: {
-        flexGrow: 1,
-    },
     title: {
         background: '#adc1eb',
         width: '100%',
@@ -28,12 +25,6 @@ const style = theme => ({
         textAlign: 'center',
         width: '100%',
         height: 'auto'
-    },
-    body: {
-        textAlign: 'center',
-        width: '100%',
-        height: '150px',
-        marginTop: '450px',
     },
     footer: {
         background: '#adc1eb',
@@ -83,15 +74,6 @@ const style = theme => ({
                 width: 200,
             },
         },
-    },
-    fadeProperties: {
-        duration: 5000,
-        transitionDuration: 500,
-        infinite: false,
-        indicators: true
-    },
-    eachFade: {
-        display: true,
     },
     card: {
         maxWidth: 345,

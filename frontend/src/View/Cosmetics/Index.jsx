@@ -18,12 +18,9 @@ import { red } from '@material-ui/core/colors'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import ShareIcon from '@material-ui/icons/Share'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
-import { Grid, Paper, Container } from '@material-ui/core'
+import {Paper, Container } from '@material-ui/core'
 
 const style = theme => ({
-    root: {
-        flexGrow: 1,
-    },
     title: {
         background: '#adc1eb',
         width: '100%',
@@ -83,9 +80,6 @@ const style = theme => ({
         transitionDuration: 500,
         infinite: false,
         indicators: true
-    },
-    eachFade: {
-        display: true,
     },
     card: {
         maxWidth: 290,

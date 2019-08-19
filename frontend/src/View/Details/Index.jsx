@@ -21,9 +21,6 @@ import ShareIcon from '@material-ui/icons/Share'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import { Rating } from 'material-ui-rating'
 const style = theme => ({
-    root: {
-        flexGrow: 1,
-    },
     title: {
         background: '#adc1eb',
         width: '100%',
@@ -77,12 +74,6 @@ const style = theme => ({
                 width: 200,
             },
         },
-    },
-    fadeProperties: {
-        duration: 5000,
-        transitionDuration: 500,
-        infinite: false,
-        indicators: true
     },
     card: {
         maxWidth: 290,

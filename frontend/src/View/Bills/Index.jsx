@@ -7,23 +7,9 @@ import { Col, Row } from 'reactstrap'
 import { FaSistrix } from "react-icons/fa"
 import InputBase from '@material-ui/core/InputBase'
 import { fade } from '@material-ui/core/styles'
-import { Grid, Paper, Container } from '@material-ui/core'
+import { Paper, Container } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader'
-import CardMedia from '@material-ui/core/CardMedia'
-import CardContent from '@material-ui/core/CardContent'
-import CardActions from '@material-ui/core/CardActions'
-import IconButton from '@material-ui/core/IconButton'
-import Typography from '@material-ui/core/Typography'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import ShareIcon from '@material-ui/icons/Share'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
-import { Rating } from 'material-ui-rating'
 const style = theme => ({
-    root: {
-        flexGrow: 1,
-    },
     title: {
         background: '#adc1eb',
         width: '100%',
@@ -78,12 +64,6 @@ const style = theme => ({
             },
         },
     },
-    fadeProperties: {
-        duration: 5000,
-        transitionDuration: 500,
-        infinite: false,
-        indicators: true
-    },
     card: {
         maxWidth: 290,
         marginLeft: '40px',
@@ -104,7 +84,7 @@ const style = theme => ({
         marginBottom: '20px'
     }
 })
-class Details extends Component {
+class Bills extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -254,4 +234,4 @@ class Details extends Component {
         )
     }
 }
-export default withStyles(style)(Details);
+export default withStyles(style)(Bills);
