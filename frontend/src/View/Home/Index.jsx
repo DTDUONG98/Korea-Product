@@ -108,6 +108,9 @@ class Home extends Component {
     Signin(){
         this.props.history.push('/login/11')
     }
+    SignUp(){
+        this.props.history.push('/Create/12')
+    }
     // để chạy db.json/database :  json-server --watch db.json --port 3333
     // Khai báo data Products ở file datanbase/db.json
     componentDidMount() {
@@ -185,7 +188,9 @@ class Home extends Component {
                         </Col>
                         <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
                             {/* <Avatar alt="PTIT" src={img} className={classes.avatar} /> */}
-                            <a>Đăng Ký </a>
+                            <a
+                                onClick={() => this.SignUp()}
+                            >Đăng Ký </a>
                         </Col>
                     </Row>
                 </Col>

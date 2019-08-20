@@ -98,7 +98,7 @@ class Details extends Component {
         }
     }
     Home() {
-        this.props.history.push('/Trangchu/00')
+        this.props.history.push('/')
     }
     HelthyFood(){
         this.props.history.push('/HelthyFood/02')

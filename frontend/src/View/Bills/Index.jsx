@@ -94,27 +94,21 @@ class Bills extends Component {
     }
 
     Home() {
-        this.props.history.push('/Trangchu/00')
+        this.props.history.push('/')
     }
     Cosmetics() {
-        this.props.history.push('/Cosmetics/001')
+        this.props.history.push('/Cosmetics/01')
     }
     HelthyFood() {
-        this.props.history.push('/HelthyFood/002')
+        this.props.history.push('/HelthyFood/02')
     }
-    // để chạy db.json/database :  json-server --watch db.json --port 3333
-    // Khai báo data Cosmetics ở file datanbase/db.json
     componentDidMount() {
         fetch(`http://localhost:3333/Products`)
-            // We get the API response and receive data in JSON format...
             .then(response => response.json())
-            // ...then we update the users state
             .then(data =>
                 this.setState({ items: data })
             )
-            // Catch any errors we hit and update the app
             .catch(error => console.log('error ', error));
-        // console.log('result ', result)
     }
     render() {
         const { classes } = this.props
@@ -125,19 +119,19 @@ class Bills extends Component {
                 <Col xs="12" md="12" className={classes.title}>
                     <Row>
                         <Col xs="1" md="1">
-                            <FaBars style={{ fontSize: '40px', margin: '20px' }} />
+                            <FaBars style={{ fontSize: '40px', margin: '20px' , cursor: 'pointer'}} />
                         </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px' }}>
+                        <Col xs="1" md="1" style={{ marginTop: '25px' ,cursor: 'pointer'}}>
                             <a
                                 onClick={() => this.Home()}
                             >HOME</a>
                         </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px' }}>
+                        <Col xs="1" md="1" style={{ marginTop: '25px' , cursor: 'pointer'}}>
                             <a
                                 onClick={() => this.Cosmetics()}
                             >MỸ PHẨM</a>
                         </Col>
-                        <Col xs="2" md="2" style={{ marginTop: '25px' }}>
+                        <Col xs="2" md="2" style={{ marginTop: '25px', cursor: 'pointer' }}>
                             <a onClick={() => this.HelthyFood()}>
                                 THỰC PHẨM CHỨC NĂNG
                             </a>

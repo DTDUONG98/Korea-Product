@@ -101,7 +101,7 @@ class Index extends Component {
     }
 
     Home() {
-        this.props.history.push('/Trangchu/00')
+        this.props.history.push('/')
     }
     Details(e) {
         let name = e.currentTarget.value
@@ -131,17 +131,17 @@ class Index extends Component {
                 <Col xs="12" md="12" className={classes.title}>
                     <Row>
                         <Col xs="1" md="1">
-                            <FaBars style={{ fontSize: '40px', margin: '20px' }} />
+                            <FaBars style={{ fontSize: '40px', margin: '20px', cursor: 'pointer' }} />
                         </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px' }}>
+                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
                             <a
                                 onClick={() => this.Home()}
                             >HOME</a>
                         </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px' }}>
+                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
                             <a>MỸ PHẨM</a>
                         </Col>
-                        <Col xs="2" md="2" style={{ marginTop: '25px' }}>
+                        <Col xs="2" md="2" style={{ marginTop: '25px', cursor: 'pointer' }}>
                             <a onClick={() => this.HelthyFood()}>
                                 THỰC PHẨM CHỨC NĂNG
                             </a>

@@ -46,6 +46,9 @@ class Create extends Component {
             rePassword: rePass
         })
     }
+    SignUp(){
+      this.props.history.push('/')
+    }
 
     render() {
         return (
@@ -147,7 +150,7 @@ class Create extends Component {
                 />
               </Col>
               <Col xs={{ size: 2, offset: 5 }} lg={{ size: 2, offset: 5 }} style={{ paddingBottom: "10px", paddingTop: "10px" }}>
-                <button type="submit" className="btn btn-primary" >Đăng ký</button>
+                <button type="submit" className="btn btn-primary" onClick={() => this.SignUp()} >Đăng ký</button>
               </Col>
             </Row>
                 </Col>
