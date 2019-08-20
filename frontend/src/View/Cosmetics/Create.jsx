@@ -56,6 +56,10 @@ const style = theme => ({
             },
         },
     },
+    textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+    },
 })
 class Create extends Component {
     constructor(props) {
@@ -136,7 +140,19 @@ class Create extends Component {
                 </Col>
                 <Col xs="12" md="12">
                     <Container>
-                        
+                        <Row>
+                            <Col xs="12" md="6">
+                            <TextField
+                                id="outlined-name"
+                                label="Name"
+                                className={classes.textField}
+                                value={values.name}
+                                onChange={handleChange('name')}
+                                margin="normal"
+                                variant="outlined"
+                            />
+                            </Col>
+                        </Row>
                     </Container>
                 </Col>
             </div>

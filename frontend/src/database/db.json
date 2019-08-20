@@ -240,5 +240,23 @@
       "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
       "date": "July 17, 2019"
     } 
+  ],
+  "Users": [
+    {
+      "id": 1,
+      "Name": "Đỗ Tiến Dương",
+      "UserName": "doduong1998",
+      "Password": "123456",
+      "Phone": "0326609183",
+      "Group": 0
+    },
+    {
+      "id": 2,
+      "Name": "Nguyễn Trí Hiếu",
+      "UserName": "nthieu98",
+      "Password": "123456",
+      "Phone": "0394886893",
+      "Group": 1
+    }
   ]
 }
