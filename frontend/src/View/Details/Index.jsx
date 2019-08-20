@@ -7,7 +7,7 @@ import { Col, Row } from 'reactstrap'
 import { FaSistrix } from "react-icons/fa"
 import InputBase from '@material-ui/core/InputBase'
 import { fade } from '@material-ui/core/styles'
-import { Grid, Paper, Container } from '@material-ui/core'
+import { Paper, Container } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader'
@@ -19,7 +19,7 @@ import Typography from '@material-ui/core/Typography'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import ShareIcon from '@material-ui/icons/Share'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
-import { Rating } from 'material-ui-rating'
+import Rating from '../Component/Rating'
 const style = theme => ({
     title: {
         background: '#adc1eb',
@@ -100,7 +100,9 @@ class Details extends Component {
         super(props);
         this.state = {
             items: [],
-            soluong: '1'
+            soluong: '1',
+            value: '3',
+            setValue: '',
         }
     }
 
@@ -123,7 +125,7 @@ class Details extends Component {
         let name = e.currentTarget.value
         this.props.history.push(`/Details/${name}`)
     }
-    Bills(e){ 
+    Bills(e) {
         let name = e.title
         this.props.history.push(`/Bills/${name}`)
     }
@@ -204,7 +206,7 @@ class Details extends Component {
                                                                 <h2>{e.title}</h2>
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
-                                                                Đánh giá : 
+                                                                <h2><Rating /></h2>
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
                                                                 Thương hiệu: {e.title}
@@ -234,11 +236,11 @@ class Details extends Component {
                                                             </Col>
                                                             <Col xs="12" md="12"
                                                                 className={classes.comtents}
-                                                                >
+                                                            >
                                                                 <Row>
                                                                     <Col xs="12" md="4" style={{
-                                                                    marginTop: '20px'
-                                                                }}>
+                                                                        marginTop: '20px'
+                                                                    }}>
                                                                         <Button
                                                                             value="-1"
                                                                             variant="contained"
