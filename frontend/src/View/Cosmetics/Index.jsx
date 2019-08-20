@@ -75,12 +75,6 @@ const style = theme => ({
             },
         },
     },
-    fadeProperties: {
-        duration: 5000,
-        transitionDuration: 500,
-        infinite: false,
-        indicators: true
-    },
     card: {
         maxWidth: 290,
         marginLeft: '40px',
@@ -134,7 +128,7 @@ class Index extends Component {
         // console.log('result ', result)
     }
     HelthyFood() {
-        this.props.history.push('/HelthyFood/002')
+        this.props.history.push('/HelthyFood/02')
     }
     render() {
         const { classes } = this.props
