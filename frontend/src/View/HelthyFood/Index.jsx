@@ -108,13 +108,9 @@ class Index extends Component {
         let name = e.currentTarget.value
         this.props.history.push(`/Details/${name}`)
     }
-    // để chạy db.json/database :  json-server --watch db.json --port 3333
-    // Khai báo data Cosmetics ở file datanbase/db.json
     componentDidMount() {
         fetch(`http://localhost:3333/Products`)
-            // We get the API response and receive data in JSON format...
             .then(response => response.json())
-            // ...then we update the users state
             .then(data => {
                 let arrData = []
                 data.map((e) => {
@@ -124,9 +120,7 @@ class Index extends Component {
                 })
                 this.setState({ items: arrData })
             })
-            // Catch any errors we hit and update the app
             .catch(error => console.log('error ', error));
-        // console.log('result ', result)
     }
     render() {
         const { classes } = this.props

@@ -79,21 +79,14 @@ class index extends Component {
                 }
                 }
         })
-        // this.props.history.push('/')
     }
-    // để chạy db.json/database :  json-server --watch db.json --port 3333
-    // Khai báo data Cosmetics ở file datanbase/db.json
     componentDidMount() {
         fetch(`http://localhost:3333/Users`)
-            // We get the API response and receive data in JSON format...
             .then(response => response.json())
-            // ...then we update the users state
             .then(data =>
                 this.setState({ users: data })
             )
-            // Catch any errors we hit and update the app
             .catch(error => console.log('error ', error));
-        // console.log('result ', result)
     }
     render() {
         const { classes } = this.props

@@ -109,7 +109,7 @@ class Home extends Component {
         this.props.history.push('/login/11')
     }
     // để chạy db.json/database :  json-server --watch db.json --port 3333
-    // Khai báo data Cosmetics ở file datanbase/db.json
+    // Khai báo data Products ở file datanbase/db.json
     componentDidMount() {
         fetch(`http://localhost:3333/Products`)
             // We get the API response and receive data in JSON format...
