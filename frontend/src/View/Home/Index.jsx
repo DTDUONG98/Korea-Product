@@ -97,13 +97,16 @@ class Home extends Component {
         }
     }
     Home() {
-        this.props.history.push('/Trangchu/00')
+        this.props.history.push('/')
     }
     HelthyFood(){
         this.props.history.push('/HelthyFood/02')
     }
     Cosmetics() {
         this.props.history.push('/Cosmetics/01')
+    }
+    Signin(){
+        this.props.history.push('/login/11')
     }
     // để chạy db.json/database :  json-server --watch db.json --port 3333
     // Khai báo data Cosmetics ở file datanbase/db.json
@@ -138,6 +141,8 @@ class Home extends Component {
     }
     render() {
         const { classes } = this.props;
+        let data = this.props.match.params.id
+        console.log('data', data)
         return (
             <div>
                 {/* <Header /> */}
@@ -172,8 +177,15 @@ class Home extends Component {
                                 }} inputProps={{ 'aria-label': 'Search' }} />
                             </div>
                         </Col>
-                        <Col>
-                            <Avatar alt="PTIT" src={img} className={classes.avatar} />
+                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
+                            {/* <Avatar alt="PTIT" src={img} className={classes.avatar} /> */}
+                            <a
+                                onClick={() => this.Signin()}
+                            >Đăng nhập </a>
+                        </Col>
+                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
+                            {/* <Avatar alt="PTIT" src={img} className={classes.avatar} /> */}
+                            <a>Đăng Ký </a>
                         </Col>
                     </Row>
                 </Col>

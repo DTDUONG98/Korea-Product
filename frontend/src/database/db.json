@@ -244,19 +244,12 @@
   "Users": [
     {
       "id": 1,
+      "url": "",
       "Name": "Đỗ Tiến Dương",
       "UserName": "doduong1998",
       "Password": "123456",
       "Phone": "0326609183",
       "Group": 0
-    },
-    {
-      "id": 2,
-      "Name": "Nguyễn Trí Hiếu",
-      "UserName": "nthieu98",
-      "Password": "123456",
-      "Phone": "0394886893",
-      "Group": 1
     }
   ]
 }

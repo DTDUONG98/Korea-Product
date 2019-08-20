@@ -16,13 +16,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
     <BrowserRouter>
-        <Route exact path="/" component={Login} />
+        <Route exact path="/" component={Trangchu} />
         <Route exact path="/Create/:id" component={Create} />
-        <Route exact path="/Trangchu/:id" component={Trangchu} />
         <Route exact path="/Cosmetics/:id" component={Costetics}/>
         <Route exact path="/Details/:id" component={Details} />
         <Route exact path="/HelthyFood/:id" component={HelthyFood} />
         <Route exact path="/Bills/:id" component={Bills} />
+        <Route exact path="/Login/:id"  component={Login}/>
     </BrowserRouter>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

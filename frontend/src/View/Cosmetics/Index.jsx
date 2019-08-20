@@ -18,13 +18,13 @@ import { red } from '@material-ui/core/colors'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import ShareIcon from '@material-ui/icons/Share'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
-import {Paper, Container } from '@material-ui/core'
+import { Container } from '@material-ui/core'
 
 const style = theme => ({
     title: {
         background: '#adc1eb',
         width: '100%',
-        height: '80px'
+        height: '80px',
     },
     avatar: {
         margin: 20,

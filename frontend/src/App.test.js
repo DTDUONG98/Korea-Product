@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Login from '../src/View/Login/Index';
+import Login from './View/Home/Index';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
