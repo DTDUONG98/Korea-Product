@@ -115,13 +115,13 @@ class Details extends Component {
                                                                 ></p>
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
-                                                                <h3 style={{ color: 'red' }}>{e.price}</h3>
+                                                                <h3 style={{ color: 'red' }}>{e.price} đ</h3>
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
-                                                                Tiết kiệm lên đến 16,7%
+                                                                Tiết kiệm lên đến: {(parseInt(cost)-parseInt(price)/parseInt(cost))} %
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
-                                                                Giá thị trường : 300.000 đ
+                                                                Giá thị trường : {e.cost} đ
                                                             </Col>
                                                             <Col xs={{ size: 12 }} md={{ size: 12 }}>
                                                                 <p
