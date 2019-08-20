@@ -1,12 +1,6 @@
 import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
-import { FaBars } from "react-icons/fa"
 import { Col, Row } from 'reactstrap'
-import { FaSistrix } from "react-icons/fa"
-import InputBase from '@material-ui/core/InputBase'
-import { fade } from '@material-ui/core/styles'
-import Avatar from '@material-ui/core/Avatar'
-import img from '../../../src/PTIT.png'
 import { Paper, Container } from '@material-ui/core'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
@@ -14,66 +8,14 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import { Zoom } from 'react-slideshow-image'
+import Header from '../Component/Header'
+import Footer from '../Component/Footer'
 
 const style = theme => ({
-    title: {
-        background: '#adc1eb',
-        width: '100%',
-        height: '80px'
-    },
     header: {
         textAlign: 'center',
         width: '100%',
         height: 'auto'
-    },
-    footer: {
-        background: '#adc1eb',
-        marginTop: '20px',
-    },
-    service: {
-        marginTop: '20px',
-        marginBottom: '10px',
-    },
-    avatar: {
-        margin: 20,
-    },
-    search: {
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.white, 0.15),
-        '&:hover': {
-            backgroundColor: fade(theme.palette.common.white, 0.25),
-        },
-        marginLeft: 0,
-        marginTop: '20px',
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(1),
-            width: 'auto',
-        },
-    },
-    searchIcon: {
-        width: theme.spacing(7),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    inputRoot: {
-        color: 'inherit',
-    },
-    inputInput: {
-        padding: theme.spacing(1, 1, 1, 7),
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            width: 120,
-            '&:focus': {
-                width: 200,
-            },
-        },
     },
     card: {
         maxWidth: 345,
@@ -113,10 +55,10 @@ class Home extends Component {
                 let DataCosmetics = []
                 let DataFelthyFood = []
                 data.map((e) => {
-                    if(e.type == "Cosmetics"){
+                    if (e.type == "Cosmetics") {
                         DataCosmetics.push(e)
                     }
-                    else{
+                    else {
                         DataFelthyFood.push(e)
                     }
                 })
@@ -129,12 +71,6 @@ class Home extends Component {
             .catch(error => console.log('error ', error));
         // console.log('result ', result)
     }
-    Cosmetics() {
-        this.props.history.push('/Cosmetics/001')
-    }
-    HelthyFood(){
-        this.props.history.push('/HelthyFood/002')
-    }
     Details(e) {
         let name = e.currentTarget.value
         this.props.history.push(`/Details/${name}`)
@@ -143,40 +79,7 @@ class Home extends Component {
         const { classes } = this.props;
         return (
             <div>
-                <Col xs="12" md="12" className={classes.title}>
-                    <Row>
-                        <Col xs="1" md="1">
-                            <FaBars style={{ fontSize: '40px', margin: '20px' }} />
-                        </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px' }}>
-                            <a>HOME</a>
-                        </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px' }}>
-                            <a onClick={() => this.Cosmetics()}>
-                                MỸ PHẨM
-                            </a>
-                        </Col>
-                        <Col xs="2" md="2" style={{ marginTop: '25px' }}>
-                            <a onClick={() => this.HelthyFood()}>
-                                THỰC PHẨM CHỨC NĂNG
-                            </a>
-                        </Col>
-                        <Col xs="3" md={{ size: 3, offset: 2 }}>
-                            <div className={classes.search}>
-                                <div className={classes.searchIcon}>
-                                    <FaSistrix style={{ fontSize: '25px' }} />
-                                </div>
-                                <InputBase placeholder="Search…" classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }} inputProps={{ 'aria-label': 'Search' }} />
-                            </div>
-                        </Col>
-                        <Col>
-                            <Avatar alt="PTIT" src={img} className={classes.avatar} />
-                        </Col>
-                    </Row>
-                </Col>
+                <Header />
                 <Col xs={{ size: 12 }} md={{ size: 12 }} className={classes.header}>
                     <p
                         style={{
@@ -188,7 +91,7 @@ class Home extends Component {
                         Mỹ Phẩm
                     </p>
                     <Row>
-                        <Col md={6} xs={{size: 12}}>
+                        <Col md={6} xs={{ size: 12 }}>
                             <Paper className={classes.paper}>
                                 <Col xs={12} md={12} style={{ textAlign: 'center', backgroundColor: '#F57249', padding: '10px' }}>
                                     Giao dich gần đây
@@ -218,7 +121,7 @@ class Home extends Component {
                                 </Col>
                             </Paper>
                         </Col>
-                        <Col md={6} xs={{size: 12}}>
+                        <Col md={6} xs={{ size: 12 }}>
                             <Paper className={classes.paper}>
                                 <Col xs={12} md={12} style={{ textAlign: 'center', backgroundColor: '#F57249', padding: '10px' }}>
                                     Những sản phẩm mới gần đây
@@ -227,11 +130,11 @@ class Home extends Component {
                                     <Zoom className={classes.zoomOutProperties}>
                                         {
                                             this.state.Cosmetics.slice(0, this.state.visible).map((e, index) => (
-                                                    <img 
-                                                        key={index} 
-                                                        src={e.url}
-                                                        style={{ width: '100%', height: '400px' }}
-                                                    />
+                                                <img
+                                                    key={index}
+                                                    src={e.url}
+                                                    style={{ width: '100%', height: '400px' }}
+                                                />
                                             ))
                                         }
                                     </Zoom>
@@ -249,7 +152,7 @@ class Home extends Component {
                         Thực phẩm chức năng
                     </p>
                     <Row>
-                        <Col md={6} xs={{size: 12}}>
+                        <Col md={6} xs={{ size: 12 }}>
                             <Paper className={classes.paper}>
                                 <Col xs={12} md={12} style={{ textAlign: 'center', backgroundColor: '#F57249', padding: '10px' }}>
                                     Những sản phẩm mới gần đây
@@ -265,7 +168,7 @@ class Home extends Component {
                                 </Col>
                             </Paper>
                         </Col>
-                        <Col md={6} xs={{size: 12}}>
+                        <Col md={6} xs={{ size: 12 }}>
                             <Paper className={classes.paper}>
                                 <Col xs={12} md={12} style={{ textAlign: 'center', backgroundColor: '#F57249', padding: '10px' }}>
                                     Giao dich gần đây
@@ -297,30 +200,7 @@ class Home extends Component {
                         </Col>
                     </Row>
                 </Col>
-                <Col md={{size: 12}} xs={{size: 12}} className={classes.footer}>
-                <Container>
-                    <Row>
-                        <Col md={4} xs={{size: 12}}>
-                            <h2 className={classes.service}>Thống Kê</h2>
-                            <p style={{border: '1px solid black'}}></p>
-                            <p>Tổng số sản phẩm bán ra : </p>
-                            <p style={{marginBottom: '20px'}}>Số sản phẩm đang còn: </p>
-                        </Col>
-                        <Col md={4} xs={{size: 12}}>
-                            <h2  className={classes.service} >Liên hệ</h2>
-                            <p style={{border: '1px solid black'}}></p>
-                            <p>FaceBook: Đỗ Tiến Dương</p>
-                            <p style={{marginBottom: '20px'}}>SĐT: 0326609183</p>
-                        </Col>
-                        <Col md={4} xs={{size: 12}}>
-                            <h2  className={classes.service} >Dịch vụ khác</h2>
-                            <p style={{border: '1px solid black'}}></p>
-                            <p></p>
-                            <p style={{marginBottom: '20px'}}></p>
-                        </Col>
-                    </Row>
-                    </Container>
-                </Col>
+                <Footer />
             </div>
         )
     }
