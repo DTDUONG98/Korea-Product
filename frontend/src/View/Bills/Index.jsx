@@ -69,10 +69,6 @@ const style = theme => ({
         marginLeft: '40px',
         marginTop: '30px'
     },
-    media: {
-        height: 0,
-        paddingTop: '56.25%', // 16:9
-    },
     paper: {
         widht: '100%',
         height: 'auto',

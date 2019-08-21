@@ -29,8 +29,13 @@ const style = theme => ({
         marginTop: '30px'
     },
     media: {
+        width: '100%',
         height: 0,
         paddingTop: '56.25%', // 16:9
+        transition: '0,3',
+        "&:hover": {
+            transform: 'scale(1.1)',
+        }
     },
     paper: {
         widht: '100%',

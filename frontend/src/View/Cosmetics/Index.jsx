@@ -12,7 +12,6 @@ import CardHeader from '@material-ui/core/CardHeader'
 import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import CardActions from '@material-ui/core/CardActions'
-// import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import { red } from '@material-ui/core/colors'
 import FavoriteIcon from '@material-ui/icons/Favorite'
@@ -87,6 +86,10 @@ const style = theme => ({
         width: '100%',
         height: 0,
         paddingTop: '56.25%', // 16:9
+        transition: '0,3',
+        "&:hover": {
+            transform: 'scale(1.1)',
+        }
     },
     avatarCard: {
         backgroundColor: red[500],
@@ -129,7 +132,7 @@ class Index extends Component {
     HelthyFood() {
         this.props.history.push('/HelthyFood/02')
     }
-    AddCosmetics(){
+    AddCosmetics() {
         this.props.history.push('/CreateCosmetics/03')
     }
     render() {
@@ -137,43 +140,45 @@ class Index extends Component {
         return (
             <div>
                 <Col xs="12" md="12" className={classes.title}>
-                        <Row>
-                            <Col xs="1" md="1">
-                                <FaBars style={{ fontSize: '40px', margin: '20px', cursor: 'pointer' }} />
-                            </Col>
-                            <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
-                                <a
-                                    onClick={() => this.Home()}
-                                >HOME</a>
-                            </Col>
-                            <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
-                                <a>MỸ PHẨM</a>
-                            </Col>
-                            <Col xs="2" md="2" style={{ marginTop: '25px', cursor: 'pointer' }}>
-                                <a onClick={() => this.HelthyFood()}>
-                                    THỰC PHẨM CHỨC NĂNG
+                    <Row>
+                        <Col xs="1" md="1">
+                            <FaBars style={{ fontSize: '40px', margin: '20px', cursor: 'pointer' }} />
+                        </Col>
+                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
+                            <a
+                                onClick={() => this.Home()}
+                            >HOME</a>
+                        </Col>
+                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
+                            <a >MỸ PHẨM</a>
+                        </Col>
+                        <Col xs="2" md="2" style={{ marginTop: '25px', cursor: 'pointer' }}>
+                            <a onClick={() => this.HelthyFood()}>
+                                THỰC PHẨM CHỨC NĂNG
                             </a>
-                            </Col>
-                            <Col xs="3" md={{ size: 3, offset: 2 }}>
-                                <div className={classes.search}>
-                                    <div className={classes.searchIcon}>
-                                        <FaSistrix style={{ fontSize: '25px' }} />
-                                    </div>
-                                    <InputBase placeholder="Search…" classes={{
-                                        root: classes.inputRoot,
-                                        input: classes.inputInput,
-                                    }} inputProps={{ 'aria-label': 'Search' }} />
+                        </Col>
+                        <Col xs="3" md={{ size: 3, offset: 2 }}>
+                            <div className={classes.search}>
+                                <div className={classes.searchIcon}>
+                                    <FaSistrix style={{ fontSize: '25px' }} />
                                 </div>
-                            </Col>
-                            <Col>
-                                <Avatar alt="PTIT" src={img} className={classes.avatar} />
-                            </Col>
-                        </Row>
+                                <InputBase placeholder="Search…" classes={{
+                                    root: classes.inputRoot,
+                                    input: classes.inputInput,
+                                }} inputProps={{ 'aria-label': 'Search' }} />
+                            </div>
+                        </Col>
+                        <Col>
+                            <Avatar alt="PTIT" src={img} className={classes.avatar} />
+                        </Col>
+                    </Row>
                 </Col>
-                <Col xs={{size: 1, offset: 11}} md={{size: 1 ,offset: 11}} style={{fontSize: '30px', marginTop: '20px'}}>
+                <Col xs={{ size: 1, offset: 11 }} md={{ size: 1, offset: 11 }} style={{ fontSize: '30px', marginTop: '20px' }}>
+                    <Tooltip title="Create New Product" key="create">
                         <IconButton hidden={this.state.hidden} onClick={() => this.AddCosmetics()}>
-                                <AddCircleOutlineIcon style={{fontSize: '30px'}} />
+                            <AddCircleOutlineIcon style={{ fontSize: '30px' }} />
                         </IconButton>
+                    </Tooltip>
                 </Col>
                 <Col xs="12" md="12" className={classes.lipstick}>
                     <Row>
@@ -184,9 +189,9 @@ class Index extends Component {
                                 </Avatar>
                                 }
                                     action={
-                                        <IconButton aria-label="settings">
-                                            <MoreVertIcon />
-                                        </IconButton>
+                                            <IconButton aria-label="settings">
+                                                <MoreVertIcon />
+                                            </IconButton>
                                     }
                                     title={item.title}
                                     subheader={item.date}
@@ -198,9 +203,11 @@ class Index extends Component {
                                     </Typography>
                                 </CardContent>
                                 <CardActions disableSpacing>
-                                    <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
-                                        <FavoriteIcon />
-                                    </IconButton>
+                                    <Tooltip title="Detail Product" key="Detail">
+                                        <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
+                                            <FavoriteIcon />
+                                        </IconButton>
+                                    </Tooltip>
                                     <IconButton aria-label="share">
                                         <ShareIcon />
                                     </IconButton>
