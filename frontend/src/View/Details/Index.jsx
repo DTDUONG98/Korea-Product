@@ -88,6 +88,9 @@ const style = theme => ({
             },
         },
     },
+    icon: {
+        margin: theme.spacing(2),
+      },
 })
 class Details extends Component {
     constructor(props) {

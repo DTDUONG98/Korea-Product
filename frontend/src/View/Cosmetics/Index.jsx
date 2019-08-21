@@ -12,13 +12,15 @@ import CardHeader from '@material-ui/core/CardHeader'
 import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import CardActions from '@material-ui/core/CardActions'
-import IconButton from '@material-ui/core/IconButton'
+// import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import { red } from '@material-ui/core/colors'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import ShareIcon from '@material-ui/icons/Share'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 import { Container } from '@material-ui/core'
+import { IconButton, Icon, Tooltip, Button } from '@material-ui/core'
 
 const style = theme => ({
     title: {
@@ -77,10 +79,12 @@ const style = theme => ({
     },
     card: {
         maxWidth: 290,
+        minWidth: 290,
         marginLeft: '40px',
         marginTop: '30px'
     },
     media: {
+        width: '100%',
         height: 0,
         paddingTop: '56.25%', // 16:9
     },
@@ -97,6 +101,7 @@ class Index extends Component {
         this.state = {
             items: [],
             vasible: 4,
+            hidden: false,
         }
     }
 
@@ -124,43 +129,51 @@ class Index extends Component {
     HelthyFood() {
         this.props.history.push('/HelthyFood/02')
     }
+    AddCosmetics(){
+        this.props.history.push('/CreateCosmetics/03')
+    }
     render() {
         const { classes } = this.props
         return (
             <div>
                 <Col xs="12" md="12" className={classes.title}>
-                    <Row>
-                        <Col xs="1" md="1">
-                            <FaBars style={{ fontSize: '40px', margin: '20px', cursor: 'pointer' }} />
-                        </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
-                            <a
-                                onClick={() => this.Home()}
-                            >HOME</a>
-                        </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
-                            <a>MỸ PHẨM</a>
-                        </Col>
-                        <Col xs="2" md="2" style={{ marginTop: '25px', cursor: 'pointer' }}>
-                            <a onClick={() => this.HelthyFood()}>
-                                THỰC PHẨM CHỨC NĂNG
+                        <Row>
+                            <Col xs="1" md="1">
+                                <FaBars style={{ fontSize: '40px', margin: '20px', cursor: 'pointer' }} />
+                            </Col>
+                            <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
+                                <a
+                                    onClick={() => this.Home()}
+                                >HOME</a>
+                            </Col>
+                            <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
+                                <a>MỸ PHẨM</a>
+                            </Col>
+                            <Col xs="2" md="2" style={{ marginTop: '25px', cursor: 'pointer' }}>
+                                <a onClick={() => this.HelthyFood()}>
+                                    THỰC PHẨM CHỨC NĂNG
                             </a>
-                        </Col>
-                        <Col xs="3" md={{ size: 3, offset: 2 }}>
-                            <div className={classes.search}>
-                                <div className={classes.searchIcon}>
-                                    <FaSistrix style={{ fontSize: '25px' }} />
+                            </Col>
+                            <Col xs="3" md={{ size: 3, offset: 2 }}>
+                                <div className={classes.search}>
+                                    <div className={classes.searchIcon}>
+                                        <FaSistrix style={{ fontSize: '25px' }} />
+                                    </div>
+                                    <InputBase placeholder="Search…" classes={{
+                                        root: classes.inputRoot,
+                                        input: classes.inputInput,
+                                    }} inputProps={{ 'aria-label': 'Search' }} />
                                 </div>
-                                <InputBase placeholder="Search…" classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }} inputProps={{ 'aria-label': 'Search' }} />
-                            </div>
-                        </Col>
-                        <Col>
-                            <Avatar alt="PTIT" src={img} className={classes.avatar} />
-                        </Col>
-                    </Row>
+                            </Col>
+                            <Col>
+                                <Avatar alt="PTIT" src={img} className={classes.avatar} />
+                            </Col>
+                        </Row>
+                </Col>
+                <Col xs={{size: 1, offset: 11}} md={{size: 1 ,offset: 11}} style={{fontSize: '30px', marginTop: '20px'}}>
+                        <IconButton hidden={this.state.hidden} onClick={() => this.AddCosmetics()}>
+                                <AddCircleOutlineIcon style={{fontSize: '30px'}} />
+                        </IconButton>
                 </Col>
                 <Col xs="12" md="12" className={classes.lipstick}>
                     <Row>

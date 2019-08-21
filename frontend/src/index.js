@@ -6,6 +6,7 @@ import { Route, Router, browserHistory } from '../node_modules/react-router';
 import './index.css';
 import Login from '../src/View/Login/Index'
 import Create from '../src/View/Login/Create'
+import CreateCosmetics from '../src/View/Cosmetics/Create'
 import Trangchu from '../src/View/Home/Index'
 import Costetics from './View/Cosmetics/Index'
 import HelthyFood from '../src/View/HelthyFood/Index'
@@ -18,6 +19,7 @@ ReactDOM.render(
     <BrowserRouter>
         <Route exact path="/" component={Trangchu} />
         <Route exact path="/Create/:id" component={Create} />
+        <Route exact path="/CreateCosmetics/:id" component={CreateCosmetics} />
         <Route exact path="/Cosmetics/:id" component={Costetics}/>
         <Route exact path="/Details/:id" component={Details} />
         <Route exact path="/HelthyFood/:id" component={HelthyFood} />
