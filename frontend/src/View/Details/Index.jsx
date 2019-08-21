@@ -343,6 +343,25 @@ class Details extends Component {
                         })}
                     </Row>
                 </Col>
+                <Col xs="12" md="12" style={{
+                    height: '200px',
+                    marginTop: '20px',
+                }}>
+                    <Row>
+                        <Col xs="12" md="12" style={{
+                            background: '#F57249',
+                            height: '50px',
+                        }}>
+                            <p style={{textAlign: 'center',marginTop: '10px'}}>Đánh giá của khách hàng</p>
+                        </Col>
+                        <Col xs="12" md="12">
+                            <p>HHHHH</p>
+                            <p>HHHHH</p>
+                            <p>HHHHH</p>
+                            <p>HHHHH</p>
+                        </Col>
+                    </Row>
+                </Col>
                 <Footer />
             </div>
         )
