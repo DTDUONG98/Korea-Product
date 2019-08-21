@@ -9,44 +9,61 @@ class Create extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            newUser: "",
-            Email: "",
-            password: "",
-            rePassword: "",
+          rePassword: '',
         }
         this.inputUser = this.inputUser.bind(this)
         this.inputPass = this.inputPass.bind(this)
-        this.inputEmail = this.inputEmail.bind(this)
         this.inputRePassword = this.inputRePassword.bind(this)
+        this.inputPhone = this.inputPhone.bind(this)
     }
     inputUser(e) {
         let userName = e.target.value
-        console.log("user Name", userName)
         this.setState({
-            newUser: userName
-        })
-    }
-    inputEmail(e) {
-        let email = e.target.value
-        this.setState({
-          Email: email
+          UserName: userName
         })
     }
     inputPass(e) {
         let pass = e.target.value
-        console.log("Password", pass)
         this.setState({
           password: pass
         })
     }
     inputRePassword(e){
         let rePass = e.target.value
-        console.log('rePass', rePass)
         this.setState({
             rePassword: rePass
         })
     }
-    SignUp(){
+    inputPhone(e){
+      let phone = e.target.value
+      this.setState({
+        Phone: phone
+      })
+    }
+    inputName(e){
+      let name = e.target.value
+      this.setState({
+        Name: name
+      })
+    }
+    AddUser(){
+      const {id, url, Name, UserName, Password , Phone} = this.state
+      fetch(`http://localhost:3333/Users`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              "id": id,
+              "url": url,
+              "Name": Name,
+              "UserName": UserName,
+              "Password": Password,
+              "Phone": Phone,
+              "Group": 1,
+            })
+        })
       this.props.history.push('/')
     }
 
@@ -63,8 +80,21 @@ class Create extends Component {
               <Col xs={{ size: 10, offset: 1 }} lg={{ size: 10, offset: 1 }}>
                 <TextField
                   fullWidth
+                  variant="outlined"
+                  margin="normal"
+                  label="tên người dùng"
+                  value={this.state.Name}
+                  placeholder="Nhập Tên người dùng"
+                  onChange={(e) => this.inputName(e)}
+                />
+              </Col>
+              <Col xs={{ size: 10, offset: 1 }} lg={{ size: 10, offset: 1 }}>
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  margin="normal"
                   label="tên đăng nhập"
-                  value={this.state.newUser}
+                  value={this.state.UserName}
                   placeholder="tên đăng nhập"
                   onChange={(e) => this.inputUser(e)}
                 />
@@ -72,17 +102,10 @@ class Create extends Component {
               <Col xs={{ size: 10, offset: 1 }} lg={{ size: 10, offset: 1 }}>
                 <TextField
                   fullWidth
-                  label="email"
-                  value={this.state.Email}
-                  placeholder="ABC@gamil.com"
-                  onChange={(e) => this.inputEmail(e)}
-                />
-              </Col>
-              <Col xs={{ size: 10, offset: 1 }} lg={{ size: 10, offset: 1 }}>
-                <TextField
-                  fullWidth
+                  variant="outlined"
+                  margin="normal"
                   label="password"
-                  value={this.state.password}
+                  value={this.state.Password}
                   placeholder="mật khẩu"
                   type="password"
                   onChange={(e) => this.inputPass(e)}
@@ -91,6 +114,8 @@ class Create extends Component {
               <Col xs={{ size: 10, offset: 1 }} lg={{ size: 10, offset: 1 }}>
                 <TextField
                   fullWidth
+                  variant="outlined"
+                  margin="normal"
                   label="repeate password"
                   value={this.state.rePassword}
                   placeholder="Nhập lại mật khẩu"
@@ -98,7 +123,18 @@ class Create extends Component {
                   onChange={(e) => this.inputRePassword(e)}
                 />
               </Col>
-              <Col xs={{ size: 10, offset: 1 }} lg={{ size: 10, offset: 1 }} style={{paddingTop: '20px'}}>
+              <Col xs={{ size: 10, offset: 1 }} lg={{ size: 10, offset: 1 }}>
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  margin="normal"
+                  label="Phone"
+                  value={this.state.Phone}
+                  placeholder="Số điện thoại"
+                  onChange={(e) => this.inputPhone(e)}
+                />
+              </Col>
+              {/* <Col xs={{ size: 10, offset: 1 }} lg={{ size: 10, offset: 1 }} style={{paddingTop: '20px'}}>
                 <span>Ngày tháng năm sinh</span>
                 <Row>
                   <Col xs={{ size: 2, offset: 1 }} lg={{ size: 2, offset: 1 }}>
@@ -148,9 +184,9 @@ class Create extends Component {
                   value={this.state.checkedNu}
                   name="radio-button-demo"
                 />
-              </Col>
+              </Col> */}
               <Col xs={{ size: 2, offset: 5 }} lg={{ size: 2, offset: 5 }} style={{ paddingBottom: "10px", paddingTop: "10px" }}>
-                <button type="submit" className="btn btn-primary" onClick={() => this.SignUp()} >Đăng ký</button>
+                <button type="submit" className="btn btn-primary" onClick={() => this.AddUser()} >Đăng ký</button>
               </Col>
             </Row>
                 </Col>

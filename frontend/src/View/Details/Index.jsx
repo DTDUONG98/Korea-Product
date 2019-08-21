@@ -135,6 +135,7 @@ class Details extends Component {
             <div>
                 {/* <Header /> */}
                 <Col xs="12" md="12" className={classes.title}>
+                    <Container>
                     <Row>
                         <Col xs="1" md="1">
                             <FaBars style={{ fontSize: '40px', margin: '20px' , cursor: 'pointer'}} />
@@ -169,6 +170,7 @@ class Details extends Component {
                             <Avatar alt="PTIT" src={img} className={classes.avatar} />
                         </Col>
                     </Row>
+                    </Container>
                 </Col>
                 <Col xs={12} md={12}>
                     <Row>

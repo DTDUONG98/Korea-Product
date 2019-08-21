@@ -47,7 +47,7 @@ class index extends Component {
         }
     }
     createUser() {
-        this.props.history.push('Create/1')
+        this.props.history.push('/Create/12')
     }
     homePage() {
         this.state.users.map((e) => {
@@ -80,6 +80,7 @@ class index extends Component {
                 }
         })
     }
+    // lây data user
     componentDidMount() {
         fetch(`http://localhost:3333/Users`)
             .then(response => response.json())

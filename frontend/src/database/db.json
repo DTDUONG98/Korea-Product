@@ -1,237 +1,237 @@
 {
   "Products": [
-  {
-    "id": 1,
-    "url": "/Mypham/o_hui.jpg",
-    "title": "O-Hui",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type" : "Cosmetics"
-  },
-  {
-    "id": 2,
-    "url": "/Mypham/sulwhasoo.jpg",
-    "title": "Sulwhasoo",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type" : "Cosmetics"
-  },
-  {
-    "id": 3,
-    "url": "/Mypham/Nước hoa hồng laneige.jpg",
-    "title": "Nước hoa hồng laneige",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type" : "Cosmetics"
-  },
-  {
-    "id": 4,
-    "url": "/Mypham/SUM Time ENERGY.jpg",
-    "title": "SUM Time ENERGY",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type" : "Cosmetics"
-  },
-  {
-    "id": 5,
-    "url": "/Mypham/Dung dịch vệ sinh phụ nữ PH Care Nhật Bản.jpg",
-    "title": "Dung dịch vệ sinh phụ nữ PH Care Nhật Bản",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type" : "Cosmetics"
-  },
-  {
-    "id": 6,
-    "url": "/Mypham/Kem chống nắng Cell fusion C.jpg",
-    "title": "Kem chống nắng Cell fusion",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type" : "Cosmetics"
-  },
-  {
-    "id": 6,
-    "url": "/Mypham/Viên uống trắng da DHC.jpg",
-    "title": "Viên uống trắng da DHC",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-   "type" : "Cosmetics"
-  },
-  {
-    "id": 7,
-    "url": "/TPchucnang/Nấm/Đông trùng hạ thảo 01.jpg",
-    "title": "Đông trùng hạ thảo",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.00",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type" : "Mushroom"
-  },
-  {
-    "id": 8,
-    "url": "/TPchucnang/Nấm/Nấm linh chi thái lát.jpg",
-    "title": "Nấm linh chi thái lát",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type" : "Mushroom"
-  },
-  {
-    "id": 9,
-    "url": "/TPchucnang/Sâm/Hồng sâm baby.jpg",
-    "title": "Hồng sâm baby",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type": "Giseng"
-  },
-  {
-    "id": 10,
-    "url": "/TPchucnang/Sâm/sâm 01.jpg",
-    "title": "Sâm Ống",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type": "Giseng"
-  },
-  {
-    "id": 11,
-    "url": "/TPchucnang/Sâm/sâm 05.jpg",
-    "title": "Sâm Gói",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type": "Giseng"
-  },
-  {
-    "id": 12,
-    "url": "/TPchucnang/Sâm/sâm vun.jpg",
-    "title": "Sâm vụn",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type": "Giseng"
-  },
-  {
-    "id": 13,
-    "url": "/TPchucnang/Sữa/LỢI SỮA ITOH.jpg",
-    "title": "LỢI SỮA ITOH",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type": "Milk"
-  },
-  {
-    "id": 14,
-    "url": "/TPchucnang/Sữa/Sữa hikid.jpg",
-    "title": "Sữa hikid",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type": "Milk"
-  },
-  {
-    "id": 15,
-    "url": "/TPchucnang/Sữa/sữa_non_ildong.jpg",
-    "title": "Sữa non ildong",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type": "Milk"
-  },
-  {
-    "id": 16,
-    "url": "/TPchucnang/Suckhoe/Glucosamine Nhật.jpg",
-    "title": "Glucosamine Nhật",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type": "Helthy"
-  },
-  {
-    "id": 17,
-    "url": "/TPchucnang/Suckhoe/MIẾNG DÁN NHIỆT MIỆNG TAISHO.jpg",
-    "title": "Miếng dán nhiệt miệng Taisho",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type": "Helthy"
-  },
-  {
-    "id": 18,
-    "url": "/TPchucnang/Suckhoe/SIDMOOL.jpg",
-    "title": "Sidmool",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type": "Helthy"
-  },
-  {
-    "id": 19,
-    "url": "/TPchucnang/Suckhoe/Xịt khoáng Ý dĩ HATOMUGI.jpg",
-    "title": "Xịt khoáng Ý dĩ HATOMUGI",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type": "Helthy"
-  },
-  {
-    "id": 20,
-    "url": "/TPchucnang/Suckhoe/TONER MUJI LIGHT TONING WATER.jpg",
-    "title": "toner muji light toning water",
-    "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
-    "date": "July 14, 2019",
-    "price" : "250.000",
-    "cost": "300.000",
-    "status" : "Còn hàng",
-    "type": "Helthy"
-  }
-],
+    {
+      "id": 1,
+      "url": "/Mypham/o_hui.jpg",
+      "title": "O-Hui",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Cosmetics"
+    },
+    {
+      "id": 2,
+      "url": "/Mypham/sulwhasoo.jpg",
+      "title": "Sulwhasoo",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Cosmetics"
+    },
+    {
+      "id": 3,
+      "url": "/Mypham/Nước hoa hồng laneige.jpg",
+      "title": "Nước hoa hồng laneige",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Cosmetics"
+    },
+    {
+      "id": 4,
+      "url": "/Mypham/SUM Time ENERGY.jpg",
+      "title": "SUM Time ENERGY",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Cosmetics"
+    },
+    {
+      "id": 5,
+      "url": "/Mypham/Dung dịch vệ sinh phụ nữ PH Care Nhật Bản.jpg",
+      "title": "Dung dịch vệ sinh phụ nữ PH Care Nhật Bản",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Cosmetics"
+    },
+    {
+      "id": 6,
+      "url": "/Mypham/Kem chống nắng Cell fusion C.jpg",
+      "title": "Kem chống nắng Cell fusion",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Cosmetics"
+    },
+    {
+      "id": 6,
+      "url": "/Mypham/Viên uống trắng da DHC.jpg",
+      "title": "Viên uống trắng da DHC",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Cosmetics"
+    },
+    {
+      "id": 7,
+      "url": "/TPchucnang/Nấm/Đông trùng hạ thảo 01.jpg",
+      "title": "Đông trùng hạ thảo",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.00",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Mushroom"
+    },
+    {
+      "id": 8,
+      "url": "/TPchucnang/Nấm/Nấm linh chi thái lát.jpg",
+      "title": "Nấm linh chi thái lát",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Mushroom"
+    },
+    {
+      "id": 9,
+      "url": "/TPchucnang/Sâm/Hồng sâm baby.jpg",
+      "title": "Hồng sâm baby",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Giseng"
+    },
+    {
+      "id": 10,
+      "url": "/TPchucnang/Sâm/sâm 01.jpg",
+      "title": "Sâm Ống",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Giseng"
+    },
+    {
+      "id": 11,
+      "url": "/TPchucnang/Sâm/sâm 05.jpg",
+      "title": "Sâm Gói",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Giseng"
+    },
+    {
+      "id": 12,
+      "url": "/TPchucnang/Sâm/sâm vun.jpg",
+      "title": "Sâm vụn",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Giseng"
+    },
+    {
+      "id": 13,
+      "url": "/TPchucnang/Sữa/LỢI SỮA ITOH.jpg",
+      "title": "LỢI SỮA ITOH",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Milk"
+    },
+    {
+      "id": 14,
+      "url": "/TPchucnang/Sữa/Sữa hikid.jpg",
+      "title": "Sữa hikid",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Milk"
+    },
+    {
+      "id": 15,
+      "url": "/TPchucnang/Sữa/sữa_non_ildong.jpg",
+      "title": "Sữa non ildong",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Milk"
+    },
+    {
+      "id": 16,
+      "url": "/TPchucnang/Suckhoe/Glucosamine Nhật.jpg",
+      "title": "Glucosamine Nhật",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Helthy"
+    },
+    {
+      "id": 17,
+      "url": "/TPchucnang/Suckhoe/MIẾNG DÁN NHIỆT MIỆNG TAISHO.jpg",
+      "title": "Miếng dán nhiệt miệng Taisho",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Helthy"
+    },
+    {
+      "id": 18,
+      "url": "/TPchucnang/Suckhoe/SIDMOOL.jpg",
+      "title": "Sidmool",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Helthy"
+    },
+    {
+      "id": 19,
+      "url": "/TPchucnang/Suckhoe/Xịt khoáng Ý dĩ HATOMUGI.jpg",
+      "title": "Xịt khoáng Ý dĩ HATOMUGI",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Helthy"
+    },
+    {
+      "id": 20,
+      "url": "/TPchucnang/Suckhoe/TONER MUJI LIGHT TONING WATER.jpg",
+      "title": "toner muji light toning water",
+      "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
+      "date": "July 14, 2019",
+      "price": "250.000",
+      "cost": "300.000",
+      "status": "Còn hàng",
+      "type": "Helthy"
+    }
+  ],
   "background": [
     {
       "id": 1,
@@ -239,7 +239,7 @@
       "title": "SuShi Nhật Bản",
       "content": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.",
       "date": "July 17, 2019"
-    } 
+    }
   ],
   "Users": [
     {
@@ -250,6 +250,15 @@
       "Password": "123456",
       "Phone": "0326609183",
       "Group": 0
+    },
+    {
+      "id": 2,
+      "url": "",
+      "Name": "Nguyễn Trí Hiếu",
+      "UserName": "nthieu198",
+      "Password": "123456",
+      "Phone": "0364883896",
+      "Group": 1
     }
   ]
 }
