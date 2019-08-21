@@ -126,7 +126,11 @@ class Details extends Component {
     }
     Bills(e) {
         let name = e.title
-        this.props.history.push(`/Bills/${name}`)
+        let soluong = this.state.soluong
+        console.log('soluong', soluong)
+        let title = name +"-"+ soluong
+        console.log('title', title)
+        this.props.history.push(`/Bills/${title}`)
     }
     componentDidMount() {
         fetch(`http://localhost:3333/Products`)
@@ -143,7 +147,6 @@ class Details extends Component {
             <div>
                 {/* <Header /> */}
                 <Col xs="12" md="12" className={classes.title}>
-                    <Container>
                     <Row>
                         <Col xs="1" md="1">
                             <FaBars style={{ fontSize: '40px', margin: '20px' , cursor: 'pointer'}} />
@@ -178,7 +181,6 @@ class Details extends Component {
                             <Avatar alt="PTIT" src={img} className={classes.avatar} />
                         </Col>
                     </Row>
-                    </Container>
                 </Col>
                 <Col xs={12} md={12}>
                     <Row>

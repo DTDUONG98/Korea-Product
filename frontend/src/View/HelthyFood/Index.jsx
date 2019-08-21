@@ -7,7 +7,6 @@ import CardHeader from '@material-ui/core/CardHeader'
 import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import CardActions from '@material-ui/core/CardActions'
-import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import { red } from '@material-ui/core/colors'
 import FavoriteIcon from '@material-ui/icons/Favorite'
@@ -20,6 +19,8 @@ import { FaBars } from "react-icons/fa"
 import { FaSistrix } from "react-icons/fa"
 import InputBase from '@material-ui/core/InputBase'
 import { fade } from '@material-ui/core/styles'
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
+import { IconButton, Icon, Tooltip, Button } from '@material-ui/core'
 
 const style = theme => ({
     eachFade: {
@@ -113,6 +114,9 @@ class Index extends Component {
         let name = e.currentTarget.value
         this.props.history.push(`/Details/${name}`)
     }
+    AddHelthyFood(){
+        this.props.history.push('/CreateHelthyFood/13')
+    }
     componentDidMount() {
         fetch(`http://localhost:3333/Products`)
             .then(response => response.json())
@@ -167,6 +171,13 @@ class Index extends Component {
                             <Avatar alt="PTIT" src={img} className={classes.avatar} />
                         </Col>
                     </Row>
+                </Col>
+                <Col xs={{ size: 1, offset: 11 }} md={{ size: 1, offset: 11 }} style={{ fontSize: '30px', marginTop: '20px' }}>
+                    <Tooltip title="Create New Product" key="create">
+                        <IconButton hidden={this.state.hidden} onClick={() => this.AddHelthyFood()}>
+                            <AddCircleOutlineIcon style={{ fontSize: '30px' }} />
+                        </IconButton>
+                    </Tooltip>
                 </Col>
                 <Col xs="12" md="12" className={classes.lipstick}>
                     <Row>

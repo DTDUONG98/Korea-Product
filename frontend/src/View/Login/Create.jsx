@@ -25,7 +25,7 @@ class Create extends Component {
     inputPass(e) {
         let pass = e.target.value
         this.setState({
-          password: pass
+          Password: pass
         })
     }
     inputRePassword(e){
@@ -47,7 +47,7 @@ class Create extends Component {
       })
     }
     AddUser(){
-      const {id, url, Name, UserName, Password , Phone} = this.state
+      const {id, url, Name, UserName, Password , Phone, Address} = this.state
       fetch(`http://localhost:3333/Users`, {
             method: 'POST',
             headers: {
@@ -56,11 +56,12 @@ class Create extends Component {
             },
             body: JSON.stringify({
               "id": id,
-              "url": url,
+              "url": " ",
               "Name": Name,
               "UserName": UserName,
               "Password": Password,
               "Phone": Phone,
+              "Address": "Not",
               "Group": 1,
             })
         })
@@ -104,10 +105,10 @@ class Create extends Component {
                   fullWidth
                   variant="outlined"
                   margin="normal"
-                  label="password"
+                  label="Password"
                   value={this.state.Password}
                   placeholder="mật khẩu"
-                  type="password"
+                  type="Password"
                   onChange={(e) => this.inputPass(e)}
                 />
               </Col>

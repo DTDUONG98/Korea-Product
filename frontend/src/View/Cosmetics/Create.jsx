@@ -180,21 +180,9 @@ class Create extends Component {
                                 variant="outlined"
                             />
                             </Col>
-                            <Col xs={{size: 10, offset: 1}} md={{size: 4 , offset: 1}}>
-                            <TextField
-                                fullWidth
-                                id="outlined-content"
-                                label="Thông tin sản phẩm"
-                                className={classes.textField}
-                                value={this.state.content}
-                                onChange={(e) => this.setState({
-                                    content: e.target.value
-                                })}
-                                margin="normal"
-                                variant="outlined"
-                            />
-                            </Col>
-                            <Col xs={{size: 10, offset: 1}} md={{size: 4 , offset: 1}}>
+                            <Col xs={{size: 10, offset: 1}} md={{size: 4 , offset: 1}} style={{
+                                marginTop: '20px'
+                            }}>
                             { // upload image product
                                 <FileBase64
                                  multiple={true}
@@ -215,6 +203,8 @@ class Create extends Component {
                                 variant="outlined"
                             />
                             </Col>
+                            <Col xs={{size: 10, offset: 1}} md={{size: 4, offset: 1}}>
+                            </Col>
                             <Col xs={{size: 10, offset: 1}} md={{size: 4 , offset: 1}}>
                             <TextField
                                 fullWidth
@@ -224,6 +214,20 @@ class Create extends Component {
                                 value={this.state.cost}
                                 onChange={(e) => this.setState({
                                     cost: e.target.value
+                                })}
+                                margin="normal"
+                                variant="outlined"
+                            />
+                            </Col>
+                            <Col xs={{size: 10, offset: 1}} md={{size: 10 , offset: 1}}>
+                            <TextField
+                                fullWidth
+                                id="outlined-content"
+                                label="Thông tin sản phẩm"
+                                className={classes.textField}
+                                value={this.state.content}
+                                onChange={(e) => this.setState({
+                                    content: e.target.value
                                 })}
                                 margin="normal"
                                 variant="outlined"

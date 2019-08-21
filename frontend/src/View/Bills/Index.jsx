@@ -9,6 +9,8 @@ import InputBase from '@material-ui/core/InputBase'
 import { fade } from '@material-ui/core/styles'
 import { Paper, Container } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+import Footer from '../Component/Footer'
 const style = theme => ({
     title: {
         background: '#adc1eb',
@@ -98,6 +100,9 @@ class Bills extends Component {
     HelthyFood() {
         this.props.history.push('/HelthyFood/02')
     }
+    OK(){
+        alert('Cảm ơn bạn đã ủng hộ chũng tôi .')
+    }
     componentDidMount() {
         fetch(`http://localhost:3333/Products`)
             .then(response => response.json())
@@ -109,20 +114,21 @@ class Bills extends Component {
     render() {
         const { classes } = this.props
         let data = this.props.match.params.id
-        console.log('data', data)
+        let name = data.split('-')[0]
+        let soluong = data.split('-')[1]
         return (
             <div>
                 <Col xs="12" md="12" className={classes.title}>
                     <Row>
                         <Col xs="1" md="1">
-                            <FaBars style={{ fontSize: '40px', margin: '20px' , cursor: 'pointer'}} />
+                            <FaBars style={{ fontSize: '40px', margin: '20px', cursor: 'pointer' }} />
                         </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px' ,cursor: 'pointer'}}>
+                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
                             <a
                                 onClick={() => this.Home()}
                             >HOME</a>
                         </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px' , cursor: 'pointer'}}>
+                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
                             <a
                                 onClick={() => this.Cosmetics()}
                             >MỸ PHẨM</a>
@@ -149,34 +155,67 @@ class Bills extends Component {
                     </Row>
                 </Col>
                 <Col xs={12} md={12}>
-                  <Row>
-                      {this.state.items.slice(0, this.state.visible).map((item, index) => {
-                          if(item.title == data){
-                              return(
-                                  <div key={index}>
-                                      <Col xs="12" md="12">
-                                        <Container>
-                                            <Row>
-                                                <Col xs="12" md="6">
-                                                    <Paper className={classes.paper}>
-                                                        <img src={item.url} style={{width: '100%', height: 'auto'}} />
-                                                    </Paper>
-                                                </Col>
-                                                <Col xs="12" md="6">
-                                                    <Row>
-                                                        <Col xs="12" md="12" className={classes.comtents} style={{
+                    <Row>
+                        {this.state.items.slice(0, this.state.visible).map((item, index) => {
+                            if (item.title == name) {
+                                return (
+                                    <div key={index}>
+                                        <Col xs="12" md="12">
+                                            <Container>
+                                                <Row>
+                                                    <Col xs="12" md="6">
+                                                        <Paper className={classes.paper}>
+                                                            <img src={item.url} style={{ width: '100%', height: 'auto' }} />
+                                                        </Paper>
+                                                    </Col>
+                                                    <Col xs="12" md="6">
+                                                        <Row>
+                                                            <Col xs="12" md="12" className={classes.comtents} style={{
                                                                 marginTop: '40px',
                                                             }}>
                                                                 <h2>Thông tin khách hàng</h2>
                                                             </Col>
-                                                            <Col xs="12" md="12" className={classes.comtents}>
-                                                                Name : 
+                                                            <Col xs={{ size: 10, offset: 1 }} md={{ size: 10, offset: 1 }} className={classes.comtents}>
+                                                                <TextField
+                                                                    fullWidth
+                                                                    id="outlined-Name"
+                                                                    label="Tên người dùng"
+                                                                    className={classes.textField}
+                                                                    value={this.state.Name}
+                                                                    onChange={(e) => this.setState({
+                                                                        Name: e.target.value
+                                                                    })}
+                                                                    margin="normal"
+                                                                    variant="outlined"
+                                                                />
                                                             </Col>
-                                                            <Col xs="12" md="12" className={classes.comtents}>
-                                                                Phone : 
+                                                            <Col xs={{ size: 10, offset: 1 }} md={{ size: 10, offset: 1 }} className={classes.comtents}>
+                                                                <TextField
+                                                                    fullWidth
+                                                                    id="outlined-Phone"
+                                                                    label="Số điện thoại"
+                                                                    className={classes.textField}
+                                                                    value={this.state.Phone}
+                                                                    onChange={(e) => this.setState({
+                                                                        Phone: e.target.value
+                                                                    })}
+                                                                    margin="normal"
+                                                                    variant="outlined"
+                                                                />
                                                             </Col>
-                                                            <Col xs="12" md="12" className={classes.comtents}>
-                                                                Địa chỉ : 
+                                                            <Col xs={{ size: 10, offset: 1 }} md={{ size: 10, offset: 1 }} className={classes.comtents}>
+                                                                <TextField
+                                                                    fullWidth
+                                                                    id="outlined-Address"
+                                                                    label="Địa chỉ nhân hàng"
+                                                                    className={classes.textField}
+                                                                    value={this.state.Address}
+                                                                    onChange={(e) => this.setState({
+                                                                        Address: e.target.value
+                                                                    })}
+                                                                    margin="normal"
+                                                                    variant="outlined"
+                                                                />
                                                             </Col>
                                                             <Col xs={{ size: 12 }} md={{ size: 12 }}>
                                                                 <p
@@ -185,41 +224,45 @@ class Bills extends Component {
                                                                     }}
                                                                 ></p>
                                                             </Col>
-                                                    </Row>
-                                                </Col>
-                                            </Row>
-                                        </Container>
-                                      </Col>
-                                  </div>
-                              )
-                          }
-                      })}
-                  </Row>
+                                                            <Col xs="12" md="12" className={classes.comtents}>
+                                                                Đơn giá: {item.price}đ
+                                                            </Col>
+                                                            <Col xs="12" md="12" className={classes.comtents}>
+                                                                Số Lượng : {soluong}
+                                                            </Col>
+                                                            <Col xs="12" md="12" className={classes.comtents}>
+                                                            <h3 style={{color: 'red'}}>Tổng: {item.price * soluong}.000 đ</h3>
+                                                            </Col>
+                                                            <Col xs={{ size: 12 }} md={{ size: 12 }}>
+                                                                <p
+                                                                    style={{
+                                                                        border: '1px solid red',
+                                                                    }}
+                                                                ></p>
+                                                            </Col>
+                                                            <Col xs={{size: 4, offset:4 }} md={{size: 4, offset: 4}}>
+                                                                <Button
+                                                                    variant="contained"
+                                                                    color="secondary"
+                                                                    size="large"
+                                                                    value={item.title}
+                                                                    onClick={() => this.OK()}
+                                                                >
+                                                                    Đặt hàng
+                                                                </Button>
+                                                            </Col>
+                                                        </Row>
+                                                    </Col>
+                                                </Row>
+                                            </Container>
+                                        </Col>
+                                    </div>
+                                )
+                            }
+                        })}
+                    </Row>
                 </Col>
-                <Col md="12" xs="12" className={classes.footer}>
-                    <Container>
-                        <Row>
-                            <Col md={4} xs={{ size: 12 }}>
-                                <h2 className={classes.service}>Thống Kê</h2>
-                                <p style={{ border: '1px solid black' }}></p>
-                                <p>Tổng số sản phẩm bán ra : </p>
-                                <p style={{ marginBottom: '20px' }}>Số sản phẩm đang còn: </p>
-                            </Col>
-                            <Col md={4} xs={{ size: 12 }}>
-                                <h2 className={classes.service} >Liên hệ</h2>
-                                <p style={{ border: '1px solid black' }}></p>
-                                <p>FaceBook: Đỗ Tiến Dương</p>
-                                <p style={{ marginBottom: '20px' }}>SĐT: 0326609183</p>
-                            </Col>
-                            <Col md={4} xs={{ size: 12 }}>
-                                <h2 className={classes.service} >Dịch vụ khác</h2>
-                                <p style={{ border: '1px solid black' }}></p>
-                                <p></p>
-                                <p style={{ marginBottom: '20px' }}></p>
-                            </Col>
-                        </Row>
-                    </Container>
-                </Col>
+                <Footer />
             </div>
         )
     }

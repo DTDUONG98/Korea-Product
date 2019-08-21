@@ -142,10 +142,13 @@ class Home extends Component {
         let name = e.currentTarget.value
         this.props.history.push(`/Details/${name}`)
     }
+    checkImg(e){
+        let name = e.target.value
+        console.log('Value img', e)
+    }
     render() {
         const { classes } = this.props;
         let data = this.props.match.params.id
-        console.log('data', data)
         return (
             <div>
                 {/* <Header /> */}
@@ -244,11 +247,17 @@ class Home extends Component {
                                     <Zoom className={classes.zoomOutProperties}>
                                         {
                                             this.state.Cosmetics.slice(0, this.state.visible).map((e, index) => (
-                                                <img
+                                                <a 
                                                     key={index}
+                                                    value={e.title}
+                                                    onClick={(e) => this.checkImg(e)}
+                                                >
+                                                <img
+                                                    // key={index}
                                                     src={e.url}
                                                     style={{ width: '100%', height: '400px' }}
                                                 />
+                                                </a>
                                             ))
                                         }
                                     </Zoom>
