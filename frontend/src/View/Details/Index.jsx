@@ -17,7 +17,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 import Rating from '../Component/Rating'
 // import Header from '../Component/Header'
 import Footer from '../Component/Footer'
-import img from '../../../src/PTIT.png'
+// import img from '../../../src/PTIT.png'
 import { FaBars } from "react-icons/fa"
 import { FaSistrix } from "react-icons/fa"
 import InputBase from '@material-ui/core/InputBase'
@@ -176,7 +176,7 @@ class Details extends Component {
                             </div>
                         </Col>
                         <Col>
-                            <Avatar alt="PTIT" src={img} className={classes.avatar} />
+                            <Avatar alt="PTIT"  className={classes.avatar} />
                         </Col>
                     </Row>
                 </Col>
