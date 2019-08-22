@@ -5,7 +5,8 @@ import { Paper, Button } from '@material-ui/core';
 import { IoIosLock } from "react-icons/io";
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import { I18n } from 'react-redux-i18n'
 
 const style = theme => ({
     background: {
