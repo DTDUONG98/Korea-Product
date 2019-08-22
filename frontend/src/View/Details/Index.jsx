@@ -127,9 +127,7 @@ class Details extends Component {
     Bills(e) {
         let name = e.title
         let soluong = this.state.soluong
-        console.log('soluong', soluong)
         let title = name +"-"+ soluong
-        console.log('title', title)
         this.props.history.push(`/Bills/${title}`)
     }
     componentDidMount() {

@@ -15,9 +15,9 @@ import CardActions from '@material-ui/core/CardActions'
 import Typography from '@material-ui/core/Typography'
 import { red } from '@material-ui/core/colors'
 import FavoriteIcon from '@material-ui/icons/Favorite'
-import ShareIcon from '@material-ui/icons/Share'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
+import AttachMoney from '@material-ui/icons/AttachMoney'
 import { Container } from '@material-ui/core'
 import { IconButton, Icon, Tooltip, Button } from '@material-ui/core'
 
@@ -115,6 +115,18 @@ class Index extends Component {
         let name = e.currentTarget.value
         this.props.history.push(`/Details/${name}`)
     }
+    HelthyFood() {
+        this.props.history.push('/HelthyFood/02')
+    }
+    AddCosmetics() {
+        this.props.history.push('/CreateCosmetics/03')
+    }
+    Bills(e) {
+        let soluong = 1
+        let name = e.currentTarget.value
+        let title = name +"-"+ soluong
+        this.props.history.push(`/Bills/${title}`)
+    }
     componentDidMount() {
         fetch(`http://localhost:3333/Products`)
             .then(response => response.json())
@@ -128,12 +140,6 @@ class Index extends Component {
                 this.setState({ items: arrData })
             })
             .catch(error => console.log('error ', error));
-    }
-    HelthyFood() {
-        this.props.history.push('/HelthyFood/02')
-    }
-    AddCosmetics() {
-        this.props.history.push('/CreateCosmetics/03')
     }
     render() {
         const { classes } = this.props
@@ -189,9 +195,9 @@ class Index extends Component {
                                 </Avatar>
                                 }
                                     action={
-                                            <IconButton aria-label="settings">
-                                                <MoreVertIcon />
-                                            </IconButton>
+                                        <IconButton aria-label="settings">
+                                            <MoreVertIcon />
+                                        </IconButton>
                                     }
                                     title={item.title}
                                     subheader={item.date}
@@ -208,9 +214,11 @@ class Index extends Component {
                                             <FavoriteIcon />
                                         </IconButton>
                                     </Tooltip>
-                                    <IconButton aria-label="share">
-                                        <ShareIcon />
-                                    </IconButton>
+                                    <Tooltip title="Buy now" key="Buy">
+                                        <IconButton aria-label="share" value={item.title} onClick={(e) => this.Bills(e)}>
+                                            <AttachMoney />
+                                        </IconButton>
+                                    </Tooltip>
                                 </CardActions>
                             </Card>
                         )}

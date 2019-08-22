@@ -228,10 +228,10 @@ class Bills extends Component {
                                                                 Đơn giá: {item.price}đ
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
-                                                                Số Lượng : {soluong}
+                                                                Số Lượng : {`${soluong}`}
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
-                                                            <h3 style={{color: 'red'}}>Tổng: {item.price * soluong}.000 đ</h3>
+                                                            <h3 style={{color: 'red'}}>Tổng: {`${item.price * soluong}`}.000 đ</h3>
                                                             </Col>
                                                             <Col xs={{ size: 12 }} md={{ size: 12 }}>
                                                                 <p
