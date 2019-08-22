@@ -45,6 +45,8 @@ class index extends Component {
             Password: '',
             errorPas: false,
             errorUser: false,
+            messPas: "",
+            messUser: "",
         }
     }
     createUser() {
@@ -62,18 +64,22 @@ class index extends Component {
             else {
                 if (this.state.userName !== e.UserName) {
                     this.setState({
+                        messUser: I18n.t("Tài khoản không chính xác"),
                         errorUser: true,
                         errorPas: false,
                     })
                 }
                 if (this.state.Password !== e.Password) {
                         this.setState({
+                            messPas: I18n.t("Mật khẩu không chính xác"),
                             errorPas: true,
                             errorUser: false
                         })
                     }
                 if(this.state.userName !== e.UserName && this.state.Password !== e.Password){
                     this.setState({
+                        messUser: I18n.t("Tài khoản không chính xác"),
+                        messPas: I18n.t("Mật khẩu không chính xác"),
                         errorUser: true,
                         errorPas: true,
                     })
@@ -114,6 +120,7 @@ class index extends Component {
                                     userName: e.target.value
                                 })}
                                 error={this.state.errorUser}
+                                helperText={this.state.messUser}
                             />
                             <TextField
                                 id="Password"
@@ -126,6 +133,7 @@ class index extends Component {
                                     Password: e.target.value
                                 })}
                                 error={this.state.errorPas}
+                                helperText={this.state.messPas}
                             />
                             <FormControlLabel
                                 control={
