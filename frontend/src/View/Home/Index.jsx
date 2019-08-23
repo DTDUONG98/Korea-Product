@@ -110,23 +110,11 @@ const style = theme => ({
         },
     },
     fixPaddingProMain: {
-        padding: '24px'
-    },
-    backgroundWidthProItemBlog3: {
-        background: 'white',
-        textAlign: 'center',
-        padding: '10px 0px',
-        marginTop: '35px'
-    },
-    fixWidthImgProMainItem3: {
-        width: '100%',
-        height: '270px',
-        marginTop: '-10px',
-
+        padding: '20px'
     },
     card: {
-        maxWidth: 290,
-        marginLeft: '80px',
+        maxWidth: 300,
+        marginLeft: '30px',
         marginTop: '30px',
         marginBottom: '20px'
     },
@@ -289,13 +277,33 @@ class Home extends Component {
                                 <Slider {...settings}>
                                     {this.state.items.map((item, index) => {
                                         return (
-                                            <div className={classes.fixPaddingProMain} key={index}>
-                                                <div className={classes.backgroundWidthProItemBlog3}>
-                                                    <img src={item.url} alt="" className={classes.fixWidthImgProMainItem3} />
-                                                    <Typography variant="h5">{item.title}</Typography>
-                                                    <Typography variant="body1">{item.content}</Typography>
-                                                </div>
-                                            </div>
+                                            <Card className={classes.card} key={index}>
+                                            <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
+                                                {item.title}
+                                            </Avatar>
+                                            }
+                                                title={item.title}
+                                                subheader={item.date}
+                                            />
+                                            <CardMedia className={classes.media} image={item.url} title={item.title} />
+                                            <CardContent>
+                                                <Typography variant="body2" color="textSecondary" component="p">
+                                                    {item.content}
+                                                </Typography>
+                                            </CardContent>
+                                            <CardActions disableSpacing>
+                                                <Tooltip title="Detail Product" key="Detail">
+                                                    <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
+                                                        <FavoriteIcon />
+                                                    </IconButton>
+                                                </Tooltip>
+                                                <Tooltip title="Buy now" key="Buy">
+                                                    <IconButton aria-label="share" value={item.title} onClick={(e) => this.Bills(e)}>
+                                                        <AttachMoney />
+                                                    </IconButton>
+                                                </Tooltip>
+                                            </CardActions>
+                                        </Card>
                                         )
                                     })}
                                 </Slider>
@@ -308,23 +316,68 @@ class Home extends Component {
                         <Grid container className={classes.Grid}>
                             <Grid item md={4}>
                                 <Paper className={classes.paper}>
-                                    <p>
+                                    <Col xs="12" md="12" style={{
+                                        textAlign: 'center',
+                                        fontSize: '20px',
+                                        marginTop: '10px',
+                                    }}>
                                         Dịch Vụ
-                                    </p>
+                                    </Col>
+                                    <Col xs={{size: 10, offset: 1}} md={{size: 10, offset: 1}} 
+                                        style={{
+                                            border: '1px solid red',
+                                            marginTop: '10px',
+                                            marginBottom: '10px',
+                                        }}>
+                                    </Col>
+                                    <Col xs="12" md="12" style={{marginBottom: '20px'}}>
+                                    This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.
+                                    </Col>
                                 </Paper>
                             </Grid>
                             <Grid item md={4} className={classes.paper}>
                                 <Paper>
-                                    <p>
-                                        Sản PHẨM
-                                    </p>
+                                <Col xs="12" md="12" style={{
+                                        textAlign: 'center',
+                                        fontSize: '20px',
+                                        marginTop: '10px',
+                                    }}>
+                                        Sản Phẩm
+                                    </Col>
+                                    <Col xs={{size: 10, offset: 1}} md={{size: 10, offset: 1}} 
+                                        style={{
+                                            border: '1px solid red',
+                                            marginTop: '10px',
+                                            marginBottom: '10px',
+                                        }}>
+                                    </Col>
+                                    <Col>
+                                        <p>Chúng tôi chuyên cung cấp các sản phẩm đúng hãng và đảm bảo chất lượng đến với người tiêu dùng</p>
+                                        <p>Bên tôi chuyên cung cấp những sản phẩm như : </p>
+                                        <p>Mỹ phẩm </p>
+                                        <p>Thực phẩm chức năng</p>
+                                    </Col>
                                 </Paper>
                             </Grid>
                             <Grid item md={4} className={classes.paper}>
                                 <Paper>
-                                    <p>
-                                        Vận chuyển
-                                    </p>
+                                <Col xs="12" md="12" style={{
+                                        textAlign: 'center',
+                                        fontSize: '20px',
+                                        marginTop: '10px',
+                                    }}>
+                                        Dịch Vụ
+                                    </Col>
+                                    <Col xs={{size: 10, offset: 1}} md={{size: 10, offset: 1}} 
+                                        style={{
+                                            border: '1px solid red',
+                                            marginTop: '10px',
+                                            marginBottom: '10px',
+                                        }}>
+                                    </Col>
+                                    <Col xs="12" md="12" style={{marginBottom: '20px'}}>
+                                    This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.
+                                    </Col>
                                 </Paper>
                             </Grid>
                         </Grid>
@@ -352,11 +405,6 @@ class Home extends Component {
                                             {item.title}
                                         </Avatar>
                                         }
-                                            action={
-                                                <IconButton aria-label="settings">
-                                                    <MoreVertIcon />
-                                                </IconButton>
-                                            }
                                             title={item.title}
                                             subheader={item.date}
                                         />
@@ -405,11 +453,6 @@ class Home extends Component {
                                             {item.title}
                                         </Avatar>
                                         }
-                                            action={
-                                                <IconButton aria-label="settings">
-                                                    <MoreVertIcon />
-                                                </IconButton>
-                                            }
                                             title={item.title}
                                             subheader={item.date}
                                         />
