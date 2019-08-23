@@ -63,7 +63,7 @@
       "date": "July 14, 2019",
       "price": "250.000",
       "cost": "300.000",
-      "status": "Còn hàng",
+      "status": "New",
       "type": "Cosmetics"
     },
     {
@@ -74,7 +74,7 @@
       "date": "July 14, 2019",
       "price": "250.000",
       "cost": "300.000",
-      "status": "Còn hàng",
+      "status": "New",
       "type": "Cosmetics"
     },
     {
@@ -184,7 +184,7 @@
       "date": "July 14, 2019",
       "price": "250.000",
       "cost": "300.000",
-      "status": "Còn hàng",
+      "status": "New",
       "type": "Helthy"
     },
     {
@@ -217,7 +217,7 @@
       "date": "July 14, 2019",
       "price": "250.000",
       "cost": "300.000",
-      "status": "Còn hàng",
+      "status": "New",
       "type": "Helthy"
     },
     {

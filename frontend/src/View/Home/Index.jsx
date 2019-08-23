@@ -28,7 +28,7 @@ const style = theme => ({
         background: "url(./background/homebgr.jpg)",
         position: 'relative',
         backgroundSize: 'cover',
-        height: '500px',
+        height: '600px',
         backgroundAttachment: 'fixed'
     },
     cosmetics: {
@@ -120,11 +120,8 @@ const style = theme => ({
     },
     fixWidthImgProMainItem3: {
         width: '100%',
-        height: '250px',
+        height: '270px',
         marginTop: '-10px',
-
-    },
-    Grid: {
 
     },
     card: {
@@ -278,7 +275,33 @@ class Home extends Component {
                     </Row>
                 </Col>
                 <Col xs="12" md="12" className={classes.header}>
-                    
+                    <Row>
+                        <Col xs="12" md="12" style={{
+                             textAlign: 'center',
+                             fontSize: '40px',
+                             marginTop: '50px',
+                             color: 'yellow',
+                        }}>
+                            Các Sản Phẩm Mới
+                        </Col>
+                        <Col xs="12" md="12">
+                            <div className={classes.fixOverFolow}>
+                                <Slider {...settings}>
+                                    {this.state.items.map((item, index) => {
+                                        return (
+                                            <div className={classes.fixPaddingProMain} key={index}>
+                                                <div className={classes.backgroundWidthProItemBlog3}>
+                                                    <img src={item.url} alt="" className={classes.fixWidthImgProMainItem3} />
+                                                    <Typography variant="h5">{item.title}</Typography>
+                                                    <Typography variant="body1">{item.content}</Typography>
+                                                </div>
+                                            </div>
+                                        )
+                                    })}
+                                </Slider>
+                            </div>
+                        </Col>
+                    </Row>
                 </Col>
                 <Col>
                     <Row>
@@ -312,7 +335,8 @@ class Home extends Component {
                         <Col xs="12" md="12" style={{
                             textAlign: 'center',
                             fontSize: '40px',
-                            marginTop: '50px',
+                            marginTop: '20px',
+                            color: 'red'
                         }}>
                             Mỹ Phẩm
                         </Col>
