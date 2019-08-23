@@ -1,14 +1,7 @@
 import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { Col, Row } from 'reactstrap'
-import { Paper, Container } from '@material-ui/core'
-import Table from '@material-ui/core/Table'
-import TableBody from '@material-ui/core/TableBody'
-import TableCell from '@material-ui/core/TableCell'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
-import { Zoom } from 'react-slideshow-image'
-// import Header from '../Component/Header'
+import { Paper, Container, Grid } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import img from '../../../src/PTIT.png'
 import { FaBars } from "react-icons/fa"
@@ -16,22 +9,51 @@ import { FaSistrix } from "react-icons/fa"
 import InputBase from '@material-ui/core/InputBase'
 import { fade } from '@material-ui/core/styles'
 import Footer from '../Component/Footer'
+import Slider from "react-slick"
+import Typography from '@material-ui/core/Typography'
+import Card from '@material-ui/core/Card'
+import CardHeader from '@material-ui/core/CardHeader'
+import CardMedia from '@material-ui/core/CardMedia'
+import CardContent from '@material-ui/core/CardContent'
+import CardActions from '@material-ui/core/CardActions'
+import { red } from '@material-ui/core/colors'
+import FavoriteIcon from '@material-ui/icons/Favorite'
+import MoreVertIcon from '@material-ui/icons/MoreVert'
+import AttachMoney from '@material-ui/icons/AttachMoney'
+import { IconButton, Icon, Tooltip, Button } from '@material-ui/core'
+
 
 const style = theme => ({
     header: {
+        background: "url(./background/homebgr.jpg)",
+        position: 'relative',
+        backgroundSize: 'cover',
+        height: '500px',
+        backgroundAttachment: 'fixed'
+    },
+    cosmetics: {
+        background: "url(./background/stylesbgr.jpg)",
+        position: 'relative',
+        backgroundSize: 'cover',
+        height: '200px',
+        backgroundAttachment: 'fixed'
+    },
+    helthyFood: {
+        background: "url(./background/tpcnbgr.jpg)",
+        position: 'relative',
+        backgroundSize: 'cover',
+        height: '200px',
+        backgroundAttachment: 'fixed'
+    },
+    body: {
         textAlign: 'center',
         width: '100%',
         height: 'auto'
-    },
-    card: {
-        maxWidth: 345,
-        marginLeft: '40px',
     },
     paper: {
         widht: '100%',
         height: 'auto',
         marginTop: '20px',
-        marginLeft: '10px',
     },
     zoomOutProperties: {
         duration: 5000,
@@ -87,6 +109,45 @@ const style = theme => ({
             },
         },
     },
+    fixPaddingProMain: {
+        padding: '24px'
+    },
+    backgroundWidthProItemBlog3: {
+        background: 'white',
+        textAlign: 'center',
+        padding: '10px 0px',
+        marginTop: '35px'
+    },
+    fixWidthImgProMainItem3: {
+        width: '100%',
+        height: '250px',
+        marginTop: '-10px',
+
+    },
+    Grid: {
+
+    },
+    card: {
+        maxWidth: 290,
+        marginLeft: '80px',
+        marginTop: '30px',
+        marginBottom: '20px'
+    },
+    media: {
+        width: '100%',
+        height: 0,
+        paddingTop: '56.25%', // 16:9
+        transition: '0,3',
+        "&:hover": {
+            transform: 'scale(1.1)',
+        }
+    },
+    avatarCard: {
+        backgroundColor: red[500],
+    },
+    fixOverFolow: {
+        overflow: 'hidden'
+    }
 })
 class Home extends Component {
     constructor(props) {
@@ -94,22 +155,33 @@ class Home extends Component {
         this.state = {
             Cosmetics: [],
             HelthyFood: [],
+            items: [],
         }
     }
     Home() {
         this.props.history.push('/')
     }
-    HelthyFood(){
+    HelthyFood() {
         this.props.history.push('/HelthyFood/02')
     }
     Cosmetics() {
         this.props.history.push('/Cosmetics/01')
     }
-    Signin(){
+    Signin() {
         this.props.history.push('/login/11')
     }
-    SignUp(){
+    SignUp() {
         this.props.history.push('/Create/12')
+    }
+    Details(e) {
+        let name = e.currentTarget.value
+        this.props.history.push(`/Details/${name}`)
+    }
+    Bills(e) {
+        let soluong = 1
+        let name = e.currentTarget.value
+        let title = name + "-" + soluong
+        this.props.history.push(`/Bills/${title}`)
     }
     // để chạy db.json/database :  json-server --watch db.json --port 3333
     // Khai báo data Products ở file datanbase/db.json
@@ -119,19 +191,24 @@ class Home extends Component {
             .then(response => response.json())
             // ...then we update the users state
             .then(data => {
+                let Data = []
                 let DataCosmetics = []
-                let DataFelthyFood = []
+                let DataHelthyFood = []
                 data.map((e) => {
+                    if (e.status == "New") {
+                        Data.push(e)
+                    }
                     if (e.type == "Cosmetics") {
                         DataCosmetics.push(e)
                     }
-                    else {
-                        DataFelthyFood.push(e)
+                    if (e.type !== "Cosmetics") {
+                        DataHelthyFood.push(e)
                     }
                 })
                 this.setState({
+                    items: Data,
                     Cosmetics: DataCosmetics,
-                    HelthyFood: DataFelthyFood,
+                    HelthyFood: DataHelthyFood,
                 })
             })
             // Catch any errors we hit and update the app
@@ -142,27 +219,30 @@ class Home extends Component {
         let name = e.currentTarget.value
         this.props.history.push(`/Details/${name}`)
     }
-    checkImg(e){
-        let name = e.target.value
-        console.log('Value img', e)
-    }
     render() {
         const { classes } = this.props;
         let data = this.props.match.params.id
+        var settings = {
+            dots: true,
+            infinite: true,
+            speed: 1500,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            autoplay: true,
+        };
         return (
             <div>
-                {/* <Header /> */}
                 <Col xs="12" md="12" className={classes.title}>
                     <Row>
                         <Col xs="1" md="1">
-                            <FaBars style={{ fontSize: '40px', margin: '20px' , cursor: 'pointer'}} />
+                            <FaBars style={{ fontSize: '40px', margin: '20px', cursor: 'pointer' }} />
                         </Col>
                         <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
                             <a
                                 onClick={() => this.Home()}
                             >HOME</a>
                         </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px' , cursor: 'pointer'}}>
+                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
                             <a
                                 onClick={() => this.Cosmetics()}
                             >MỸ PHẨM</a>
@@ -197,129 +277,139 @@ class Home extends Component {
                         </Col>
                     </Row>
                 </Col>
-                <Col xs={{ size: 12 }} md={{ size: 12 }} className={classes.header}>
-                    <p
-                        style={{
-                            textAlign: 'center',
-                            fontSize: '30px',
-                            marginTop: '20px',
-                        }}
-                    >
-                        Mỹ Phẩm
-                    </p>
+                <Col xs="12" md="12" className={classes.header}>
+                    
+                </Col>
+                <Col>
                     <Row>
-                        <Col md={6} xs={{ size: 12 }}>
-                            <Paper className={classes.paper}>
-                                <Col xs={12} md={12} style={{ textAlign: 'center', backgroundColor: '#F57249', padding: '10px' }}>
-                                    Giao dich gần đây
-                               </Col>
-                                <Col xs={12} md={12}>
-                                    <Table>
-                                        <TableHead>
-                                            <TableRow>
-                                                <TableCell align="left">Tên sản phẩm</TableCell>
-                                                <TableCell align="left">Số Lượng</TableCell>
-                                                <TableCell align="left">Đơn giá(vnđ)</TableCell>
-                                            </TableRow>
-                                        </TableHead>
-                                        <TableBody>
-                                            <TableRow>
-                                                <TableCell>Đông trùng hạ thảo</TableCell>
-                                                <TableCell>2</TableCell>
-                                                <TableCell>250.000</TableCell>
-                                            </TableRow>
-                                            <TableRow>
-                                                <TableCell>Nước hoa hồng laneige</TableCell>
-                                                <TableCell>3</TableCell>
-                                                <TableCell>250.000</TableCell>
-                                            </TableRow>
-                                        </TableBody>
-                                    </Table>
-                                </Col>
-                            </Paper>
-                        </Col>
-                        <Col md={6} xs={{ size: 12 }}>
-                            <Paper className={classes.paper}>
-                                <Col xs={12} md={12} style={{ textAlign: 'center', backgroundColor: '#F57249', padding: '10px' }}>
-                                    Những sản phẩm mới gần đây
-                                </Col>
-                                <Col xs={12} md={12}>
-                                    <Zoom className={classes.zoomOutProperties}>
-                                        {
-                                            this.state.Cosmetics.slice(0, this.state.visible).map((e, index) => (
-                                                <a 
-                                                    key={index}
-                                                    value={e.title}
-                                                    onClick={(e) => this.checkImg(e)}
-                                                >
-                                                <img
-                                                    // key={index}
-                                                    src={e.url}
-                                                    style={{ width: '100%', height: '400px' }}
-                                                />
-                                                </a>
-                                            ))
-                                        }
-                                    </Zoom>
-                                </Col>
-                            </Paper>
+                        <Grid container className={classes.Grid}>
+                            <Grid item md={4}>
+                                <Paper className={classes.paper}>
+                                    <p>
+                                        Dịch Vụ
+                                    </p>
+                                </Paper>
+                            </Grid>
+                            <Grid item md={4} className={classes.paper}>
+                                <Paper>
+                                    <p>
+                                        Sản PHẨM
+                                    </p>
+                                </Paper>
+                            </Grid>
+                            <Grid item md={4} className={classes.paper}>
+                                <Paper>
+                                    <p>
+                                        Vận chuyển
+                                    </p>
+                                </Paper>
+                            </Grid>
+                        </Grid>
+                    </Row>
+                </Col>
+                <Col xs="12" md="12" className={classes.cosmetics}>
+                    <Row>
+                        <Col xs="12" md="12" style={{
+                            textAlign: 'center',
+                            fontSize: '40px',
+                            marginTop: '50px',
+                        }}>
+                            Mỹ Phẩm
                         </Col>
                     </Row>
-                    <p
-                        style={{
-                            textAlign: 'center',
-                            fontSize: '30px',
-                            marginTop: '20px',
-                        }}
-                    >
-                        Thực phẩm chức năng
-                    </p>
+                </Col>
+                <Col xs="12" md="12">
                     <Row>
-                        <Col md={6} xs={{ size: 12 }}>
-                            <Paper className={classes.paper}>
-                                <Col xs={12} md={12} style={{ textAlign: 'center', backgroundColor: '#F57249', padding: '10px' }}>
-                                    Những sản phẩm mới gần đây
-                                </Col>
-                                <Col xs={12} md={12}>
-                                    <Zoom className={classes.zoomOutProperties}>
-                                        {
-                                            this.state.HelthyFood.slice(0, this.state.visible).map((e, index) => (
-                                                <img key={index} src={e.url} style={{ width: '100%', height: '400px' }} />
-                                            ))
+                        <Col xs="12" md="12">
+                            <Row>
+                                {this.state.Cosmetics.slice(0, 4).map((item, index) =>
+                                    <Card className={classes.card} key={index}>
+                                        <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
+                                            {item.title}
+                                        </Avatar>
                                         }
-                                    </Zoom>
-                                </Col>
-                            </Paper>
+                                            action={
+                                                <IconButton aria-label="settings">
+                                                    <MoreVertIcon />
+                                                </IconButton>
+                                            }
+                                            title={item.title}
+                                            subheader={item.date}
+                                        />
+                                        <CardMedia className={classes.media} image={item.url} title={item.title} />
+                                        <CardContent>
+                                            <Typography variant="body2" color="textSecondary" component="p">
+                                                {item.content}
+                                            </Typography>
+                                        </CardContent>
+                                        <CardActions disableSpacing>
+                                            <Tooltip title="Detail Product" key="Detail">
+                                                <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
+                                                    <FavoriteIcon />
+                                                </IconButton>
+                                            </Tooltip>
+                                            <Tooltip title="Buy now" key="Buy">
+                                                <IconButton aria-label="share" value={item.title} onClick={(e) => this.Bills(e)}>
+                                                    <AttachMoney />
+                                                </IconButton>
+                                            </Tooltip>
+                                        </CardActions>
+                                    </Card>
+                                )}
+                            </Row>
                         </Col>
-                        <Col md={6} xs={{ size: 12 }}>
-                            <Paper className={classes.paper}>
-                                <Col xs={12} md={12} style={{ textAlign: 'center', backgroundColor: '#F57249', padding: '10px' }}>
-                                    Giao dich gần đây
-                               </Col>
-                                <Col xs={12} md={12}>
-                                    <Table>
-                                        <TableHead>
-                                            <TableRow>
-                                                <TableCell align="left">Tên sản phẩm</TableCell>
-                                                <TableCell align="left">Số Lượng</TableCell>
-                                                <TableCell align="left">Đơn giá(vnđ)</TableCell>
-                                            </TableRow>
-                                        </TableHead>
-                                        <TableBody>
-                                            <TableRow>
-                                                <TableCell>Đông trùng hạ thảo</TableCell>
-                                                <TableCell>2</TableCell>
-                                                <TableCell>250.000</TableCell>
-                                            </TableRow>
-                                            <TableRow>
-                                                <TableCell>Lợi sữa ITOH</TableCell>
-                                                <TableCell>3</TableCell>
-                                                <TableCell>250.000</TableCell>
-                                            </TableRow>
-                                        </TableBody>
-                                    </Table>
-                                </Col>
-                            </Paper>
+                    </Row>
+                </Col>
+                <Col xs="12" md="12" className={classes.helthyFood}>
+                    <Row>
+                        <Col xs="12" md="12" style={{
+                            textAlign: 'center',
+                            fontSize: '40px',
+                            marginTop: '50px',
+                        }}>
+                            <p>Thực Phẩn Chức Năng</p>
+                        </Col>
+                    </Row>
+                </Col>
+                <Col xs="12" md="12">
+                    <Row>
+                        <Col xs="12" md="12">
+                            <Row>
+                                {this.state.HelthyFood.slice(0, 4).map((item, index) =>
+                                    <Card className={classes.card} key={index}>
+                                        <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
+                                            {item.title}
+                                        </Avatar>
+                                        }
+                                            action={
+                                                <IconButton aria-label="settings">
+                                                    <MoreVertIcon />
+                                                </IconButton>
+                                            }
+                                            title={item.title}
+                                            subheader={item.date}
+                                        />
+                                        <CardMedia className={classes.media} image={item.url} title={item.title} />
+                                        <CardContent>
+                                            <Typography variant="body2" color="textSecondary" component="p">
+                                                {item.content}
+                                            </Typography>
+                                        </CardContent>
+                                        <CardActions disableSpacing>
+                                            <Tooltip title="Detail Product" key="Detail">
+                                                <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
+                                                    <FavoriteIcon />
+                                                </IconButton>
+                                            </Tooltip>
+                                            <Tooltip title="Buy now" key="Buy">
+                                                <IconButton aria-label="share" value={item.title} onClick={(e) => this.Bills(e)}>
+                                                    <AttachMoney />
+                                                </IconButton>
+                                            </Tooltip>
+                                        </CardActions>
+                                    </Card>
+                                )}
+                            </Row>
                         </Col>
                     </Row>
                 </Col>
