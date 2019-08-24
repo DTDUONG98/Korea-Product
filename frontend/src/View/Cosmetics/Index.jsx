@@ -20,8 +20,16 @@ import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 import AttachMoney from '@material-ui/icons/AttachMoney'
 import { Container } from '@material-ui/core'
 import { IconButton, Icon, Tooltip, Button } from '@material-ui/core'
+import Slider from "react-slick"
 
 const style = theme => ({
+    header: {
+        background: "url(/background/Cosmeticsbgr.jpg)",
+        position: 'relative',
+        backgroundSize: 'cover',
+        height: '550px',
+        backgroundAttachment: 'fixed'
+    },
     title: {
         background: '#adc1eb',
         width: '100%',
@@ -103,6 +111,7 @@ class Index extends Component {
         super(props);
         this.state = {
             items: [],
+            dataSale: [],
             vasible: 4,
             hidden: false,
         }
@@ -124,25 +133,37 @@ class Index extends Component {
     Bills(e) {
         let soluong = 1
         let name = e.currentTarget.value
-        let title = name +"-"+ soluong
+        let title = name + "-" + soluong
         this.props.history.push(`/Bills/${title}`)
     }
     componentDidMount() {
         fetch(`http://localhost:3333/Products`)
             .then(response => response.json())
             .then((data) => {
+                let DataSale = []
                 let arrData = []
                 data.map((e) => {
                     if (e.type == "Cosmetics") {
                         arrData.push(e)
+                        if(e.status == "New"){
+                            DataSale.push(e)
+                        }
                     }
                 })
-                this.setState({ items: arrData })
+                this.setState({ items: arrData, dataSale: DataSale })
             })
             .catch(error => console.log('error ', error));
     }
     render() {
         const { classes } = this.props
+        var settings = {
+            dots: true,
+            infinite: true,
+            speed: 1500,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            autoplay: true,
+        };
         return (
             <div>
                 <Col xs="12" md="12" className={classes.title}>
@@ -176,6 +197,55 @@ class Index extends Component {
                         </Col>
                         <Col>
                             <Avatar alt="PTIT" src={img} className={classes.avatar} />
+                        </Col>
+                    </Row>
+                </Col>
+                <Col xs="12" md="12" className={classes.header}>
+                    <Row>
+                        <Col xs="12" md="12" style={{
+                            textAlign: 'center',
+                            fontSize: '40px',
+                            marginTop: '30px',
+                            // color: 'Blue',
+                        }}>
+                            Những Sản Phẩm Giảm Giá
+                        </Col>
+                        <Col xs="12" md="12">
+                            <div className={classes.fixOverFolow}>
+                                <Slider {...settings}>
+                                    {this.state.dataSale.map((item, index) => {
+                                        return (
+                                            <Card className={classes.card} key={index}>
+                                                <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
+                                                    {item.title}
+                                                </Avatar>
+                                                }
+                                                    title={item.title}
+                                                    subheader={item.date}
+                                                />
+                                                <CardMedia className={classes.media} image={item.url} title={item.title} />
+                                                <CardContent>
+                                                    <Typography variant="body2" color="textSecondary" component="p">
+                                                        {item.content}
+                                                    </Typography>
+                                                </CardContent>
+                                                <CardActions disableSpacing>
+                                                    <Tooltip title="Detail Product" key="Detail">
+                                                        <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
+                                                            <FavoriteIcon />
+                                                        </IconButton>
+                                                    </Tooltip>
+                                                    <Tooltip title="Buy now" key="Buy">
+                                                        <IconButton aria-label="share" value={item.title} onClick={(e) => this.Bills(e)}>
+                                                            <AttachMoney />
+                                                        </IconButton>
+                                                    </Tooltip>
+                                                </CardActions>
+                                            </Card>
+                                        )
+                                    })}
+                                </Slider>
+                            </div>
                         </Col>
                     </Row>
                 </Col>

@@ -18,7 +18,6 @@ import CardContent from '@material-ui/core/CardContent'
 import CardActions from '@material-ui/core/CardActions'
 import { red } from '@material-ui/core/colors'
 import FavoriteIcon from '@material-ui/icons/Favorite'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
 import AttachMoney from '@material-ui/icons/AttachMoney'
 import { IconButton, Icon, Tooltip, Button } from '@material-ui/core'
 
@@ -54,14 +53,6 @@ const style = theme => ({
         widht: '100%',
         height: 'auto',
         marginTop: '20px',
-    },
-    zoomOutProperties: {
-        duration: 5000,
-        transitionDuration: 500,
-        infinite: true,
-        indicators: true,
-        scale: 0.4,
-        arrows: true
     },
     title: {
         background: '#adc1eb',
@@ -108,9 +99,6 @@ const style = theme => ({
                 width: 200,
             },
         },
-    },
-    fixPaddingProMain: {
-        padding: '20px'
     },
     card: {
         maxWidth: 300,
@@ -162,7 +150,7 @@ class Home extends Component {
         let name = e.currentTarget.value
         this.props.history.push(`/Details/${name}`)
     }
-    Bills(e) {
+    Bills(e) { // Bill mua một sản phẩm khi onClick vào sản phẩm đó
         let soluong = 1
         let name = e.currentTarget.value
         let title = name + "-" + soluong
