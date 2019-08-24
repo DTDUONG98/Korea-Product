@@ -21,8 +21,17 @@ import InputBase from '@material-ui/core/InputBase'
 import { fade } from '@material-ui/core/styles'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 import { IconButton, Icon, Tooltip, Button } from '@material-ui/core'
+import Slider from "react-slick"
+import AttachMoney from '@material-ui/icons/AttachMoney'
 
 const style = theme => ({
+    header: {
+        background: "url(/background/Helthybgr.jpg)",
+        position: 'relative',
+        backgroundSize: 'cover',
+        height: '550px',
+        backgroundAttachment: 'fixed'
+    },
     eachFade: {
         display: true,
     },
@@ -98,13 +107,14 @@ class Index extends Component {
         super(props);
         this.state = {
             items: [],
-            vasible: 4,
+            dataSale: [],
+            visible: 12,
         }
     }
     Home() {
         this.props.history.push('/')
     }
-    HelthyFood(){
+    HelthyFood() {
         this.props.history.push('/HelthyFood/02')
     }
     Cosmetics() {
@@ -114,39 +124,50 @@ class Index extends Component {
         let name = e.currentTarget.value
         this.props.history.push(`/Details/${name}`)
     }
-    AddHelthyFood(){
+    AddHelthyFood() {
         this.props.history.push('/CreateHelthyFood/13')
     }
     componentDidMount() {
         fetch(`http://localhost:3333/Products`)
             .then(response => response.json())
             .then(data => {
+                let DataSale = []
                 let arrData = []
                 data.map((e) => {
                     if (e.type !== "Cosmetics") {
                         arrData.push(e)
+                        if (e.status == "New") {
+                            DataSale.push(e)
+                        }
                     }
                 })
-                this.setState({ items: arrData })
+                this.setState({ items: arrData, dataSale: DataSale })
             })
             .catch(error => console.log('error ', error));
     }
     render() {
         const { classes } = this.props
+        var settings = {
+            dots: true,
+            infinite: true,
+            speed: 1500,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            autoplay: true,
+        };
         return (
             <div>
-                {/* <Header /> */}
                 <Col xs="12" md="12" className={classes.title}>
                     <Row>
                         <Col xs="1" md="1">
-                            <FaBars style={{ fontSize: '40px', margin: '20px' , cursor: 'pointer'}} />
+                            <FaBars style={{ fontSize: '40px', margin: '20px', cursor: 'pointer' }} />
                         </Col>
                         <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
                             <a
                                 onClick={() => this.Home()}
                             >HOME</a>
                         </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px' , cursor: 'pointer'}}>
+                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
                             <a
                                 onClick={() => this.Cosmetics()}
                             >MỸ PHẨM</a>
@@ -172,6 +193,55 @@ class Index extends Component {
                         </Col>
                     </Row>
                 </Col>
+                <Col xs="12" md="12" className={classes.header}>
+                    <Row>
+                        <Col xs="12" md="12" style={{
+                            textAlign: 'center',
+                            fontSize: '40px',
+                            marginTop: '30px',
+                            color: 'red',
+                        }}>
+                            Những Sản Phẩm Giảm Giá
+                        </Col>
+                        <Col xs="12" md="12">
+                            <div className={classes.fixOverFolow}>
+                                <Slider {...settings}>
+                                    {this.state.dataSale.map((item, index) => {
+                                        return (
+                                            <Card className={classes.card} key={index}>
+                                                <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
+                                                    {item.title}
+                                                </Avatar>
+                                                }
+                                                    title={item.title}
+                                                    subheader={item.date}
+                                                />
+                                                <CardMedia className={classes.media} image={item.url} title={item.title} />
+                                                <CardContent>
+                                                    <Typography variant="body2" color="textSecondary" component="p">
+                                                        {item.content}
+                                                    </Typography>
+                                                </CardContent>
+                                                <CardActions disableSpacing>
+                                                    <Tooltip title="Detail Product" key="Detail">
+                                                        <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
+                                                            <FavoriteIcon />
+                                                        </IconButton>
+                                                    </Tooltip>
+                                                    <Tooltip title="Buy now" key="Buy">
+                                                        <IconButton aria-label="share" value={item.title} onClick={(e) => this.Bills(e)}>
+                                                            <AttachMoney />
+                                                        </IconButton>
+                                                    </Tooltip>
+                                                </CardActions>
+                                            </Card>
+                                        )
+                                    })}
+                                </Slider>
+                            </div>
+                        </Col>
+                    </Row>
+                </Col>
                 <Col xs={{ size: 1, offset: 11 }} md={{ size: 1, offset: 11 }} style={{ fontSize: '30px', marginTop: '20px' }}>
                     <Tooltip title="Create New Product" key="create">
                         <IconButton hidden={this.state.hidden} onClick={() => this.AddHelthyFood()}>
@@ -187,11 +257,6 @@ class Index extends Component {
                                     {item.title}
                                 </Avatar>
                                 }
-                                    action={
-                                        <IconButton aria-label="settings">
-                                            <MoreVertIcon />
-                                        </IconButton>
-                                    }
                                     title={item.title}
                                     subheader={item.date}
                                 />
@@ -211,6 +276,23 @@ class Index extends Component {
                                 </CardActions>
                             </Card>
                         )}
+                    </Row>
+                </Col>
+                <Col xs="12" md="12">
+                    <Row>
+                        <Col xs={{ size: 4, offset: 4 }} md={{ size: 4, offset: 4 }} style={{textAlign: 'center'}}>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                size="large"
+                                value="4"
+                                onClick={(e) => this.setState({
+                                    visible: parseInt(this.state.visible) + parseInt(e.target.value)
+                                })}
+                            >
+                                Xem Thêm
+                                </Button>
+                        </Col>
                     </Row>
                 </Col>
                 <Footer />

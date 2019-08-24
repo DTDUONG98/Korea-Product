@@ -15,12 +15,12 @@ import CardActions from '@material-ui/core/CardActions'
 import Typography from '@material-ui/core/Typography'
 import { red } from '@material-ui/core/colors'
 import FavoriteIcon from '@material-ui/icons/Favorite'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 import AttachMoney from '@material-ui/icons/AttachMoney'
 import { Container } from '@material-ui/core'
 import { IconButton, Icon, Tooltip, Button } from '@material-ui/core'
 import Slider from "react-slick"
+import Footer from '../Component/Footer'
 
 const style = theme => ({
     header: {
@@ -112,7 +112,7 @@ class Index extends Component {
         this.state = {
             items: [],
             dataSale: [],
-            vasible: 4,
+            visible: 8,
             hidden: false,
         }
     }
@@ -145,7 +145,7 @@ class Index extends Component {
                 data.map((e) => {
                     if (e.type == "Cosmetics") {
                         arrData.push(e)
-                        if(e.status == "New"){
+                        if (e.status == "New") {
                             DataSale.push(e)
                         }
                     }
@@ -264,11 +264,6 @@ class Index extends Component {
                                     {item.title}
                                 </Avatar>
                                 }
-                                    action={
-                                        <IconButton aria-label="settings">
-                                            <MoreVertIcon />
-                                        </IconButton>
-                                    }
                                     title={item.title}
                                     subheader={item.date}
                                 />
@@ -294,30 +289,24 @@ class Index extends Component {
                         )}
                     </Row>
                 </Col>
-                <Col md="12" xs="12" className={classes.footer}>
-                    <Container>
-                        <Row>
-                            <Col md={4} xs={{ size: 12 }}>
-                                <h2 className={classes.service}>Thống Kê</h2>
-                                <p style={{ border: '1px solid black' }}></p>
-                                <p>Tổng số sản phẩm bán ra : </p>
-                                <p style={{ marginBottom: '20px' }}>Số sản phẩm đang còn: </p>
-                            </Col>
-                            <Col md={4} xs={{ size: 12 }}>
-                                <h2 className={classes.service} >Liên hệ</h2>
-                                <p style={{ border: '1px solid black' }}></p>
-                                <p>FaceBook: Đỗ Tiến Dương</p>
-                                <p style={{ marginBottom: '20px' }}>SĐT: 0326609183</p>
-                            </Col>
-                            <Col md={4} xs={{ size: 12 }}>
-                                <h2 className={classes.service} >Dịch vụ khác</h2>
-                                <p style={{ border: '1px solid black' }}></p>
-                                <p></p>
-                                <p style={{ marginBottom: '20px' }}></p>
-                            </Col>
-                        </Row>
-                    </Container>
+                <Col xs="12" md="12">
+                    <Row>
+                        <Col xs={{ size: 4, offset: 4 }} md={{ size: 4, offset: 4 }} style={{textAlign: 'center'}}>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                size="large"
+                                value="4"
+                                onClick={(e) => this.setState({
+                                    visible: parseInt(this.state.visible) + parseInt(e.target.value)
+                                })}
+                            >
+                                Xem Thêm
+                                </Button>
+                        </Col>
+                    </Row>
                 </Col>
+                <Footer />
             </div>
         )
     }
