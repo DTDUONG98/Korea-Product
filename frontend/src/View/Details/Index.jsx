@@ -15,13 +15,13 @@ import FavoriteIcon from '@material-ui/icons/Favorite'
 import ShareIcon from '@material-ui/icons/Share'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import Rating from '../Component/Rating'
-// import Header from '../Component/Header'
 import Footer from '../Component/Footer'
 // import img from '../../../src/PTIT.png'
 import { FaBars } from "react-icons/fa"
 import { FaSistrix } from "react-icons/fa"
 import InputBase from '@material-ui/core/InputBase'
 import { fade } from '@material-ui/core/styles'
+import Method from '../Component/Method'
 const style = theme => ({
     card: {
         maxWidth: 290,
@@ -143,7 +143,6 @@ class Details extends Component {
         let data = this.props.match.params.id
         return (
             <div>
-                {/* <Header /> */}
                 <Col xs="12" md="12" className={classes.title}>
                     <Row>
                         <Col xs="1" md="1">
@@ -282,7 +281,7 @@ class Details extends Component {
                                                 marginTop: '40px',
                                                 marginBottom: '30px'
                                             }}
-                                            >Thông tin tổng quát</p>
+                                            >Thông tin chi tiết</p>
                                         </Col>
                                         <Col xs="12" md="12" >
                                             {e.content}<br /><br />

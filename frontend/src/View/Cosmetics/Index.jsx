@@ -121,7 +121,7 @@ class Index extends Component {
         this.props.history.push('/')
     }
     Details(e) {
-        let name = e.currentTarget.value
+        let name = e.currentTarget.value // Tên sản phẩm bạn muốn xem chi tiết
         this.props.history.push(`/Details/${name}`)
     }
     HelthyFood() {
