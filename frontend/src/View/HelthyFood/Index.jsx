@@ -1,27 +1,12 @@
 import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
-import Avatar from '@material-ui/core/Avatar'
 import { Col, Row } from 'reactstrap'
-import Card from '@material-ui/core/Card'
-import CardHeader from '@material-ui/core/CardHeader'
-import CardMedia from '@material-ui/core/CardMedia'
-import CardContent from '@material-ui/core/CardContent'
-import CardActions from '@material-ui/core/CardActions'
-import Typography from '@material-ui/core/Typography'
-import { red } from '@material-ui/core/colors'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import ShareIcon from '@material-ui/icons/Share'
-// import Header from '../Component/Header'
+import Header from '../Component/Header'
 import Footer from '../Component/Footer'
-import img from '../../../src/PTIT.png'
-import { FaBars } from "react-icons/fa"
-import { FaSistrix } from "react-icons/fa"
-import InputBase from '@material-ui/core/InputBase'
-import { fade } from '@material-ui/core/styles'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 import { IconButton, Icon, Tooltip, Button } from '@material-ui/core'
-import Slider from "react-slick"
-import AttachMoney from '@material-ui/icons/AttachMoney'
+import Item from '../Component/Item'
+import Sli from '../Component/Slider'
 
 const style = theme => ({
     header: {
@@ -31,74 +16,8 @@ const style = theme => ({
         height: '550px',
         backgroundAttachment: 'fixed'
     },
-    eachFade: {
-        display: true,
-    },
-    card: {
-        maxWidth: 290,
-        marginLeft: '20px',
-        marginTop: '30px'
-    },
-    media: {
-        width: '100%',
-        height: 0,
-        paddingTop: '56.25%', // 16:9
-        transition: '0,3',
-        "&:hover": {
-            transform: 'scale(1.1)',
-        }
-    },
-    avatarCard: {
-        backgroundColor: red[500],
-    },
     lipstick: {
         padding: '20px'
-    },
-    title: {
-        background: '#adc1eb',
-        width: '100%',
-        height: '80px'
-    },
-    avatar: {
-        margin: 20,
-    },
-    search: {
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.white, 0.15),
-        '&:hover': {
-            backgroundColor: fade(theme.palette.common.white, 0.25),
-        },
-        marginLeft: 0,
-        marginTop: '20px',
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(1),
-            width: 'auto',
-        },
-    },
-    searchIcon: {
-        width: theme.spacing(7),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    inputRoot: {
-        color: 'inherit',
-    },
-    inputInput: {
-        padding: theme.spacing(1, 1, 1, 7),
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            width: 120,
-            '&:focus': {
-                width: 200,
-            },
-        },
     },
 })
 class Index extends Component {
@@ -107,7 +26,7 @@ class Index extends Component {
         this.state = {
             items: [],
             dataSale: [],
-            visible: 12,
+            visible: 8,
         }
     }
     Home() {
@@ -146,52 +65,11 @@ class Index extends Component {
     }
     render() {
         const { classes } = this.props
-        var settings = {
-            dots: true,
-            infinite: true,
-            speed: 1500,
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            autoplay: true,
-        };
         return (
             <div>
-                <Col xs="12" md="12" className={classes.title}>
-                    <Row>
-                        <Col xs="1" md="1">
-                            <FaBars style={{ fontSize: '40px', margin: '20px', cursor: 'pointer' }} />
-                        </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
-                            <a
-                                onClick={() => this.Home()}
-                            >HOME</a>
-                        </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
-                            <a
-                                onClick={() => this.Cosmetics()}
-                            >MỸ PHẨM</a>
-                        </Col>
-                        <Col xs="2" md="2" style={{ marginTop: '25px', cursor: 'pointer' }}>
-                            <a onClick={() => this.HelthyFood()}>
-                                THỰC PHẨM CHỨC NĂNG
-                            </a>
-                        </Col>
-                        <Col xs="3" md={{ size: 3, offset: 2 }}>
-                            <div className={classes.search}>
-                                <div className={classes.searchIcon}>
-                                    <FaSistrix style={{ fontSize: '25px' }} />
-                                </div>
-                                <InputBase placeholder="Search…" classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }} inputProps={{ 'aria-label': 'Search' }} />
-                            </div>
-                        </Col>
-                        <Col>
-                            <Avatar alt="PTIT" src={img} className={classes.avatar} />
-                        </Col>
-                    </Row>
-                </Col>
+                <Header
+                    link={this.props}
+                />
                 <Col xs="12" md="12" className={classes.header}>
                     <Row>
                         <Col xs="12" md="12" style={{
@@ -203,41 +81,10 @@ class Index extends Component {
                             Những Sản Phẩm Giảm Giá
                         </Col>
                         <Col xs="12" md="12">
-                            <div className={classes.fixOverFolow}>
-                                <Slider {...settings}>
-                                    {this.state.dataSale.map((item, index) => {
-                                        return (
-                                            <Card className={classes.card} key={index}>
-                                                <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
-                                                    {item.title}
-                                                </Avatar>
-                                                }
-                                                    title={item.title}
-                                                    subheader={item.date}
-                                                />
-                                                <CardMedia className={classes.media} image={item.url} title={item.title} />
-                                                <CardContent>
-                                                    <Typography variant="body2" color="textSecondary" component="p">
-                                                        {item.content}
-                                                    </Typography>
-                                                </CardContent>
-                                                <CardActions disableSpacing>
-                                                    <Tooltip title="Detail Product" key="Detail">
-                                                        <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
-                                                            <FavoriteIcon />
-                                                        </IconButton>
-                                                    </Tooltip>
-                                                    <Tooltip title="Buy now" key="Buy">
-                                                        <IconButton aria-label="share" value={item.title} onClick={(e) => this.Bills(e)}>
-                                                            <AttachMoney />
-                                                        </IconButton>
-                                                    </Tooltip>
-                                                </CardActions>
-                                            </Card>
-                                        )
-                                    })}
-                                </Slider>
-                            </div>
+                            <Sli
+                                data={this.state.dataSale}
+                                link={this.props}
+                            />
                         </Col>
                     </Row>
                 </Col>
@@ -249,35 +96,11 @@ class Index extends Component {
                     </Tooltip>
                 </Col>
                 <Col xs="12" md="12" className={classes.lipstick}>
-                    <Row>
-                        {this.state.items.slice(0, this.state.visible).map((item, index) =>
-                            <Col xs="12" md="3">
-                                <Card className={classes.card} key={index}>
-                                    <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
-                                        {item.title}
-                                    </Avatar>
-                                    }
-                                        title={item.title}
-                                        subheader={item.date}
-                                    />
-                                    <CardMedia className={classes.media} image={item.url} title={item.title} />
-                                    <CardContent>
-                                        <Typography variant="body2" color="textSecondary" component="p">
-                                            {item.content}
-                                        </Typography>
-                                    </CardContent>
-                                    <CardActions disableSpacing>
-                                        <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
-                                            <FavoriteIcon />
-                                        </IconButton>
-                                        <IconButton aria-label="share">
-                                            <ShareIcon />
-                                        </IconButton>
-                                    </CardActions>
-                                </Card>
-                            </Col>
-                        )}
-                    </Row>
+                    <Item
+                        data={this.state.items}
+                        visible={this.state.visible}
+                        link={this.props}
+                    />
                 </Col>
                 <Col xs="12" md="12">
                     <Row>

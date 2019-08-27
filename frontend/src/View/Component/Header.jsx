@@ -63,16 +63,19 @@ class Header extends Component {
         }
     }
     Home() {
-        console.log('this.props', this.props)
-        this.props.history.push('/Trangchu')
+        this.props.link.history.push('/')
     }
-    HelthyFood(){
-        console.log('this.props', this.props)
-        this.props.history.push('/HelthyFood')
+    HelthyFood() {
+        this.props.link.history.push('/HelthyFood/02')
     }
     Cosmetics() {
-        console.log('this.props', this.props)
-        this.props.history.push('/Cosmetics')
+        this.props.link.history.push('/Cosmetics/01')
+    }
+    Signin() {
+        this.props.link.history.push('/login/11')
+    }
+    SignUp() {
+        this.props.link.history.push('/Create/12')
     }
     render() {
         const { classes } = this.props
@@ -81,15 +84,17 @@ class Header extends Component {
                 <Col xs="12" md="12" className={classes.title}>
                     <Row>
                         <Col xs="1" md="1">
-                            <FaBars style={{ fontSize: '40px', margin: '20px' , cursor: 'pointer'}} />
+                            <FaBars style={{ fontSize: '40px', margin: '20px', cursor: 'pointer' }} />
                         </Col>
                         <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
                             <a
                                 onClick={() => this.Home()}
                             >HOME</a>
                         </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px' , cursor: 'pointer'}}>
-                            <a>MỸ PHẨM</a>
+                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
+                            <a
+                                onClick={() => this.Cosmetics()}
+                            >MỸ PHẨM</a>
                         </Col>
                         <Col xs="2" md="2" style={{ marginTop: '25px', cursor: 'pointer' }}>
                             <a onClick={() => this.HelthyFood()}>
@@ -107,8 +112,17 @@ class Header extends Component {
                                 }} inputProps={{ 'aria-label': 'Search' }} />
                             </div>
                         </Col>
-                        <Col>
-                            <Avatar alt="PTIT" src={img} className={classes.avatar} />
+                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
+                            {/* <Avatar alt="PTIT" src={img} className={classes.avatar} /> */}
+                            <a
+                                onClick={() => this.Signin()}
+                            >Đăng nhập </a>
+                        </Col>
+                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
+                            {/* <Avatar alt="PTIT" src={img} className={classes.avatar} /> */}
+                            <a
+                                onClick={() => this.SignUp()}
+                            >Đăng Ký </a>
                         </Col>
                     </Row>
                 </Col>

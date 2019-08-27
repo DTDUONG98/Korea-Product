@@ -38,7 +38,7 @@ class Index extends Component {
         let { classes, theme } = this.props
         const TabContainer = this.TabContainer
         return (
-            <div>
+            <div className={classes.container}>
                 {/* Pagination slider product gợi ý và review */}
                 <Grid item xs={9} sm={12} md={12} lg={12}>
                     <div>

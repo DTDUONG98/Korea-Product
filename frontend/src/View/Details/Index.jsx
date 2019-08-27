@@ -16,11 +16,7 @@ import ShareIcon from '@material-ui/icons/Share'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import Rating from '../Component/Rating'
 import Footer from '../Component/Footer'
-// import img from '../../../src/PTIT.png'
-import { FaBars } from "react-icons/fa"
-import { FaSistrix } from "react-icons/fa"
-import InputBase from '@material-ui/core/InputBase'
-import { fade } from '@material-ui/core/styles'
+import Header from '../Component/Header'
 import Tabs from '../Component/Tabs'
 const style = theme => ({
     card: {
@@ -52,50 +48,9 @@ const style = theme => ({
         width: '100%',
         height: '80px'
     },
-    avatar: {
-        margin: 20,
-    },
-    search: {
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.white, 0.15),
-        '&:hover': {
-            backgroundColor: fade(theme.palette.common.white, 0.25),
-        },
-        marginLeft: 0,
-        marginTop: '20px',
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(1),
-            width: 'auto',
-        },
-    },
-    searchIcon: {
-        width: theme.spacing(7),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    inputRoot: {
-        color: 'inherit',
-    },
-    inputInput: {
-        padding: theme.spacing(1, 1, 1, 7),
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            width: 120,
-            '&:focus': {
-                width: 200,
-            },
-        },
-    },
     icon: {
         margin: theme.spacing(2),
-      },
+    },
 })
 class Details extends Component {
     constructor(props) {
@@ -108,7 +63,7 @@ class Details extends Component {
     Home() {
         this.props.history.push('/')
     }
-    HelthyFood(){
+    HelthyFood() {
         this.props.history.push('/HelthyFood/02')
     }
     Cosmetics() {
@@ -127,7 +82,7 @@ class Details extends Component {
     Bills(e) {
         let name = e.title
         let soluong = this.state.soluong
-        let title = name +"-"+ soluong
+        let title = name + "-" + soluong
         this.props.history.push(`/Bills/${title}`)
     }
     componentDidMount() {
@@ -143,42 +98,9 @@ class Details extends Component {
         let data = this.props.match.params.id
         return (
             <div>
-                <Col xs="12" md="12" className={classes.title}>
-                    <Row>
-                        <Col xs="1" md="1">
-                            <FaBars style={{ fontSize: '40px', margin: '20px' , cursor: 'pointer'}} />
-                        </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px', cursor: 'pointer' }}>
-                            <a
-                                onClick={() => this.Home()}
-                            >HOME</a>
-                        </Col>
-                        <Col xs="1" md="1" style={{ marginTop: '25px' , cursor: 'pointer'}}>
-                            <a
-                                onClick={() => this.Cosmetics()}
-                            >MỸ PHẨM</a>
-                        </Col>
-                        <Col xs="2" md="2" style={{ marginTop: '25px', cursor: 'pointer' }}>
-                            <a onClick={() => this.HelthyFood()}>
-                                THỰC PHẨM CHỨC NĂNG
-                            </a>
-                        </Col>
-                        <Col xs="3" md={{ size: 3, offset: 2 }}>
-                            <div className={classes.search}>
-                                <div className={classes.searchIcon}>
-                                    <FaSistrix style={{ fontSize: '25px' }} />
-                                </div>
-                                <InputBase placeholder="Search…" classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }} inputProps={{ 'aria-label': 'Search' }} />
-                            </div>
-                        </Col>
-                        <Col>
-                            <Avatar alt="PTIT"  className={classes.avatar} />
-                        </Col>
-                    </Row>
-                </Col>
+                <Header
+                    link={this.props}
+                />
                 <Col xs={12} md={12}>
                     <Row>
                         {this.state.items.slice(0, this.state.visible).map((e, index) => {
@@ -217,7 +139,7 @@ class Details extends Component {
                                                                 <h3 style={{ color: 'red' }}>{e.price} đ</h3>
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
-                                                                Tiết kiệm lên đến: {parseInt((parseInt(e.cost)-parseInt(e.price))/parseInt(e.cost)*100)} %
+                                                                Tiết kiệm lên đến: {parseInt((parseInt(e.cost) - parseInt(e.price)) / parseInt(e.cost) * 100)} %
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
                                                                 Giá thị trường : {e.cost} đ

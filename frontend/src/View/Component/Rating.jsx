@@ -3,24 +3,24 @@ import StarRatingComponent from 'react-star-rating-component';
 class StarMain extends React.Component {
   constructor() {
     super();
- 
+
     this.state = {
       rating: 5
     };
   }
- 
+
   onStarClick(nextValue, prevValue, name) {
-    this.setState({rating: nextValue});
+    this.setState({ rating: nextValue });
   }
- 
+
   render() {
     const { rating } = this.state;
-    
-    return (                
+
+    return (
       <div>
 
-        <StarRatingComponent 
-          name="rate1" 
+        <StarRatingComponent
+          name="rate1"
           starCount={5}
           value={rating}
           onStarClick={this.onStarClick.bind(this)}
@@ -29,5 +29,5 @@ class StarMain extends React.Component {
     );
   }
 }
- 
+
 export default StarMain;
