@@ -111,7 +111,7 @@ class Index extends Component {
                                 size="large"
                                 value="4"
                                 onClick={(e) => this.setState({
-                                    visible: parseInt(this.state.visible) + parseInt(e.target.value)
+                                    visible: parseInt(this.state.visible) + parseInt(e.currentTarget.value)
                                 })}
                             >
                                 Xem Thêm

@@ -17,7 +17,6 @@ import { IconButton, Tooltip } from '@material-ui/core'
 const style = theme => ({
     card: {
         maxWidth: 300,
-        marginLeft: '30px',
         marginTop: '30px',
         marginBottom: '20px'
     },
