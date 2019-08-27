@@ -20,6 +20,7 @@ import { red } from '@material-ui/core/colors'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import AttachMoney from '@material-ui/icons/AttachMoney'
 import { IconButton, Icon, Tooltip, Button } from '@material-ui/core'
+import Method from '../Component/Method'
 
 
 const style = theme => ({
@@ -299,77 +300,8 @@ class Home extends Component {
                         </Col>
                     </Row>
                 </Col>
-                <Col>
-                    <Row>
-                        <Grid container className={classes.Grid}>
-                            <Grid item md={4}>
-                                <Paper className={classes.paper}>
-                                    <Col xs="12" md="12" style={{
-                                        textAlign: 'center',
-                                        fontSize: '20px',
-                                        marginTop: '10px',
-                                    }}>
-                                        Dịch Vụ
-                                    </Col>
-                                    <Col xs={{ size: 10, offset: 1 }} md={{ size: 10, offset: 1 }}
-                                        style={{
-                                            border: '1px solid red',
-                                            marginTop: '10px',
-                                            marginBottom: '10px',
-                                        }}>
-                                    </Col>
-                                    <Col xs="12" md="12" style={{ marginBottom: '20px' }}>
-                                        This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.
-                                    </Col>
-                                </Paper>
-                            </Grid>
-                            <Grid item md={4} className={classes.paper}>
-                                <Paper>
-                                    <Col xs="12" md="12" style={{
-                                        textAlign: 'center',
-                                        fontSize: '20px',
-                                        marginTop: '10px',
-                                    }}>
-                                        Sản Phẩm
-                                    </Col>
-                                    <Col xs={{ size: 10, offset: 1 }} md={{ size: 10, offset: 1 }}
-                                        style={{
-                                            border: '1px solid red',
-                                            marginTop: '10px',
-                                            marginBottom: '10px',
-                                        }}>
-                                    </Col>
-                                    <Col>
-                                        <p>Chúng tôi chuyên cung cấp các sản phẩm đúng hãng và đảm bảo chất lượng đến với người tiêu dùng</p>
-                                        <p>Bên tôi chuyên cung cấp những sản phẩm như : </p>
-                                        <p>Mỹ phẩm </p>
-                                        <p>Thực phẩm chức năng</p>
-                                    </Col>
-                                </Paper>
-                            </Grid>
-                            <Grid item md={4} className={classes.paper}>
-                                <Paper>
-                                    <Col xs="12" md="12" style={{
-                                        textAlign: 'center',
-                                        fontSize: '20px',
-                                        marginTop: '10px',
-                                    }}>
-                                        Dịch Vụ
-                                    </Col>
-                                    <Col xs={{ size: 10, offset: 1 }} md={{ size: 10, offset: 1 }}
-                                        style={{
-                                            border: '1px solid red',
-                                            marginTop: '10px',
-                                            marginBottom: '10px',
-                                        }}>
-                                    </Col>
-                                    <Col xs="12" md="12" style={{ marginBottom: '20px' }}>
-                                        This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.
-                                    </Col>
-                                </Paper>
-                            </Grid>
-                        </Grid>
-                    </Row>
+                <Col xs="12" md="12">
+                    <Method />
                 </Col>
                 <Col xs="12" md="12" className={classes.cosmetics}>
                     <Row>
