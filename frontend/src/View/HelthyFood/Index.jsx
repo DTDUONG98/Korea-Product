@@ -11,7 +11,6 @@ import Typography from '@material-ui/core/Typography'
 import { red } from '@material-ui/core/colors'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import ShareIcon from '@material-ui/icons/Share'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
 // import Header from '../Component/Header'
 import Footer from '../Component/Footer'
 import img from '../../../src/PTIT.png'
@@ -37,7 +36,7 @@ const style = theme => ({
     },
     card: {
         maxWidth: 290,
-        marginLeft: '40px',
+        marginLeft: '20px',
         marginTop: '30px'
     },
     media: {
@@ -252,35 +251,37 @@ class Index extends Component {
                 <Col xs="12" md="12" className={classes.lipstick}>
                     <Row>
                         {this.state.items.slice(0, this.state.visible).map((item, index) =>
-                            <Card className={classes.card} key={index}>
-                                <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
-                                    {item.title}
-                                </Avatar>
-                                }
-                                    title={item.title}
-                                    subheader={item.date}
-                                />
-                                <CardMedia className={classes.media} image={item.url} title={item.title} />
-                                <CardContent>
-                                    <Typography variant="body2" color="textSecondary" component="p">
-                                        {item.content}
-                                    </Typography>
-                                </CardContent>
-                                <CardActions disableSpacing>
-                                    <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
-                                        <FavoriteIcon />
-                                    </IconButton>
-                                    <IconButton aria-label="share">
-                                        <ShareIcon />
-                                    </IconButton>
-                                </CardActions>
-                            </Card>
+                            <Col xs="12" md="3">
+                                <Card className={classes.card} key={index}>
+                                    <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
+                                        {item.title}
+                                    </Avatar>
+                                    }
+                                        title={item.title}
+                                        subheader={item.date}
+                                    />
+                                    <CardMedia className={classes.media} image={item.url} title={item.title} />
+                                    <CardContent>
+                                        <Typography variant="body2" color="textSecondary" component="p">
+                                            {item.content}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions disableSpacing>
+                                        <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
+                                            <FavoriteIcon />
+                                        </IconButton>
+                                        <IconButton aria-label="share">
+                                            <ShareIcon />
+                                        </IconButton>
+                                    </CardActions>
+                                </Card>
+                            </Col>
                         )}
                     </Row>
                 </Col>
                 <Col xs="12" md="12">
                     <Row>
-                        <Col xs={{ size: 4, offset: 4 }} md={{ size: 4, offset: 4 }} style={{textAlign: 'center'}}>
+                        <Col xs={{ size: 4, offset: 4 }} md={{ size: 4, offset: 4 }} style={{ textAlign: 'center' }}>
                             <Button
                                 variant="contained"
                                 color="primary"

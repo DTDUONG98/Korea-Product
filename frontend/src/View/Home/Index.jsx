@@ -253,10 +253,10 @@ class Home extends Component {
                 <Col xs="12" md="12" className={classes.header}>
                     <Row>
                         <Col xs="12" md="12" style={{
-                             textAlign: 'center',
-                             fontSize: '40px',
-                             marginTop: '50px',
-                             color: 'yellow',
+                            textAlign: 'center',
+                            fontSize: '40px',
+                            marginTop: '50px',
+                            color: 'yellow',
                         }}>
                             Các Sản Phẩm Mới
                         </Col>
@@ -266,6 +266,130 @@ class Home extends Component {
                                     {this.state.items.map((item, index) => {
                                         return (
                                             <Card className={classes.card} key={index}>
+                                                <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
+                                                    {item.title}
+                                                </Avatar>
+                                                }
+                                                    title={item.title}
+                                                    subheader={item.date}
+                                                />
+                                                <CardMedia className={classes.media} image={item.url} title={item.title} />
+                                                <CardContent>
+                                                    <Typography variant="body2" color="textSecondary" component="p">
+                                                        {item.content}
+                                                    </Typography>
+                                                </CardContent>
+                                                <CardActions disableSpacing>
+                                                    <Tooltip title="Detail Product" key="Detail">
+                                                        <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
+                                                            <FavoriteIcon />
+                                                        </IconButton>
+                                                    </Tooltip>
+                                                    <Tooltip title="Buy now" key="Buy">
+                                                        <IconButton aria-label="share" value={item.title} onClick={(e) => this.Bills(e)}>
+                                                            <AttachMoney />
+                                                        </IconButton>
+                                                    </Tooltip>
+                                                </CardActions>
+                                            </Card>
+                                        )
+                                    })}
+                                </Slider>
+                            </div>
+                        </Col>
+                    </Row>
+                </Col>
+                <Col>
+                    <Row>
+                        <Grid container className={classes.Grid}>
+                            <Grid item md={4}>
+                                <Paper className={classes.paper}>
+                                    <Col xs="12" md="12" style={{
+                                        textAlign: 'center',
+                                        fontSize: '20px',
+                                        marginTop: '10px',
+                                    }}>
+                                        Dịch Vụ
+                                    </Col>
+                                    <Col xs={{ size: 10, offset: 1 }} md={{ size: 10, offset: 1 }}
+                                        style={{
+                                            border: '1px solid red',
+                                            marginTop: '10px',
+                                            marginBottom: '10px',
+                                        }}>
+                                    </Col>
+                                    <Col xs="12" md="12" style={{ marginBottom: '20px' }}>
+                                        This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.
+                                    </Col>
+                                </Paper>
+                            </Grid>
+                            <Grid item md={4} className={classes.paper}>
+                                <Paper>
+                                    <Col xs="12" md="12" style={{
+                                        textAlign: 'center',
+                                        fontSize: '20px',
+                                        marginTop: '10px',
+                                    }}>
+                                        Sản Phẩm
+                                    </Col>
+                                    <Col xs={{ size: 10, offset: 1 }} md={{ size: 10, offset: 1 }}
+                                        style={{
+                                            border: '1px solid red',
+                                            marginTop: '10px',
+                                            marginBottom: '10px',
+                                        }}>
+                                    </Col>
+                                    <Col>
+                                        <p>Chúng tôi chuyên cung cấp các sản phẩm đúng hãng và đảm bảo chất lượng đến với người tiêu dùng</p>
+                                        <p>Bên tôi chuyên cung cấp những sản phẩm như : </p>
+                                        <p>Mỹ phẩm </p>
+                                        <p>Thực phẩm chức năng</p>
+                                    </Col>
+                                </Paper>
+                            </Grid>
+                            <Grid item md={4} className={classes.paper}>
+                                <Paper>
+                                    <Col xs="12" md="12" style={{
+                                        textAlign: 'center',
+                                        fontSize: '20px',
+                                        marginTop: '10px',
+                                    }}>
+                                        Dịch Vụ
+                                    </Col>
+                                    <Col xs={{ size: 10, offset: 1 }} md={{ size: 10, offset: 1 }}
+                                        style={{
+                                            border: '1px solid red',
+                                            marginTop: '10px',
+                                            marginBottom: '10px',
+                                        }}>
+                                    </Col>
+                                    <Col xs="12" md="12" style={{ marginBottom: '20px' }}>
+                                        This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.
+                                    </Col>
+                                </Paper>
+                            </Grid>
+                        </Grid>
+                    </Row>
+                </Col>
+                <Col xs="12" md="12" className={classes.cosmetics}>
+                    <Row>
+                        <Col xs="12" md="12" style={{
+                            textAlign: 'center',
+                            fontSize: '40px',
+                            marginTop: '20px',
+                            color: 'red'
+                        }}>
+                            Mỹ Phẩm
+                        </Col>
+                    </Row>
+                </Col>
+                <Col xs="12" md="12">
+                    <Row>
+                        <Col xs="12" md="12">
+                            <Row>
+                                {this.state.Cosmetics.slice(0, 4).map((item, index) =>
+                                    <Col xs="12" md="3">
+                                        <Card className={classes.card} key={index}>
                                             <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
                                                 {item.title}
                                             </Avatar>
@@ -292,129 +416,7 @@ class Home extends Component {
                                                 </Tooltip>
                                             </CardActions>
                                         </Card>
-                                        )
-                                    })}
-                                </Slider>
-                            </div>
-                        </Col>
-                    </Row>
-                </Col>
-                <Col>
-                    <Row>
-                        <Grid container className={classes.Grid}>
-                            <Grid item md={4}>
-                                <Paper className={classes.paper}>
-                                    <Col xs="12" md="12" style={{
-                                        textAlign: 'center',
-                                        fontSize: '20px',
-                                        marginTop: '10px',
-                                    }}>
-                                        Dịch Vụ
                                     </Col>
-                                    <Col xs={{size: 10, offset: 1}} md={{size: 10, offset: 1}} 
-                                        style={{
-                                            border: '1px solid red',
-                                            marginTop: '10px',
-                                            marginBottom: '10px',
-                                        }}>
-                                    </Col>
-                                    <Col xs="12" md="12" style={{marginBottom: '20px'}}>
-                                    This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.
-                                    </Col>
-                                </Paper>
-                            </Grid>
-                            <Grid item md={4} className={classes.paper}>
-                                <Paper>
-                                <Col xs="12" md="12" style={{
-                                        textAlign: 'center',
-                                        fontSize: '20px',
-                                        marginTop: '10px',
-                                    }}>
-                                        Sản Phẩm
-                                    </Col>
-                                    <Col xs={{size: 10, offset: 1}} md={{size: 10, offset: 1}} 
-                                        style={{
-                                            border: '1px solid red',
-                                            marginTop: '10px',
-                                            marginBottom: '10px',
-                                        }}>
-                                    </Col>
-                                    <Col>
-                                        <p>Chúng tôi chuyên cung cấp các sản phẩm đúng hãng và đảm bảo chất lượng đến với người tiêu dùng</p>
-                                        <p>Bên tôi chuyên cung cấp những sản phẩm như : </p>
-                                        <p>Mỹ phẩm </p>
-                                        <p>Thực phẩm chức năng</p>
-                                    </Col>
-                                </Paper>
-                            </Grid>
-                            <Grid item md={4} className={classes.paper}>
-                                <Paper>
-                                <Col xs="12" md="12" style={{
-                                        textAlign: 'center',
-                                        fontSize: '20px',
-                                        marginTop: '10px',
-                                    }}>
-                                        Dịch Vụ
-                                    </Col>
-                                    <Col xs={{size: 10, offset: 1}} md={{size: 10, offset: 1}} 
-                                        style={{
-                                            border: '1px solid red',
-                                            marginTop: '10px',
-                                            marginBottom: '10px',
-                                        }}>
-                                    </Col>
-                                    <Col xs="12" md="12" style={{marginBottom: '20px'}}>
-                                    This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup offrozen peas along with the mussels, if you like.
-                                    </Col>
-                                </Paper>
-                            </Grid>
-                        </Grid>
-                    </Row>
-                </Col>
-                <Col xs="12" md="12" className={classes.cosmetics}>
-                    <Row>
-                        <Col xs="12" md="12" style={{
-                            textAlign: 'center',
-                            fontSize: '40px',
-                            marginTop: '20px',
-                            color: 'red'
-                        }}>
-                            Mỹ Phẩm
-                        </Col>
-                    </Row>
-                </Col>
-                <Col xs="12" md="12">
-                    <Row>
-                        <Col xs="12" md="12">
-                            <Row>
-                                {this.state.Cosmetics.slice(0, 4).map((item, index) =>
-                                    <Card className={classes.card} key={index}>
-                                        <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
-                                            {item.title}
-                                        </Avatar>
-                                        }
-                                            title={item.title}
-                                            subheader={item.date}
-                                        />
-                                        <CardMedia className={classes.media} image={item.url} title={item.title} />
-                                        <CardContent>
-                                            <Typography variant="body2" color="textSecondary" component="p">
-                                                {item.content}
-                                            </Typography>
-                                        </CardContent>
-                                        <CardActions disableSpacing>
-                                            <Tooltip title="Detail Product" key="Detail">
-                                                <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
-                                                    <FavoriteIcon />
-                                                </IconButton>
-                                            </Tooltip>
-                                            <Tooltip title="Buy now" key="Buy">
-                                                <IconButton aria-label="share" value={item.title} onClick={(e) => this.Bills(e)}>
-                                                    <AttachMoney />
-                                                </IconButton>
-                                            </Tooltip>
-                                        </CardActions>
-                                    </Card>
                                 )}
                             </Row>
                         </Col>
@@ -436,33 +438,35 @@ class Home extends Component {
                         <Col xs="12" md="12">
                             <Row>
                                 {this.state.HelthyFood.slice(0, 4).map((item, index) =>
-                                    <Card className={classes.card} key={index}>
-                                        <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
-                                            {item.title}
-                                        </Avatar>
-                                        }
-                                            title={item.title}
-                                            subheader={item.date}
-                                        />
-                                        <CardMedia className={classes.media} image={item.url} title={item.title} />
-                                        <CardContent>
-                                            <Typography variant="body2" color="textSecondary" component="p">
-                                                {item.content}
-                                            </Typography>
-                                        </CardContent>
-                                        <CardActions disableSpacing>
-                                            <Tooltip title="Detail Product" key="Detail">
-                                                <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
-                                                    <FavoriteIcon />
-                                                </IconButton>
-                                            </Tooltip>
-                                            <Tooltip title="Buy now" key="Buy">
-                                                <IconButton aria-label="share" value={item.title} onClick={(e) => this.Bills(e)}>
-                                                    <AttachMoney />
-                                                </IconButton>
-                                            </Tooltip>
-                                        </CardActions>
-                                    </Card>
+                                    <Col xs="12" md="3">
+                                        <Card className={classes.card} key={index}>
+                                            <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
+                                                {item.title}
+                                            </Avatar>
+                                            }
+                                                title={item.title}
+                                                subheader={item.date}
+                                            />
+                                            <CardMedia className={classes.media} image={item.url} title={item.title} />
+                                            <CardContent>
+                                                <Typography variant="body2" color="textSecondary" component="p">
+                                                    {item.content}
+                                                </Typography>
+                                            </CardContent>
+                                            <CardActions disableSpacing>
+                                                <Tooltip title="Detail Product" key="Detail">
+                                                    <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
+                                                        <FavoriteIcon />
+                                                    </IconButton>
+                                                </Tooltip>
+                                                <Tooltip title="Buy now" key="Buy">
+                                                    <IconButton aria-label="share" value={item.title} onClick={(e) => this.Bills(e)}>
+                                                        <AttachMoney />
+                                                    </IconButton>
+                                                </Tooltip>
+                                            </CardActions>
+                                        </Card>
+                                    </Col>
                                 )}
                             </Row>
                         </Col>

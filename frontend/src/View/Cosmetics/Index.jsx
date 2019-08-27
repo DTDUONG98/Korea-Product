@@ -17,7 +17,6 @@ import { red } from '@material-ui/core/colors'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 import AttachMoney from '@material-ui/icons/AttachMoney'
-import { Container } from '@material-ui/core'
 import { IconButton, Icon, Tooltip, Button } from '@material-ui/core'
 import Slider from "react-slick"
 import Footer from '../Component/Footer'
@@ -206,7 +205,6 @@ class Index extends Component {
                             textAlign: 'center',
                             fontSize: '40px',
                             marginTop: '30px',
-                            // color: 'Blue',
                         }}>
                             Những Sản Phẩm Giảm Giá
                         </Col>
@@ -259,39 +257,41 @@ class Index extends Component {
                 <Col xs="12" md="12" className={classes.lipstick}>
                     <Row>
                         {this.state.items.slice(0, this.state.visible).map((item, index) =>
-                            <Card className={classes.card} key={index}>
-                                <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
-                                    {item.title}
-                                </Avatar>
-                                }
-                                    title={item.title}
-                                    subheader={item.date}
-                                />
-                                <CardMedia className={classes.media} image={item.url} title={item.title} />
-                                <CardContent>
-                                    <Typography variant="body2" color="textSecondary" component="p">
-                                        {item.content}
-                                    </Typography>
-                                </CardContent>
-                                <CardActions disableSpacing>
-                                    <Tooltip title="Detail Product" key="Detail">
-                                        <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
-                                            <FavoriteIcon />
-                                        </IconButton>
-                                    </Tooltip>
-                                    <Tooltip title="Buy now" key="Buy">
-                                        <IconButton aria-label="share" value={item.title} onClick={(e) => this.Bills(e)}>
-                                            <AttachMoney />
-                                        </IconButton>
-                                    </Tooltip>
-                                </CardActions>
-                            </Card>
+                            <Col xs="12" md="3">
+                                <Card className={classes.card} key={index}>
+                                    <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
+                                        {item.title}
+                                    </Avatar>
+                                    }
+                                        title={item.title}
+                                        subheader={item.date}
+                                    />
+                                    <CardMedia className={classes.media} image={item.url} title={item.title} />
+                                    <CardContent>
+                                        <Typography variant="body2" color="textSecondary" component="p">
+                                            {item.content}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions disableSpacing>
+                                        <Tooltip title="Detail Product" key="Detail">
+                                            <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
+                                                <FavoriteIcon />
+                                            </IconButton>
+                                        </Tooltip>
+                                        <Tooltip title="Buy now" key="Buy">
+                                            <IconButton aria-label="share" value={item.title} onClick={(e) => this.Bills(e)}>
+                                                <AttachMoney />
+                                            </IconButton>
+                                        </Tooltip>
+                                    </CardActions>
+                                </Card>
+                            </Col>
                         )}
                     </Row>
                 </Col>
                 <Col xs="12" md="12">
                     <Row>
-                        <Col xs={{ size: 4, offset: 4 }} md={{ size: 4, offset: 4 }} style={{textAlign: 'center'}}>
+                        <Col xs={{ size: 4, offset: 4 }} md={{ size: 4, offset: 4 }} style={{ textAlign: 'center' }}>
                             <Button
                                 variant="contained"
                                 color="primary"
