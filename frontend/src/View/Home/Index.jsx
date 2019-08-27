@@ -20,7 +20,7 @@ import { red } from '@material-ui/core/colors'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import AttachMoney from '@material-ui/icons/AttachMoney'
 import { IconButton, Icon, Tooltip, Button } from '@material-ui/core'
-import Method from '../Component/Method'
+import Tabs from '../Component/Tabs'
 
 
 const style = theme => ({
@@ -301,7 +301,7 @@ class Home extends Component {
                     </Row>
                 </Col>
                 <Col xs="12" md="12">
-                    <Method />
+                    <Tabs />
                 </Col>
                 <Col xs="12" md="12" className={classes.cosmetics}>
                     <Row>

@@ -21,7 +21,7 @@ import { FaBars } from "react-icons/fa"
 import { FaSistrix } from "react-icons/fa"
 import InputBase from '@material-ui/core/InputBase'
 import { fade } from '@material-ui/core/styles'
-import Method from '../Component/Method'
+import Tabs from '../Component/Tabs'
 const style = theme => ({
     card: {
         maxWidth: 290,
@@ -344,7 +344,7 @@ class Details extends Component {
                     height: 'auto',
                     marginTop: '20px',
                 }}>
-                    <Method />
+                    <Tabs />
                 </Col>
                 <Footer />
             </div>
