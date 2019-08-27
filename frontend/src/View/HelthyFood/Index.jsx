@@ -10,7 +10,7 @@ import Sli from '../Component/Slider'
 
 const style = theme => ({
     header: {
-        background: "url(/background/Helthybgr.jpg)",
+        background: "url(/background/Helthybgr.png)",
         position: 'relative',
         backgroundSize: 'cover',
         height: '550px',
