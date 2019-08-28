@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
-// import Avatar from '@material-ui/core/Avatar'
 import { Col, Row } from 'reactstrap'
 import { Paper, Container } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import Rating from '../Component/Rating'
 import Footer from '../Component/Footer'
 import Header from '../Component/Header'
-import Tabs from '../Component/Tabs'
+import TabsDetail from '../Component/TabsDetail'
 const style = theme => ({
     card: {
         maxWidth: 290,
@@ -209,7 +208,7 @@ class Details extends Component {
                                             <p>Các sản phẩm khác</p>
                                         </Col>
                                         <Col xs="12" md="12">
-                                        <Tabs 
+                                        <TabsDetail 
                                             data = {e}
                                         />
                                         </Col>

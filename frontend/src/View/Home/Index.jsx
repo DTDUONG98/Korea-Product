@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { Col, Row } from 'reactstrap'
 import Footer from '../Component/Footer'
-import Tabs from '../Component/Tabs'
+import TabsHome from '../Component/TabsHome'
 import Header from '../Component/Header'
 import Item from '../Component/Item'
 import Sli from '../Component/Slider'
@@ -126,7 +126,7 @@ class Home extends Component {
                     marginTop: '30px',
                     marginBottom: '20px'
                 }}>
-                    <Tabs 
+                    <TabsHome 
                         data = {this.state.Cosmetics}
                     />
                 </Col>

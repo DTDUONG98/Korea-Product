@@ -19,7 +19,7 @@ import Avatar from '@material-ui/core/Avatar'
 import { Col, Row } from 'reactstrap'
 import Evaluete from './Evaluete'
 
-// Hiện chỉ tabs được cho trang detail chứ chưa add được vào home
+// TabsDetail chỉ Add được vào Detail/Index
 const style = theme => ({
     container: {
         margin: 'auto',
