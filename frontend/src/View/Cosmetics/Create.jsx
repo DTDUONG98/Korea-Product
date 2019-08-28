@@ -70,7 +70,9 @@ class Create extends Component {
                 "type": 'Cosmetics',
             })
         })
+        window.location.reload(
         this.props.history.push('/Cosmetics/01')
+        )
     }
     render() {
         const { classes } = this.props

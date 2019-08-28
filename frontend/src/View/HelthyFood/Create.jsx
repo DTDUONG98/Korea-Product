@@ -65,7 +65,9 @@ class Create extends Component {
                 "type": type,
             })
         })
-        this.props.history.push('/Cosmetics/01')
+        window.location.reload(
+        this.props.history.push('/HelthyFood/02')            
+        )
     }
     render() {
         const { classes } = this.props
