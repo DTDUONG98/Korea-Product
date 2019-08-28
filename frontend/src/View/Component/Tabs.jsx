@@ -17,9 +17,7 @@ import ShareIcon from '@material-ui/icons/Share'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import Avatar from '@material-ui/core/Avatar'
 import { Col, Row } from 'reactstrap'
-import TextField from '@material-ui/core/TextField'
-import { Button } from '@material-ui/core'
-import SendIcon from '@material-ui/icons/Send'
+import Evaluete from './Evaluete'
 
 // Hiện chỉ tabs được cho trang detail chứ chưa add được vào home
 const style = theme => ({
@@ -42,14 +40,7 @@ const style = theme => ({
         "&:hover": {
             transform: 'scale(1.1)',
         }
-    },
-    formContentItemFeedback: {
-        marginBottom: '-12px'
-    },
-    buttonSendMessager: {
-        marginLeft: '12px',
-        marginBottom: '15px',
-    },
+    }
 })
 class Index extends Component {
     constructor(props) {
@@ -144,68 +135,7 @@ class Index extends Component {
                                 </Col>
                             </TabContainer>
                             <TabContainer dir={theme.direction}>
-                                <div>
-                                    <form className={classes.container} noValidate autoComplete="off">
-                                        <Grid container spacing={3}>
-                                            <Grid item xs={12} lg={6}>
-                                                <TextField
-                                                    id="outlined-name"
-                                                    label="Họ và tên"
-                                                    className={classes.formContentItemFeedback}
-                                                    margin="normal"
-                                                    variant="outlined"
-                                                    fullWidth
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} lg={6}>
-                                                <TextField
-                                                    id="outlined-name"
-                                                    label="Số điện thoại"
-                                                    className={classes.formContentItemFeedback}
-                                                    margin="normal"
-                                                    variant="outlined"
-                                                    fullWidth
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} lg={6}>
-                                                <TextField
-                                                    id="outlined-name"
-                                                    label="Địa chỉ email"
-                                                    className={classes.textFformContentItemFeedbackield}
-                                                    margin="normal"
-                                                    variant="outlined"
-                                                    fullWidth
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} lg={6}>
-                                                <TextField
-                                                    id="outlined-name"
-                                                    label="Địa chỉ thường trú"
-                                                    className={classes.formContentItemFeedback}
-                                                    margin="normal"
-                                                    variant="outlined"
-                                                    fullWidth
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} lg={12}>
-                                                <TextField
-                                                    name="messager"
-                                                    id="outlined-multiline-static"
-                                                    label="Lời nhắn"
-                                                    multiline rows="4"
-                                                    className={classes.formMessagertItemFeedback}
-                                                    onChange={this.onChangeMesager}
-                                                    margin="normal"
-                                                    variant="outlined"
-                                                    fullWidth
-                                                />
-                                            </Grid>
-                                            <Button variant="contained" size="small" color="primary" className={classes.buttonSendMessager}>
-                                                PHẢN HỒI TIN NHẮN <SendIcon> send</SendIcon>
-                                            </Button>
-                                        </Grid>
-                                    </form>
-                                </div>
+                                <Evaluete />
                             </TabContainer>
                             <TabContainer dir={theme.direction}>Item</TabContainer>
                         </SwipeableViews>
