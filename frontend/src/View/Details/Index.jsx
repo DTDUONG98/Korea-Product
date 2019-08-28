@@ -1,19 +1,9 @@
 import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
-import Avatar from '@material-ui/core/Avatar'
+// import Avatar from '@material-ui/core/Avatar'
 import { Col, Row } from 'reactstrap'
 import { Paper, Container } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader'
-import CardMedia from '@material-ui/core/CardMedia'
-import CardContent from '@material-ui/core/CardContent'
-import CardActions from '@material-ui/core/CardActions'
-import IconButton from '@material-ui/core/IconButton'
-import Typography from '@material-ui/core/Typography'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import ShareIcon from '@material-ui/icons/Share'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
 import Rating from '../Component/Rating'
 import Footer from '../Component/Footer'
 import Header from '../Component/Header'
@@ -219,54 +209,15 @@ class Details extends Component {
                                             <p>Các sản phẩm khác</p>
                                         </Col>
                                         <Col xs="12" md="12">
-                                            <Row>
-                                                {this.state.items.slice(0, 4).map((item, index) => {
-                                                    if (item.type == e.type) {
-                                                        return (
-                                                            <Card className={classes.card} key={index}>
-                                                                <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
-                                                                    {item.title}
-                                                                </Avatar>
-                                                                }
-                                                                    action={
-                                                                        <IconButton aria-label="settings">
-                                                                            <MoreVertIcon />
-                                                                        </IconButton>
-                                                                    }
-                                                                    title={item.title}
-                                                                    subheader={item.date}
-                                                                />
-                                                                <CardMedia className={classes.media} image={item.url} title={item.title} />
-                                                                <CardContent>
-                                                                    <Typography variant="body2" color="textSecondary" component="p">
-                                                                        {item.content}
-                                                                    </Typography>
-                                                                </CardContent>
-                                                                <CardActions disableSpacing>
-                                                                    <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
-                                                                        <FavoriteIcon />
-                                                                    </IconButton>
-                                                                    <IconButton aria-label="share">
-                                                                        <ShareIcon />
-                                                                    </IconButton>
-                                                                </CardActions>
-                                                            </Card>
-                                                        )
-                                                    }
-                                                })}
-                                            </Row>
+                                        <Tabs 
+                                            data = {e}
+                                        />
                                         </Col>
                                     </div>
                                 )
                             }
                         })}
                     </Row>
-                </Col>
-                <Col xs="12" md="12" style={{
-                    height: 'auto',
-                    marginTop: '20px',
-                }}>
-                    <Tabs />
                 </Col>
                 <Footer />
             </div>

@@ -126,7 +126,9 @@ class Home extends Component {
                     marginTop: '30px',
                     marginBottom: '20px'
                 }}>
-                    <Tabs />
+                    <Tabs 
+                        data = {this.state.Cosmetics}
+                    />
                 </Col>
                 <Col xs="12" md="12" className={classes.cosmetics}>
                     <Row>
