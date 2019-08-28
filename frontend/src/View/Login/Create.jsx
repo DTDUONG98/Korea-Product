@@ -7,51 +7,128 @@ class Create extends Component {
     super(props);
     this.state = {
       rePassword: '',
-      errors: {}
+      erName: false,
+      erUser: false,
+      erPass: false,
+      erPhone: false,
+      erRePass: false,
+      messName: '',
+      messUser: '',
+      messPass: '',
+      messPhone: '',
+      messRePass: '',
     }
   }
   AddUser() {
-    const { id, url, Name, UserName, Password, Phone, Address } = this.state
-    fetch(`http://localhost:3333/Users`, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        "id": id,
-        "url": " ",
-        "Name": Name,
-        "UserName": UserName,
-        "Password": Password,
-        "Phone": Phone,
-        "Address": "Not",
-        "Group": 1,
-      })
-    })
-    this.props.history.push('/')
-  }
-  handleChange = (event) => {
-    const { name, value } = event.target
-    if (value === "") {
+    const { id, url, Name, UserName, Password, Phone, Address, rePassword } = this.state
+    if (Password !== rePassword) {
       this.setState({
-        errors: {
-          ...this.state.errors,
-          [name]: "khong duoc dien ten luan"
-        }
+        erRePass: true,
+        messRePass: I18n.t("Mật khẩu không khớp")
       })
     } else {
       this.setState({
-        errors: {
-          ...this.state.errors,
-          [name]: ""
-        }
+        erRePass: false,
+        messRePass: '',
+      })
+      // if()
+      fetch(`http://localhost:3333/Users`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          "id": id,
+          "url": " ",
+          "Name": Name,
+          "UserName": UserName,
+          "Password": Password,
+          "Phone": Phone,
+          "Address": "Not",
+          "Group": 1,
+        })
+      })
+      // this.props.history.push('/')
+    }
+  }
+  checkName = (event) => {
+    let name = event.target.value
+    if (name.length == 0) {
+      this.setState({
+        erName: true,
+        messName: I18n.t("Vui lòng nhập đầy đủ thông tin"),
+      })
+    } else {
+      this.setState({
+        erName: false,
+        messName: '',
       })
     }
-    this.setState({ [name]: value })
+    if (this.state.erName == false) {
+      this.setState({
+        Name: name
+      })
+    }
+  }
+  checkUser = (event) => {
+    let user = event.target.value
+    if (user.length == 0) {
+      this.setState({
+        erUser: true,
+        messUser: I18n.t("Vui lòng nhập đầy đủ thông tin")
+      })
+    } else {
+      this.setState({
+        erUser: false,
+        messUser: '',
+      })
+      if (user.length > 50) {
+        this.setState({
+          erUser: true,
+          messUser: I18n.t("Vui lòng nhập không quá 50 ký tự")
+        })
+      } else {
+        this.setState({
+          erUser: false
+        })
+      }
+    }
+    if (this.state.erUser == false) {
+      this.setState({
+        UserName: user
+      })
+    }
+  }
+  checkPass = (event) => {
+    let pass = event.target.value
+    if (pass.length == 0) {
+      this.setState({
+        erPass: true,
+        messPass: I18n.t("Vui lòng nhập đầy đủ thông tin")
+      })
+    } else {
+      this.setState({
+        erPass: false,
+        messPass: '',
+      })
+    }
+    if (this.state.erPass == false) {
+      this.setState({
+        Password: pass
+      })
+    }
+  }
+  checkPhone = (event) => {
+    let phone = event.target.value
+    const re = /^[0-9\b]+$/ // check value only number
+    if (phone === '' || re.test(phone)) {
+      this.setState({
+        Phone: phone
+      })
+    }
   }
   render() {
-    const { errors } = this.state
     return (
       <div>
         <Col xs="12" md="12">
@@ -69,10 +146,10 @@ class Create extends Component {
                 name="Name"
                 label="tên người dùng"
                 value={this.state.Name}
-                error={Boolean(errors.Name)}
-                helperText={errors.Name}
                 placeholder="Nhập Tên người dùng"
-                onChange={this.handleChange}
+                onChange={this.checkName}
+                error={this.state.erName}
+                helperText={this.state.messName}
               />
 
             </Col>
@@ -85,7 +162,9 @@ class Create extends Component {
                 name="UserName"
                 value={this.state.UserName}
                 placeholder="tên đăng nhập"
-                onChange={this.handleChange}
+                onChange={this.checkUser}
+                error={this.state.erUser}
+                helperText={this.state.messUser}
               />
             </Col>
             <Col xs={{ size: 10, offset: 1 }} lg={{ size: 10, offset: 1 }}>
@@ -98,7 +177,9 @@ class Create extends Component {
                 placeholder="mật khẩu"
                 type="Password"
                 name="Password"
-                onChange={this.handleChange}
+                onChange={this.checkPass}
+                error={this.state.erPass}
+                helperText={this.state.messPass}
               />
             </Col>
             <Col xs={{ size: 10, offset: 1 }} lg={{ size: 10, offset: 1 }}>
@@ -111,7 +192,9 @@ class Create extends Component {
                 placeholder="Nhập lại mật khẩu"
                 type="password"
                 name="rePassword"
-                onChange={this.handleChange}
+                onChange={(e) => this.setState({ rePassword: e.target.value })}
+                error={this.state.erRePass}
+                helperText={this.state.messRePass}
               />
             </Col>
             <Col xs={{ size: 10, offset: 1 }} lg={{ size: 10, offset: 1 }}>
@@ -123,7 +206,9 @@ class Create extends Component {
                 name="Phone"
                 value={this.state.Phone}
                 placeholder="Số điện thoại"
-                onChange={this.handleChange}
+                onChange={this.checkPhone}
+                error={this.state.erPhone}
+                helperText={this.state.messPhone}
               />
             </Col>
             <Col xs={{ size: 2, offset: 5 }} lg={{ size: 2, offset: 5 }} style={{ paddingBottom: "10px", paddingTop: "10px" }}>
