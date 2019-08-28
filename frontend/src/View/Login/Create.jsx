@@ -21,6 +21,7 @@ class Create extends Component {
   }
   AddUser() {
     const { id, url, Name, UserName, Password, Phone, Address, rePassword } = this.state
+    const {erName, erPass, erPhone, erUser, erRePass} = this.state
     if (Password !== rePassword) {
       this.setState({
         erRePass: true,
@@ -31,25 +32,26 @@ class Create extends Component {
         erRePass: false,
         messRePass: '',
       })
-      // if()
-      fetch(`http://localhost:3333/Users`, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          "id": id,
-          "url": " ",
-          "Name": Name,
-          "UserName": UserName,
-          "Password": Password,
-          "Phone": Phone,
-          "Address": "Not",
-          "Group": 1,
+      if(erName == false && erPass == false && erPhone == false && erUser == false && erRePass == false){
+        fetch(`http://localhost:3333/Users`, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            "id": id,
+            "url": " ",
+            "Name": Name,
+            "UserName": UserName,
+            "Password": Password,
+            "Phone": Phone,
+            "Address": "Not",
+            "Group": 1,
+          })
         })
-      })
-      // this.props.history.push('/')
+        this.props.history.push('/')
+      }
     }
   }
   checkName = (event) => {
