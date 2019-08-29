@@ -43,10 +43,8 @@ class index extends Component {
             users: [],
             userName: '',
             Password: '',
-            errorPas: false,
-            errorUser: false,
-            messPas: "",
-            messUser: "",
+            errors: false,
+            messErr: '',
         }
     }
     createUser() {
@@ -57,39 +55,28 @@ class index extends Component {
             if (this.state.userName == e.UserName && this.state.Password == e.Password) {
                 this.props.history.push(`/`)
                 this.setState({
-                    errorPas: false,
-                    errorUser: false,
+                    errors: false,
                 })
             }
             else {
-                if (this.state.userName !== e.UserName) {
+                if (this.state.userName !== e.UserName || this.state.Password !== e.Password) {
                     this.setState({
-                        messUser: I18n.t("Tài khoản không chính xác"),
-                        errorUser: true,
-                        errorPas: false,
+                        messErr: I18n.t("Tài khoản hoặc mật khẩu không chính xác"),
+                        errors: true
                     })
                 }
-                if (this.state.Password !== e.Password) {
-                        this.setState({
-                            messPas: I18n.t("Mật khẩu không chính xác"),
-                            errorPas: true,
-                            errorUser: false
-                        })
-                    }
-                if(this.state.userName !== e.UserName && this.state.Password !== e.Password){
+                else{
                     this.setState({
-                        messUser: I18n.t("Tài khoản không chính xác"),
-                        messPas: I18n.t("Mật khẩu không chính xác"),
-                        errorUser: true,
-                        errorPas: true,
+                        messErr: '',
+                        errors: false,
                     })
                 }
-                }
+            }
         })
     }
     // lây data user
     componentDidMount() {
-        fetch(`http://localhost:3333/Users`)
+        fetch(`http://192.168.6.76:3333/Users`)
             .then(response => response.json())
             .then(data =>
                 this.setState({ users: data })
@@ -119,8 +106,7 @@ class index extends Component {
                                 onChange={(e) => this.setState({
                                     userName: e.target.value
                                 })}
-                                error={this.state.errorUser}
-                                helperText={this.state.messUser}
+                                error={this.state.errors}
                             />
                             <TextField
                                 id="Password"
@@ -132,8 +118,8 @@ class index extends Component {
                                 onChange={(e) => this.setState({
                                     Password: e.target.value
                                 })}
-                                error={this.state.errorPas}
-                                helperText={this.state.messPas}
+                                error={this.state.errors}
+                                helperText={this.state.messErr}
                             />
                             <FormControlLabel
                                 control={
