@@ -4,7 +4,7 @@ import { Col, Row } from 'reactstrap'
 import { Container } from '@material-ui/core'
 const style = theme => ({
     footer: {
-        background: '#adc1eb',
+        background: '#3f51b5',
         marginTop: '20px',
     },
     service: {
