@@ -14,7 +14,8 @@ const style = theme => ({
         position: 'relative',
         backgroundSize: 'cover',
         height: '550px',
-        backgroundAttachment: 'fixed'
+        backgroundAttachment: 'fixed',
+        marginTop: '-40px'
     },
     lipstick: {
         padding: '20px'
@@ -51,7 +52,7 @@ class Index extends Component {
         this.props.history.push(`/Bills/${title}`)
     }
     componentDidMount() {
-        fetch(`http://localhost:3333/Products`)
+        fetch(`http://192.168.6.76:3333/Products`)
             .then(response => response.json())
             .then((data) => {
                 let DataSale = []

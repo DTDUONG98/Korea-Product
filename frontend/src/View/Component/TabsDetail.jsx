@@ -51,7 +51,7 @@ class Index extends Component {
         }
     }
     componentDidMount() {
-        fetch(`http://localhost:3333/Products`)
+        fetch(`http://192.168.6.76:3333/Products`)
             .then(response => response.json())
             .then(data =>
                 this.setState({ items: data })

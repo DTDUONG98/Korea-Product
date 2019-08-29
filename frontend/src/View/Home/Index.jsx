@@ -3,9 +3,9 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import { Col, Row } from 'reactstrap'
 import Footer from '../Component/Footer'
 import TabsHome from '../Component/TabsHome'
-import Header from '../Component/Header'
 import Item from '../Component/Item'
 import Sli from '../Component/Slider'
+import Header from '../Component/Header'
 
 const style = theme => ({
     header: {
@@ -13,7 +13,8 @@ const style = theme => ({
         position: 'relative',
         backgroundSize: 'cover',
         height: '600px',
-        backgroundAttachment: 'fixed'
+        backgroundAttachment: 'fixed',
+        marginTop: '-40px'
     },
     cosmetics: {
         background: "url(./background/stylesbgr.jpg)",
@@ -65,10 +66,10 @@ class Home extends Component {
         let title = name + "-" + soluong
         this.props.history.push(`/Bills/${title}`)
     }
-    // để chạy db.json/database :  json-server --watch db.json --port 3333
+    // để chạy db.json/database :  json-server --host 192.168.6.76 --port 3333 db.json
     // Khai báo data Products ở file datanbase/db.json
     componentDidMount() {
-        fetch(`http://localhost:3333/Products`)
+        fetch(`http://192.168.6.76:3333/Products`)
             // We get the API response and receive data in JSON format...
             .then(response => response.json())
             // ...then we update the users state
@@ -126,8 +127,8 @@ class Home extends Component {
                     marginTop: '30px',
                     marginBottom: '20px'
                 }}>
-                    <TabsHome 
-                        data = {this.state.Cosmetics}
+                    <TabsHome
+                        data={this.state.Cosmetics}
                     />
                 </Col>
                 <Col xs="12" md="12" className={classes.cosmetics}>
