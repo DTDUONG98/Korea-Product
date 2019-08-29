@@ -12,8 +12,6 @@ import { red } from '@material-ui/core/colors'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import AttachMoney from '@material-ui/icons/AttachMoney'
 import { IconButton, Tooltip } from '@material-ui/core'
-
-
 const style = theme => ({
     card: {
         maxWidth: 300,
