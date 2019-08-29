@@ -26,7 +26,6 @@ const useStyles = makeStyles(theme => ({
     itemLink: {
         color: 'white',
         textTransform: 'uppercase',
-        fontWeight: 'bold',
         fontSize: '16px',
         textDecoration: 'none',
         marginRight: '35px',
@@ -145,17 +144,17 @@ export default function PersistentDrawerLeft(props) {
                     >
                         <MenuIcon style={{ fontSize: '30px' }} />
                     </IconButton>
-                    <Typography>
+                    <Typography className={classes.itemLink}>
                         <a
                             onClick={Home}
                         >HOME</a>
                     </Typography>
-                    <Typography style={{ marginLeft: '30px' }}>
+                    <Typography className={classes.itemLink}>
                         <a onClick={Cosmetics}>
                             COSMETICS
                         </a>
                     </Typography>
-                    <Typography style={{ marginLeft: '30px' }}>
+                    <Typography className={classes.itemLink}>
                         <a onClick={HelthyFood}>
                             HELTHYFOOD
                         </a>
