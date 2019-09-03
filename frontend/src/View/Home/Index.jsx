@@ -66,10 +66,10 @@ class Home extends Component {
         let title = name + "-" + soluong
         this.props.history.push(`/Bills/${title}`)
     }
-    // để chạy db.json/database :  json-server --host 192.168.6.76 --port 3333 db.json
+    // để chạy db.json/database :  json-server --host localhost --port 3333 db.json
     // Khai báo data Products ở file datanbase/db.json
     componentDidMount() {
-        fetch(`http://192.168.6.76:3333/Products`)
+        fetch(`http://localhost:3333/Products`)
             // We get the API response and receive data in JSON format...
             .then(response => response.json())
             // ...then we update the users state

@@ -76,7 +76,7 @@ class index extends Component {
     }
     // lây data user
     componentDidMount() {
-        fetch(`http://192.168.6.76:3333/Users`)
+        fetch(`http://localhost:3333/Users`)
             .then(response => response.json())
             .then(data =>
                 this.setState({ users: data })
