@@ -47,7 +47,7 @@ class Index extends Component {
         this.props.history.push('/CreateHelthyFood/13')
     }
     componentDidMount() {
-        fetch(`http://192.168.6.76:3333/Products`)
+        fetch(`http://localhost:3333/Products`)
             .then(response => response.json())
             .then(data => {
                 let DataSale = []

@@ -40,7 +40,7 @@ class Bills extends Component {
         alert('Cảm ơn bạn đã ủng hộ chũng tôi .')
     }
     componentDidMount() {
-        fetch(`http://192.168.6.76:3333/Products`)
+        fetch(`http://localhost:3333/Products`)
             .then(response => response.json())
             .then(data =>
                 this.setState({ items: data })
