@@ -7,6 +7,7 @@ import Rating from '../Component/Rating'
 import Footer from '../Component/Footer'
 import Header from '../Component/Header'
 import TabsDetail from '../Component/TabsDetail'
+import moment from 'moment'
 const style = theme => ({
     card: {
         maxWidth: 290,

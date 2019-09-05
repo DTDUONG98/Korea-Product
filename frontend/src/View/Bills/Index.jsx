@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Footer from '../Component/Footer'
 import Header from '../Component/Header'
+import moment from 'moment'
 const style = theme => ({
     paper: {
         widht: '100%',
@@ -23,7 +24,7 @@ class Bills extends Component {
         super(props);
         this.state = {
             items: [],
-            soluong: '1'
+            soluong: ''
         }
     }
 
@@ -37,7 +38,25 @@ class Bills extends Component {
         this.props.history.push('/HelthyFood/02')
     }
     OK(){
-        alert('Cảm ơn bạn đã ủng hộ chũng tôi .')
+        const {id, product, price, Name, Address, Phone, quatity} = this.state
+        fetch(`http://localhost:3333/ListOrder`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "id": id,
+                "prosuct": product,
+                "userName": Name,
+                "phone": Phone,
+                "quatity": quatity,
+                "date": moment().format('YYYY-MM-DD'),
+                "price": price,
+                "address": Address,
+            })
+        })
+        this.props.history.push('/')
     }
     componentDidMount() {
         fetch(`http://localhost:3333/Products`)
@@ -49,9 +68,9 @@ class Bills extends Component {
     }
     render() {
         const { classes } = this.props
-        let data = this.props.match.params.id
-        let name = data.split('-')[0]
-        let soluong = data.split('-')[1]
+        const data = this.props.match.params.id
+        const name = data.split('-')[0]
+        const soluong = data.split('-')[1] 
         return (
             <div>
                 <Header 

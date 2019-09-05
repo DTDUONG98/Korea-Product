@@ -194,7 +194,6 @@ export default function PersistentDrawerLeft(props) {
                             HELTHYFOOD
                         </a>
                     </Typography>
-                    <Col md={{ size: 2, offset: 5 }}>
                         <Typography>
                             <div className={classes.search}>
                                 <div className={classes.searchIcon}>
@@ -206,7 +205,6 @@ export default function PersistentDrawerLeft(props) {
                                 }} inputProps={{ 'aria-label': 'Search' }} />
                             </div>
                         </Typography>
-                    </Col>
                     <Col md="5">
                         <Row>
                             <Col md="2" >

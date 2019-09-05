@@ -82,6 +82,7 @@ class Index extends Component {
                             textAlign: 'center',
                             fontSize: '40px',
                             marginTop: '30px',
+                            color: 'yellow'
                         }}>
                             Những Sản Phẩm Giảm Giá
                         </Col>
