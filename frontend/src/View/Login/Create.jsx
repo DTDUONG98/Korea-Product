@@ -21,19 +21,23 @@ class Create extends Component {
   AddUser() {
     const { id, Name, UserName, Password, Phone, rePassword } = this.state
     const { erName, erPass, erPhone, erUser, erRePass } = this.state
+    let dem = 0
     // check validate Name
-    if (Name == undefined) {
+    if (Name == undefined || Name.length == 0) {
+      dem = parseInt(dem) + 1
       this.setState({
         erName: true,
         messName: I18n.t("Vui lòng nhập đủ thông tin")
       })
     } else {
       if (Name.length > 50) {
+      dem = parseInt(dem) + 1
         this.setState({
           erName: true,
           messName: I18n.t("Vui lòng nhập không quá 50 ký tự")
         })
       } else {
+        dem = parseInt(dem) - 1
         this.setState({
           erName: false,
           messName: ''
@@ -41,29 +45,34 @@ class Create extends Component {
       }
     }
     // Check validate UserName
-    if (UserName == undefined) {
+    if (UserName == undefined || UserName.length == 0) {
+      dem = parseInt(dem) + 1
       this.setState({
         erUser: true,
         messUser: I18n.t("Vui lòng nhập đủ thông tin")
       })
     } else {
+      dem = parseInt(dem) - 1
       this.setState({
         erUser: false,
       })
     }
     // Check Validate Pass
-    if (Password == undefined) {
+    if (Password == undefined || Password.length == 0) {
+      dem = parseInt(dem) + 1
       this.setState({
         erPass: true,
         messPass: I18n.t("Vui lòng nhập đủ thông tin")
       })
     } else {
       if (Password.length > 24 || Password.length < 8) {
+      dem = parseInt(dem) + 1
         this.setState({
           erPass: true,
           messPass: I18n.t("Vui lòng nhập nhiền hơn 8 ký tự và không quá 24 ký tự")
         })
       } else {
+        dem = parseInt(dem) - 1
         this.setState({
           erPass: false,
           messPass: ''
@@ -71,18 +80,21 @@ class Create extends Component {
       }
     }
     // Check Validate Phone
-    if (Phone == undefined) {
+    if (Phone == undefined || Phone.length == 0) {
+      dem = parseInt(dem) + 1
       this.setState({
         erPhone: true,
         messPhone: I18n.t("Vui lòng nhập đủ thông tin")
       })
     } else {
       if (Phone.length < 10 || Phone.length > 11) {
+      dem = parseInt(dem) + 1
         this.setState({
           erPhone: true,
           messPhone: I18n.t("Vui lòng nhập 10 or 11 số")
         })
       } else {
+        dem = parseInt(dem) - 1
         this.setState({
           erPhone: false,
           messPhone: '',
@@ -90,25 +102,28 @@ class Create extends Component {
       }
     }
     // Check Validate RePass
-    if (rePassword == undefined) {
+    if (rePassword == undefined || rePassword == 0) {
+      dem = parseInt(dem) + 1
       this.setState({
         erRePass: true,
         messRePass: I18n.t("Vui lòng nhập đủ thông tin")
       })
     } else {
       if (rePassword !== Password) {
+        dem = parseInt(dem) + 1
         this.setState({
           erRePass: true,
           messRePass: I18n.t("Mật khẩu không khớp")
         })
       } else {
+        dem = parseInt(dem) - 1
         this.setState({
           erRePass: false,
           messRePass: '',
         })
       }
     }
-    if (Name !== undefined &&  Phone !== undefined && rePassword !== undefined &&rePassword == Password && Password !== undefined && UserName !== undefined ) {
+    if (dem == -5) {
       console.log('true')
       fetch(`http://localhost:3333/Users`, {
         method: 'POST',
