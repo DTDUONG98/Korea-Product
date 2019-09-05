@@ -6,11 +6,11 @@ class Create extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      erName: false,
-      erUser: false,
-      erPass: false,
-      erPhone: false,
-      erRePass: false,
+      erName: undefined,
+      erUser: undefined,
+      erPass: undefined,
+      erPhone: undefined,
+      erRePass: undefined,
       messName: '',
       messUser: '',
       messPass: '',
@@ -20,27 +20,116 @@ class Create extends Component {
   }
   AddUser() {
     const { id, Name, UserName, Password, Phone, rePassword } = this.state
-    const {erName, erPass, erPhone, erUser, erRePass} = this.state
-    fetch(`http://localhost:3333/Users`, {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            "id": id,
-            "url": " ",
-            "Name": Name,
-            "UserName": UserName,
-            "Password": Password,
-            "Phone": Phone,
-            "Address": "Not",
-            "Group": 1,
-          })
+    const { erName, erPass, erPhone, erUser, erRePass } = this.state
+    // check validate Name
+    if (Name == undefined) {
+      this.setState({
+        erName: true,
+        messName: I18n.t("Vui lòng nhập đủ thông tin")
+      })
+    } else {
+      if (Name.length > 50) {
+        this.setState({
+          erName: true,
+          messName: I18n.t("Vui lòng nhập không quá 50 ký tự")
         })
-        // this.props.history.push('/')
+      } else {
+        this.setState({
+          erName: false,
+          messName: ''
+        })
+      }
+    }
+    // Check validate UserName
+    if (UserName == undefined) {
+      this.setState({
+        erUser: true,
+        messUser: I18n.t("Vui lòng nhập đủ thông tin")
+      })
+    } else {
+      this.setState({
+        erUser: false,
+      })
+    }
+    // Check Validate Pass
+    if (Password == undefined) {
+      this.setState({
+        erPass: true,
+        messPass: I18n.t("Vui lòng nhập đủ thông tin")
+      })
+    } else {
+      if (Password.length > 24 || Password.length < 8) {
+        this.setState({
+          erPass: true,
+          messPass: I18n.t("Vui lòng nhập nhiền hơn 8 ký tự và không quá 24 ký tự")
+        })
+      } else {
+        this.setState({
+          erPass: false,
+          messPass: ''
+        })
+      }
+    }
+    // Check Validate Phone
+    if (Phone == undefined) {
+      this.setState({
+        erPhone: true,
+        messPhone: I18n.t("Vui lòng nhập đủ thông tin")
+      })
+    } else {
+      if (Phone.length < 10 || Phone.length > 11) {
+        this.setState({
+          erPhone: true,
+          messPhone: I18n.t("Vui lòng nhập 10 or 11 số")
+        })
+      } else {
+        this.setState({
+          erPhone: false,
+          messPhone: '',
+        })
+      }
+    }
+    // Check Validate RePass
+    if (rePassword == undefined) {
+      this.setState({
+        erRePass: true,
+        messRePass: I18n.t("Vui lòng nhập đủ thông tin")
+      })
+    } else {
+      if (rePassword !== Password) {
+        this.setState({
+          erRePass: true,
+          messRePass: I18n.t("Mật khẩu không khớp")
+        })
+      } else {
+        this.setState({
+          erRePass: false,
+          messRePass: '',
+        })
+      }
+    }
+    if (Name !== undefined &&  Phone !== undefined && rePassword !== undefined &&rePassword == Password && Password !== undefined && UserName !== undefined ) {
+      console.log('true')
+      fetch(`http://localhost:3333/Users`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          "id": id,
+          "url": " ",
+          "Name": Name,
+          "UserName": UserName,
+          "Password": Password,
+          "Phone": Phone,
+          "Address": "Not",
+          "Group": 1,
+        })
+      })
+      this.props.history.push('/')
+    }
   }
-  
   render() {
     return (
       <div>
@@ -61,7 +150,9 @@ class Create extends Component {
                 value={this.state.Name}
                 placeholder="Nhập Tên người dùng"
                 onChange={(e) => this.setState({
-                  Name: e.currentTarget.value
+                  Name: e.currentTarget.value,
+                  erName: undefined,
+                  messName: '',
                 })}
                 error={this.state.erName}
                 helperText={this.state.messName}
@@ -78,7 +169,9 @@ class Create extends Component {
                 value={this.state.UserName}
                 placeholder="tên đăng nhập"
                 onChange={(e) => this.setState({
-                  UserName: e.currentTarget.value
+                  UserName: e.currentTarget.value,
+                  erUser: undefined,
+                  messUser: ''
                 })}
                 error={this.state.erUser}
                 helperText={this.state.messUser}
@@ -95,7 +188,9 @@ class Create extends Component {
                 type="Password"
                 name="Password"
                 onChange={(e) => this.setState({
-                  Password: e.currentTarget.value
+                  Password: e.currentTarget.value,
+                  erPass: undefined,
+                  messPass: '',
                 })}
                 error={this.state.erPass}
                 helperText={this.state.messPass}
@@ -111,7 +206,11 @@ class Create extends Component {
                 placeholder="Nhập lại mật khẩu"
                 type="password"
                 name="rePassword"
-                onChange={(e) => this.setState({ rePassword: e.target.value })}
+                onChange={(e) => this.setState({
+                  rePassword: e.target.value,
+                  erRePass: undefined,
+                  messRePass: '',
+                })}
                 error={this.state.erRePass}
                 helperText={this.state.messRePass}
               />
@@ -123,10 +222,13 @@ class Create extends Component {
                 margin="normal"
                 label="Phone"
                 name="Phone"
+                type="number"
                 value={this.state.Phone}
                 placeholder="Số điện thoại"
                 onChange={(e) => this.setState({
-                  Phone: e.currentTarget.value
+                  Phone: e.currentTarget.value,
+                  erPhone: undefined,
+                  messPhone: '',
                 })}
                 error={this.state.erPhone}
                 helperText={this.state.messPhone}
