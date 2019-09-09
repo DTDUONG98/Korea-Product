@@ -1,12 +1,6 @@
 import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
-import Avatar from '@material-ui/core/Avatar'
-import img from '../../../src/PTIT.png'
-import { FaBars } from "react-icons/fa"
 import { Col, Row } from 'reactstrap'
-import { FaSistrix } from "react-icons/fa"
-import InputBase from '@material-ui/core/InputBase'
-import { fade } from '@material-ui/core/styles'
 import { Container, Button } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField'
 import moment from 'moment'
@@ -61,7 +55,6 @@ class Create extends Component {
     // POST product mới lên database
     AddProduct() {
         const { id, url, title, content, date, price, cost, status, type } = this.state
-        let { erTitle, erContent, erPrice, erCost } = this.state
         let dem = 0
         if (title == undefined || title.length == 0) {
             dem = parseInt(dem) + 1

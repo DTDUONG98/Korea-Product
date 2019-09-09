@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { Col, Row } from 'reactstrap'
-import { fade } from '@material-ui/core/styles'
 import { Container, Button } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField'
 import moment from 'moment'
 import FileBase64 from 'react-file-base64'
 import Header from '../Component/Header'
+import { I18n } from 'react-redux-i18n'
 const style = theme => ({
     title: {
         background: '#adc1eb',
@@ -47,27 +47,82 @@ class Create extends Component {
     // POST product mới lên database
     AddProduct() {
         const { id, url, title, content, date, price, cost, status, type } = this.state
-        fetch(`http://localhost:3333/Products`, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                "id": id,
-                "url": url,
-                "title": title,
-                "content": content,
-                "date": moment().format('YYYY-MM-DD'),
-                "price": price,
-                "cost": cost,
-                "status": "Còn hàng",
-                "type": type,
+        let dem = 0
+        if (title == undefined || title.length == 0) {
+            dem = parseInt(dem) + 1
+            this.setState({
+                erTitle: true,
+                messTitle: I18n.t("Vui lòng nhập đầy đủ thông tin")
             })
-        })
-        window.location.reload(
-        this.props.history.push('/HelthyFood/02')            
-        )
+        } else {
+            dem = parseInt(dem) - 1
+            this.setState({
+                erTitle: false,
+                messTitle: '',
+            })
+        }
+        if (content == undefined || content.length == 0) {
+            dem = parseInt(dem) + 1
+            this.setState({
+                erContent: true,
+                messContent: I18n.t("Vui lòng nhập đầy đủ thông tin")
+            })
+        } else {
+            dem = parseInt(dem) - 1
+            this.setState({
+                erContent: false,
+                messContent: '',
+            })
+        }
+        if (price == undefined || price.length == 0) {
+            dem = parseInt(dem) + 1
+            this.setState({
+                erPrice: true,
+                messPrice: I18n.t("Vui lòng nhập đầy đủ thông tin")
+            })
+        } else {
+            dem = parseInt(dem) - 1
+            this.setState({
+                erPrice: false,
+                messPrice: '',
+            })
+        }
+        if (cost == undefined || cost.length == 0) {
+            dem = parseInt(dem) + 1
+            this.setState({
+                erCost: true,
+                messCost: I18n.t("Vui lòng nhập đầy đủ thông tin")
+            })
+        } else {
+            dem = parseInt(dem) - 1
+            this.setState({
+                erCost: false,
+                messCost: '',
+            })
+        }
+        if (dem == -4) {
+            fetch(`http://localhost:3333/Products`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    "id": id,
+                    "url": url,
+                    "title": title,
+                    "content": content,
+                    "date": moment().format('YYYY-MM-DD'),
+                    "price": price,
+                    "cost": cost,
+                    "status": "Còn hàng",
+                    "type": 'Cosmetics',
+                })
+            })
+            window.location.reload(
+                this.props.history.push('/HelthyFood/02')
+            )
+        }
     }
     render() {
         const { classes } = this.props
@@ -98,10 +153,14 @@ class Create extends Component {
                                     className={classes.textField}
                                     value={this.state.title}
                                     onChange={(e) => this.setState({
-                                        title: e.target.value
+                                        title: e.target.value,
+                                        erTitle: undefined,
+                                        messTitle: '',
                                     })}
                                     margin="normal"
                                     variant="outlined"
+                                    error={this.state.erTitle}
+                                    helperText={this.state.messTitle}
                                 />
                             </Col>
                             <Col xs={{ size: 10, offset: 1 }} md={{ size: 4, offset: 1 }}>
@@ -112,10 +171,14 @@ class Create extends Component {
                                     className={classes.textField}
                                     value={this.state.content}
                                     onChange={(e) => this.setState({
-                                        content: e.target.value
+                                        content: e.target.value,
+                                        erContent: undefined,
+                                        messContent: '',
                                     })}
                                     margin="normal"
                                     variant="outlined"
+                                    error={this.state.erContent}
+                                    helperText={this.state.messContent}
                                 />
                             </Col>
                             <Col xs={{ size: 10, offset: 1 }} md={{ size: 4, offset: 1 }} style={{
@@ -135,10 +198,14 @@ class Create extends Component {
                                     className={classes.textField}
                                     value={this.state.price}
                                     onChange={(e) => this.setState({
-                                        price: e.target.value
+                                        price: e.target.value,
+                                        erPrice: undefined,
+                                        messPrice: '',
                                     })}
                                     margin="normal"
                                     variant="outlined"
+                                    error={this.state.erPrice}
+                                    helperText={this.state.messPrice}
                                 />
                             </Col>
                             <Col xs={{ size: 10, offset: 1 }} md={{ size: 4, offset: 6 }}>
@@ -149,10 +216,14 @@ class Create extends Component {
                                     className={classes.textField}
                                     value={this.state.cost}
                                     onChange={(e) => this.setState({
-                                        cost: e.target.value
+                                        cost: e.target.value,
+                                        erCost: undefined,
+                                        messCost:'',
                                     })}
                                     margin="normal"
                                     variant="outlined"
+                                    error={this.state.erCost}
+                                    helperText={this.state.messCost}
                                 />
                             </Col>
                             <Col xs={{ size: 10, offset: 1 }} md={{ size: 4, offset: 6 }}>
