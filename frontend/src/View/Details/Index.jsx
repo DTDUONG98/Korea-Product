@@ -94,7 +94,7 @@ class Details extends Component {
                 <Col xs={12} md={12}>
                     <Row>
                         {this.state.items.slice(0, this.state.visible).map((e, index) => {
-                            if (e.title == data) {
+                            if (e.name == data) {
                                 return (
                                     <div key={index}>
                                         <Col xs="12" md="12">
@@ -110,13 +110,13 @@ class Details extends Component {
                                                             <Col xs="12" md="12" className={classes.comtents} style={{
                                                                 marginTop: '40px',
                                                             }}>
-                                                                <h2>{e.title}</h2>
+                                                                <h2>{e.name}</h2>
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
                                                                 <h2><Rating /></h2>
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
-                                                                Thương hiệu: {e.title}
+                                                                Thương hiệu: {e.name}
                                                             </Col>
                                                             <Col xs={{ size: 12 }} md={{ size: 12 }}>
                                                                 <p
@@ -142,7 +142,7 @@ class Details extends Component {
                                                                 ></p>
                                                             </Col>
                                                             <Col xs="12" md="12"
-                                                                className={classes.comtents}
+                                                                className={classes.title}
                                                             >
                                                                 <Row>
                                                                     <Col xs="12" md="4" style={{
@@ -174,7 +174,7 @@ class Details extends Component {
                                                                             variant="contained"
                                                                             color="secondary"
                                                                             size="large"
-                                                                            value={e.title}
+                                                                            value={e.name}
                                                                             onClick={() => this.Bills(e)}
                                                                         >Đặt hàng ngay</Button>
                                                                     </Col>
@@ -210,6 +210,7 @@ class Details extends Component {
                                         </Col>
                                         <Col xs="12" md="12">
                                         <TabsDetail 
+                                            link={this.props}
                                             data = {e}
                                         />
                                         </Col>

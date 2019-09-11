@@ -79,7 +79,7 @@ class Bills extends Component {
                 <Col xs={12} md={12}>
                     <Row>
                         {this.state.items.slice(0, this.state.visible).map((item, index) => {
-                            if (item.title == name) {
+                            if (item.name == name) {
                                 return (
                                     <div key={index}>
                                         <Col xs="12" md="12">
@@ -167,7 +167,7 @@ class Bills extends Component {
                                                                     variant="contained"
                                                                     color="secondary"
                                                                     size="large"
-                                                                    value={item.title}
+                                                                    value={item.name}
                                                                     onClick={() => this.OK()}
                                                                 >
                                                                     Đặt hàng

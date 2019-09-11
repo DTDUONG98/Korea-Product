@@ -46,8 +46,21 @@ class Create extends Component {
     }
     // POST product mới lên database
     AddProduct() {
-        const { id, url, title, content, date, price, cost, status, type } = this.state
+        const { id, url, title, content, date, price, cost, status, type, name } = this.state
         let dem = 0
+        if (name == undefined || name.length == 0) {
+            dem = parseInt(dem) + 1
+            this.setState({
+                erName: true,
+                messName: I18n.t("Vui lòng nhập đầy đủ thông tin")
+            })
+        } else {
+            dem = parseInt(dem) - 1
+            this.setState({
+                erName: false,
+                messName: '',
+            })
+        }
         if (title == undefined || title.length == 0) {
             dem = parseInt(dem) + 1
             this.setState({
@@ -59,6 +72,19 @@ class Create extends Component {
             this.setState({
                 erTitle: false,
                 messTitle: '',
+            })
+        }
+        if (type == undefined || type.length == 0) {
+            dem = parseInt(dem) + 1
+            this.setState({
+                erType: true,
+                messType: I18n.t("Vui lòng nhập đầy đủ thông tin")
+            })
+        } else {
+            dem = parseInt(dem) - 1
+            this.setState({
+                erType: false,
+                messType: '',
             })
         }
         if (content == undefined || content.length == 0) {
@@ -100,7 +126,7 @@ class Create extends Component {
                 messCost: '',
             })
         }
-        if (dem == -4) {
+        if (dem == -6) {
             fetch(`http://localhost:3333/Products`, {
                 method: 'POST',
                 headers: {
@@ -110,13 +136,14 @@ class Create extends Component {
                 body: JSON.stringify({
                     "id": id,
                     "url": url,
-                    "title": title,
-                    "content": content,
+                    "name": name,
+                    "title": title, // thông tin khái quát của sản phẩm
+                    "content": content, // thông tin tổng quát của sản phẩm
                     "date": moment().format('YYYY-MM-DD'),
-                    "price": price,
-                    "cost": cost,
+                    "price": price, // Giá bán của sản phẩm
+                    "cost": cost, // Giá thị trường của sản phẩm
                     "status": "Còn hàng",
-                    "type": 'Cosmetics',
+                    "type": type,
                 })
             })
             window.location.reload(
@@ -145,43 +172,7 @@ class Create extends Component {
                 <Col xs="12" md="12">
                     <Container>
                         <Row>
-                            <Col xs="12" md={{ size: 4, offset: 1 }}>
-                                <TextField
-                                    fullWidth
-                                    id="outlined-title"
-                                    label="Tên sản phẩm"
-                                    className={classes.textField}
-                                    value={this.state.title}
-                                    onChange={(e) => this.setState({
-                                        title: e.target.value,
-                                        erTitle: undefined,
-                                        messTitle: '',
-                                    })}
-                                    margin="normal"
-                                    variant="outlined"
-                                    error={this.state.erTitle}
-                                    helperText={this.state.messTitle}
-                                />
-                            </Col>
-                            <Col xs={{ size: 10, offset: 1 }} md={{ size: 4, offset: 1 }}>
-                                <TextField
-                                    fullWidth
-                                    id="outlined-content"
-                                    label="Thông tin sản phẩm"
-                                    className={classes.textField}
-                                    value={this.state.content}
-                                    onChange={(e) => this.setState({
-                                        content: e.target.value,
-                                        erContent: undefined,
-                                        messContent: '',
-                                    })}
-                                    margin="normal"
-                                    variant="outlined"
-                                    error={this.state.erContent}
-                                    helperText={this.state.messContent}
-                                />
-                            </Col>
-                            <Col xs={{ size: 10, offset: 1 }} md={{ size: 4, offset: 1 }} style={{
+                        <Col xs={{ size: 10, offset: 1 }} md={{ size: 4, offset: 1 }} style={{
                                 marginTop: '20px'
                             }}>
                                 { // upload image product
@@ -190,7 +181,25 @@ class Create extends Component {
                                         onDone={this.getFiles.bind(this)} />
                                 }
                             </Col>
-                            <Col xs={{ size: 10, offset: 1 }} md={{ size: 4, offset: 1 }}>
+                            <Col xs="12" md={{ size: 4, offset: 2 }}>
+                                <TextField
+                                    fullWidth
+                                    id="outlined-name"
+                                    label="Tên sản phẩm"
+                                    className={classes.textField}
+                                    value={this.state.name}
+                                    onChange={(e) => this.setState({
+                                        name: e.target.value,
+                                        erName: undefined,
+                                        messName: '',
+                                    })}
+                                    margin="normal"
+                                    variant="outlined"
+                                    error={this.state.erName}
+                                    helperText={this.state.messName}
+                                />
+                            </Col>
+                            <Col xs={{ size: 10, offset: 1 }} md={{ size: 4, offset: 7 }}>
                                 <TextField
                                     fullWidth
                                     id="outlined-price"
@@ -208,7 +217,7 @@ class Create extends Component {
                                     helperText={this.state.messPrice}
                                 />
                             </Col>
-                            <Col xs={{ size: 10, offset: 1 }} md={{ size: 4, offset: 6 }}>
+                            <Col xs={{ size: 10, offset: 1 }} md={{ size: 4, offset: 7 }}>
                                 <TextField
                                     fullWidth
                                     id="outlined-cost"
@@ -226,7 +235,7 @@ class Create extends Component {
                                     helperText={this.state.messCost}
                                 />
                             </Col>
-                            <Col xs={{ size: 10, offset: 1 }} md={{ size: 4, offset: 6 }}>
+                            <Col xs={{ size: 10, offset: 1 }} md={{ size: 4, offset: 7 }}>
                                 <TextField
                                     fullWidth
                                     id="outlined-type"
@@ -234,10 +243,51 @@ class Create extends Component {
                                     className={classes.textField}
                                     value={this.state.type}
                                     onChange={(e) => this.setState({
-                                        type: e.target.value
+                                        type: e.target.value,
+                                        erType: undefined,
+                                        messType: ''
                                     })}
                                     margin="normal"
                                     variant="outlined"
+                                    error={this.state.erType}
+                                    helperText={this.state.messType}
+                                />
+                            </Col>
+                            <Col xs={{ size: 10, offset: 1 }} md={{ size: 10, offset: 1 }}>
+                                <TextField
+                                    fullWidth
+                                    id="outlined-title"
+                                    label="Thông tin khái quát"
+                                    className={classes.textField}
+                                    value={this.state.title}
+                                    onChange={(e) => this.setState({
+                                        title: e.target.value,
+                                        erTitle: undefined,
+                                        messTitle: '',
+                                    })}
+                                    margin="normal"
+                                    variant="outlined"
+                                    error={this.state.erTitle}
+                                    helperText={this.state.messTitle}
+                                />
+                            </Col>
+                            <Col xs={{ size: 10, offset: 1 }} md={{ size: 10, offset: 1 }}>
+                                <TextField
+                                    fullWidth
+                                    id="outlined-content"
+                                    label="Thông tin tổng quát"
+                                    className={classes.textField}
+                                    value={this.state.content}
+                                    onChange={(e) => this.setState({
+                                        content: e.target.value,
+                                        erContent: undefined,
+                                        messContent: '',
+                                    })}
+                                    multiline rows="4"
+                                    margin="normal"
+                                    variant="outlined"
+                                    error={this.state.erContent}
+                                    helperText={this.state.messContent}
                                 />
                             </Col>
                         </Row>

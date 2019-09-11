@@ -68,6 +68,10 @@ class Index extends Component {
     handleChangeTab = (event, newValue) => {
         this.setState({ tabValue: newValue })
     }
+    Details(e) {
+        let name = e.currentTarget.value
+        this.props.link.history.push(`/Details/${name}`)
+    }
     render() {
         let dataProps = this.props.data
         let { classes, theme } = this.props
@@ -102,7 +106,7 @@ class Index extends Component {
                                                 return (
                                                     <Card className={classes.card} key={index}>
                                                         <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
-                                                            {item.title}
+                                                            {item.name}
                                                         </Avatar>
                                                         }
                                                             action={
@@ -110,17 +114,17 @@ class Index extends Component {
                                                                     <MoreVertIcon />
                                                                 </IconButton>
                                                             }
-                                                            title={item.title}
+                                                            title={item.name}
                                                             subheader={item.date}
                                                         />
-                                                        <CardMedia className={classes.media} image={item.url} title={item.title} />
+                                                        <CardMedia className={classes.media} image={item.url} title={item.name} />
                                                         <CardContent>
                                                             <Typography variant="body2" color="textSecondary" component="p">
-                                                                {item.content}
+                                                                {item.title}
                                                             </Typography>
                                                         </CardContent>
                                                         <CardActions disableSpacing>
-                                                            <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
+                                                            <IconButton aria-label="add to favorites" value={item.name} onClick={(e) => this.Details(e)}>
                                                                 <FavoriteIcon />
                                                             </IconButton>
                                                             <IconButton aria-label="share">

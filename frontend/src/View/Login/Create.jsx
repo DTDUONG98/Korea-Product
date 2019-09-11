@@ -6,21 +6,10 @@ class Create extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      erName: undefined,
-      erUser: undefined,
-      erPass: undefined,
-      erPhone: undefined,
-      erRePass: undefined,
-      messName: '',
-      messUser: '',
-      messPass: '',
-      messPhone: '',
-      messRePass: '',
     }
   }
   AddUser() {
     const { id, Name, UserName, Password, Phone, rePassword } = this.state
-    const { erName, erPass, erPhone, erUser, erRePass } = this.state
     let dem = 0
     // check validate Name
     if (Name == undefined || Name.length == 0) {

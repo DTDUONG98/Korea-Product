@@ -60,26 +60,26 @@ class Item extends Component {
                         <Col xs="12" md="3">
                             <Card className={classes.card} key={index}>
                                 <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
-                                    {item.title}
+                                    {item.name}
                                 </Avatar>
                                 }
-                                    title={item.title}
+                                    title={item.name}
                                     subheader={item.date}
                                 />
-                                <CardMedia className={classes.media} image={item.url} title={item.title} />
+                                <CardMedia className={classes.media} image={item.url} title={item.name} />
                                 <CardContent>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        {item.content}
+                                        {item.title}
                                     </Typography>
                                 </CardContent>
                                 <CardActions disableSpacing>
                                     <Tooltip title="Detail Product" key="Detail">
-                                        <IconButton aria-label="add to favorites" value={item.title} onClick={(e) => this.Details(e)}>
+                                        <IconButton aria-label="add to favorites" value={item.name} onClick={(e) => this.Details(e)}>
                                             <FavoriteIcon />
                                         </IconButton>
                                     </Tooltip>
                                     <Tooltip title="Buy now" key="Buy">
-                                        <IconButton aria-label="share" value={item.title} onClick={(e) => this.Bills(e)}>
+                                        <IconButton aria-label="share" value={item.name} onClick={(e) => this.Bills(e)}>
                                             <AttachMoney />
                                         </IconButton>
                                     </Tooltip>
