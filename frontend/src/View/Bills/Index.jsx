@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField'
 import Footer from '../Component/Footer'
 import Header from '../Component/Header'
 import moment from 'moment'
+import { I18n } from 'react-redux-i18n'
 const style = theme => ({
     paper: {
         widht: '100%',
@@ -37,26 +38,68 @@ class Bills extends Component {
     HelthyFood() {
         this.props.history.push('/HelthyFood/02')
     }
-    OK(){
-        const {id, product, price, Name, Address, Phone, quatity} = this.state
-        fetch(`http://localhost:3333/ListOrder`, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                "id": id,
-                "prosuct": product,
-                "userName": Name,
-                "phone": Phone,
-                "quatity": quatity,
-                "date": moment().format('YYYY-MM-DD'),
-                "price": price,
-                "address": Address,
+    OK() {
+        const { id, product, price, Name, Address, Phone, quatity } = this.state
+        let dem = 0
+        if (Name == undefined || Name.length == 0) {
+            dem = parseInt(dem) + 1
+            this.setState({
+                erName: true,
+                messName: I18n.t("Vui lòng nhập đầy đủ thông tin")
             })
-        })
-        this.props.history.push('/')
+        } else {
+            dem = parseInt(dem) - 1
+            this.setState({
+                erName: false,
+                messName: '',
+            })
+        }
+        if (Phone == undefined || Phone.length == 0) {
+            dem = parseInt(dem) + 1
+            this.setState({
+                erPhone: true,
+                messPhone: I18n.t("Vui lòng nhập đầy đủ thông tin")
+            })
+        } else {
+            dem = parseInt(dem) - 1
+            this.setState({
+                erPhone: false,
+                messPhone: '',
+            })
+        }
+        if (Address == undefined || Address.length == 0) {
+            dem = parseInt(dem) + 1
+            this.setState({
+                erAddress: true,
+                messAddress: I18n.t("Vui lòng nhập đầy đủ thông tin")
+            })
+        } else {
+            dem = parseInt(dem) - 1
+            this.setState({
+                erAddress: false,
+                messAddress: '',
+            })
+        }
+        if (dem == -3) {
+            fetch(`http://localhost:3333/ListOrder`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    "id": id,
+                    "prosuct": product,
+                    "userName": Name,
+                    "phone": Phone,
+                    "quatity": quatity,
+                    "date": moment().format('YYYY-MM-DD'),
+                    "price": price,
+                    "address": Address,
+                })
+            })
+            this.props.history.push('/')
+        }
     }
     componentDidMount() {
         fetch(`http://localhost:3333/Products`)
@@ -70,11 +113,11 @@ class Bills extends Component {
         const { classes } = this.props
         const data = this.props.match.params.id
         const name = data.split('-')[0]
-        const soluong = data.split('-')[1] 
+        const soluong = data.split('-')[1]
         return (
             <div>
-                <Header 
-                    link = {this.props}
+                <Header
+                    link={this.props}
                 />
                 <Col xs={12} md={12}>
                     <Row>
@@ -105,10 +148,14 @@ class Bills extends Component {
                                                                     className={classes.textField}
                                                                     value={this.state.Name}
                                                                     onChange={(e) => this.setState({
-                                                                        Name: e.target.value
+                                                                        Name: e.target.value,
+                                                                        erName: undefined,
+                                                                        messName: '',
                                                                     })}
                                                                     margin="normal"
                                                                     variant="outlined"
+                                                                    error={this.state.erName}
+                                                                    helperText={this.state.messName}
                                                                 />
                                                             </Col>
                                                             <Col xs={{ size: 10, offset: 1 }} md={{ size: 10, offset: 1 }} className={classes.comtents}>
@@ -119,10 +166,14 @@ class Bills extends Component {
                                                                     className={classes.textField}
                                                                     value={this.state.Phone}
                                                                     onChange={(e) => this.setState({
-                                                                        Phone: e.target.value
+                                                                        Phone: e.target.value,
+                                                                        erPhone: undefined,
+                                                                        messPhone: '',
                                                                     })}
                                                                     margin="normal"
                                                                     variant="outlined"
+                                                                    error={this.state.erPhone}
+                                                                    helperText={this.state.messPhone}
                                                                 />
                                                             </Col>
                                                             <Col xs={{ size: 10, offset: 1 }} md={{ size: 10, offset: 1 }} className={classes.comtents}>
@@ -133,10 +184,14 @@ class Bills extends Component {
                                                                     className={classes.textField}
                                                                     value={this.state.Address}
                                                                     onChange={(e) => this.setState({
-                                                                        Address: e.target.value
+                                                                        Address: e.target.value,
+                                                                        erAddress: undefined,
+                                                                        messAddress: '',
                                                                     })}
                                                                     margin="normal"
                                                                     variant="outlined"
+                                                                    error={this.state.erAddress}
+                                                                    helperText={this.state.messAddress}
                                                                 />
                                                             </Col>
                                                             <Col xs={{ size: 12 }} md={{ size: 12 }}>
@@ -153,7 +208,7 @@ class Bills extends Component {
                                                                 Số Lượng : {`${soluong}`}
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
-                                                            <h3 style={{color: 'red'}}>Tổng: {`${item.price * soluong}`}.000 đ</h3>
+                                                                <h3 style={{ color: 'red' }}>Tổng: {`${item.price * soluong}`}.000 đ</h3>
                                                             </Col>
                                                             <Col xs={{ size: 12 }} md={{ size: 12 }}>
                                                                 <p
@@ -162,7 +217,7 @@ class Bills extends Component {
                                                                     }}
                                                                 ></p>
                                                             </Col>
-                                                            <Col xs={{size: 4, offset:4 }} md={{size: 4, offset: 4}}>
+                                                            <Col xs={{ size: 4, offset: 4 }} md={{ size: 4, offset: 4 }}>
                                                                 <Button
                                                                     variant="contained"
                                                                     color="secondary"

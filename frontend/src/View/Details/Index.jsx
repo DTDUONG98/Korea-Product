@@ -206,9 +206,6 @@ class Details extends Component {
                                             ></p>
                                         </Col>
                                         <Col xs="12" md="12">
-                                            <p>Các sản phẩm khác</p>
-                                        </Col>
-                                        <Col xs="12" md="12">
                                         <TabsDetail 
                                             link={this.props}
                                             data = {e}
