@@ -14,7 +14,7 @@ import HelthyFood from '../src/View/HelthyFood/Index'
 import Details from './View/Details/Index'
 import Bills from './View/Bills/Index'
 import Cart from './View/Cart/Index'
-// import ListOrder from './View/Order/ListOrder'
+import ListOrder from './View/Order/ListOrder'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -30,6 +30,7 @@ ReactDOM.render(
         <Route exact path="/Bills/:id" component={Bills} />
         <Route exact path="/Login/:id"  component={Login}/>
         <Route exact path="/Cart/:id" component={Cart} />
+        <Route exact path="/ListOrder/:id" component={ListOrder} />
     </BrowserRouter>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

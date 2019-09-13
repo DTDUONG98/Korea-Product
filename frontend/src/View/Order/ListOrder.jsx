@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import withStyle from '@material-ui/core/styles/withStyles'
-import Table from '@material-ui/core/Table'
-import TableHead from '@material-ui/core/TableHead'
-import TableBody from '@material-ui/core/TableBody'
-import TableRow from '@material-ui/core/TableRow'
-import TableCell from '@material-ui/core/TableCell'
+import Header from '../Component/Header'
+import Footer from '../Component/Footer'
 const styles = theme => ({
-    title: {
-        textAlign: 'center'
-    }
+    root: {
+        width: '100%',
+        marginTop: theme.spacing(3),
+        overflowX: 'auto',
+      },
+      table: {
+      },
 })
 class ListOrder extends Component {
     constructor(props) {
@@ -26,30 +27,39 @@ class ListOrder extends Component {
             .catch(error => console.log('error ', error));
     }
     render() {
+        const {classes} = this.props
         return (
             <div>
-                <Table>
-                    <TableHead>
-                        <TableCell>Tên sản phẩm</TableCell>
-                        <TableCell>Tên người mua</TableCell>
-                        <TableCell>Số Điện Thoại</TableCell>
-                        <TableCell>Số Lượng</TableCell>
-                        <TableCell>Giá</TableCell>
-                        <TableCell>Ngày mua</TableCell>
-                        <TableCell>Địa chỉ nhận hàng</TableCell>
-                    </TableHead>
-                    {this.state.items.map((item, index) => {
-                        <TableBody key={index}>
-                            <TableRow>{item.product}</TableRow>
-                            <TableRow>{item.Name}</TableRow>
-                            <TableRow>{item.Phone}</TableRow>
-                            <TableRow>{item.quatity}</TableRow>
-                            <TableRow>{item.price}</TableRow>
-                            <TableRow>{item.date}</TableRow>
-                            <TableRow>{item.Address}</TableRow>
-                        </TableBody>
-                    })}
-                </Table>
+                <Header />
+                <table striped bordered hover size="md">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên mặt hàng</th>
+                            <th>Tên khách hàng</th>
+                            <th>Số điện thoại</th>
+                            <th>Số lượng</th>
+                            <th>Giá</th>
+                            <th>Ngày đặt hàng</th>
+                            <th>Địa chỉ nhận hàng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.items.map((e, index) => (
+                            <tr key={index}>
+                                <td>{e.id}</td>
+                                <td> chưa lấy được </td>
+                                <td>{e.userName}</td>
+                                <td>{e.phone}</td>
+                                <td>{e.quantity}</td>
+                                <td> chưa lấy được</td>
+                                <td>{e.date}</td>
+                                <td>{e.address}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                <Footer />
             </div>
         )
     }
