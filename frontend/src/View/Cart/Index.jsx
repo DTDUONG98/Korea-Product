@@ -26,7 +26,9 @@ class Index extends Component{
                 <Col xs="12" md="12">
                 
                 </Col>
-                <Footer />
+                <Footer 
+                    link={this.props}
+                />
             </div>
         )
     }

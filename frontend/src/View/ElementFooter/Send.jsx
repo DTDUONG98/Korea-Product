@@ -16,7 +16,7 @@ const style = theme => ({
         marginBottom: '15px',
     },
 })
-class Index extends Component {
+class Send extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -225,5 +225,5 @@ class Index extends Component {
         )
     }
 }
-export default withStyles(style, { withTheme: true })(Index)
+export default withStyles(style, { withTheme: true })(Send)
 

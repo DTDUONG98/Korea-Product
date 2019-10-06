@@ -49,7 +49,12 @@ class ListOrder extends Component {
         const { classes } = this.props
         return (
             <div>
-                <Header />
+                <Header 
+                    link = {this.props}
+                />
+                <Col xs="12" md="12">
+                    <h2 style={{textAlign: "center"}}>Danh sách Order</h2>
+                </Col>
                 <Col xs={{ size: 1, offset: 11 }} md={{ size: 1, offset: 11 }}>
                     <Tooltip title="Print to Excel" key="Print">
                         <IconButton aria-label="print to excel" onClick={() => this.printTblToEx()}>
@@ -85,7 +90,9 @@ class ListOrder extends Component {
                         ))}
                     </TableBody>
                 </Table>
-                <Footer />
+                <Footer 
+                    link={this.props}
+                />
             </div>
         )
     }

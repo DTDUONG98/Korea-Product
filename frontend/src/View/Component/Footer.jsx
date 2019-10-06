@@ -25,6 +25,9 @@ class Footer extends Component {
         this.state = {
         }
     }
+    Send(){
+        this.props.link.history.push('/Send/123')
+    }
     render() {
         const { classes } = this.props
         return (
@@ -37,7 +40,7 @@ class Footer extends Component {
                             <span>(Hỗ trợ từ thứ 2 đến thứ 7)</span>
                             <h6 style={{color: 'red', marginTop: '10px'}}>Hotline chăm sóc khách hàng: 0326609183</h6>
                             <p>(Hỗ trợ từ thứ 2 đến thứ 7)</p>
-                            <p>Các câu hỏi thường gặp</p>
+                            <p><a onClick={() => this.Send()}>Các câu hỏi thường gặp</a></p>
                             <p>Gửi yêu cầu hỗ trợ</p>
                             <p>Hướng dẫn đặt hàng</p>
                             <p>Phương thức vận chuyển</p>

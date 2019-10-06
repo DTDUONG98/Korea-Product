@@ -125,7 +125,9 @@ class Index extends Component {
                         </Col>
                     </Row>
                 </Col>
-                <Footer />
+                <Footer 
+                    link={this.props}
+                />
             </div>
         )
     }

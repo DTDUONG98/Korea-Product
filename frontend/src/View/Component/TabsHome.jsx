@@ -50,7 +50,7 @@ class Index extends Component {
                                 textColor="primary"
                                 variant="fullWidth"
                             >
-                                <Tab label="Dịch Vụ" />
+                                <Tab label="Tiêu chí Shop" />
                                 <Tab label="Sản Phẩm" />
                                 <Tab label="Vận Chuyển" />
                             </Tabs>
@@ -59,11 +59,18 @@ class Index extends Component {
                             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                             index={this.state.tabValue}
                         >
-                            <TabContainer dir={theme.direction}>Item
+                            <TabContainer dir={theme.direction}>
+                                <p>Luôn đặt sự hài lòng của khách hàng lên hàng đầu</p>
+                                <p>Luôn cũng cấp những sản phẩm chính hãng và tốt nhất cho người tiêu dùng</p>
+                                <p>Phục vụ tận tình và luôn nắng nghe những góp ý từ khách hàng</p>
                             </TabContainer>
-                            <TabContainer dir={theme.direction}>Item
+                            <TabContainer dir={theme.direction}>
+                                <p>Shop cũng cấp những sản phẩm chính hãng vầ chất lượng nhất đến người tiêu dùng</p>
                             </TabContainer>
-                            <TabContainer dir={theme.direction}>Item</TabContainer>
+                            <TabContainer dir={theme.direction}>
+                                <p> dịch vụ giao hàng tận nơi trên toàn quốc, áp dụng cho khách mua hàng trên website, fanpage và gọi điện thoại, không áp dụng cho khách mua trực tiếp tại cửa hàng.</p>
+                                <p>Đơn hàng sẽ được chuyển phát đến tận địa chỉ khách hàng cung cấp thông qua công ty vận chuyển trung gian.</p>
+                            </TabContainer>
                         </SwipeableViews>
                     </div>
                 </Grid>

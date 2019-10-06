@@ -6,21 +6,19 @@ import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail'
+import List from '@material-ui/core/List'
+import Typography from '@material-ui/core/Typography'
+import Divider from '@material-ui/core/Divider'
+import MenuIcon from '@material-ui/icons/Menu'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
+import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import { FaSistrix } from "react-icons/fa"
 import InputBase from '@material-ui/core/InputBase'
 import { fade } from '@material-ui/core/styles'
+import { IconButton, Tooltip } from '@material-ui/core'
+import HomeIcon from '@material-ui/icons/Home'
+import ListOrder from '@material-ui/icons/List'
+import LocalGroceryStore from '@material-ui/icons/LocalGroceryStore'
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -160,6 +158,9 @@ export default function PersistentDrawerLeft(props) {
     function SignUp() {
         props.link.history.push('/Create/12')
     }
+    function ListBook() {
+        props.link.history.push('/ListOrder/03')
+    }
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -194,17 +195,17 @@ export default function PersistentDrawerLeft(props) {
                             HELTHYFOOD
                         </a>
                     </Typography>
-                        <Typography>
-                            <div className={classes.search}>
-                                <div className={classes.searchIcon}>
-                                    <FaSistrix style={{ fontSize: '25px' }} />
-                                </div>
-                                <InputBase placeholder="Search…" classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }} inputProps={{ 'aria-label': 'Search' }} />
+                    <Typography>
+                        <div className={classes.search}>
+                            <div className={classes.searchIcon}>
+                                <FaSistrix style={{ fontSize: '25px' }} />
                             </div>
-                        </Typography>
+                            <InputBase placeholder="Search…" classes={{
+                                root: classes.inputRoot,
+                                input: classes.inputInput,
+                            }} inputProps={{ 'aria-label': 'Search' }}  />
+                        </div>
+                    </Typography>
                     <Col md="5">
                         <Row>
                             <Col md="2" >
@@ -238,13 +239,29 @@ export default function PersistentDrawerLeft(props) {
                     </IconButton>
                 </div>
                 <Divider />
+                    <HomeIcon />
+                <Divider />
                 <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
+                    <Tooltip title="Home" key="Home" onClick={Home}>
+                        <IconButton>
+                            <HomeIcon />
+                        </IconButton>
+                    </Tooltip> Home <br />
+                    <Tooltip title="Cosmetics" key="Cosmetics" onClick={Cosmetics}>
+                        <IconButton>
+                            <LocalGroceryStore />
+                        </IconButton>
+                    </Tooltip> Cosmetics <br />
+                    <Tooltip title="HelthyFood" key="HelthyFood" onClick={HelthyFood}>
+                        <IconButton>
+                            <LocalGroceryStore />
+                        </IconButton>
+                    </Tooltip> HelthyFood <br />
+                    <Tooltip title="ListOrder" key="ListOrder" onClick={ListBook}>
+                        <IconButton>
+                            <ListOrder />
+                        </IconButton>
+                    </Tooltip> ListOrder
                 </List>
                 <Divider />
             </Drawer>

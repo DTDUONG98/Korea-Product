@@ -18,6 +18,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 import Avatar from '@material-ui/core/Avatar'
 import { Col, Row } from 'reactstrap'
 import Evaluete from './Evaluete'
+import Feedback from './Feedback'
 
 // TabsDetail chỉ Add được vào Detail/Index
 const style = theme => ({
@@ -139,9 +140,13 @@ class Index extends Component {
                                 </Col>
                             </TabContainer>
                             <TabContainer dir={theme.direction}>
-                                <Evaluete />
+                                <Evaluete 
+                                    link={this.props}
+                                />
                             </TabContainer>
-                            <TabContainer dir={theme.direction}>Item</TabContainer>
+                            <TabContainer dir={theme.direction}>
+                                <Feedback />
+                            </TabContainer>
                         </SwipeableViews>
                     </div>
                 </Grid>

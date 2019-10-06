@@ -239,7 +239,9 @@ class Bills extends Component {
                         })}
                     </Row>
                 </Col>
-                <Footer />
+                <Footer 
+                    link={this.props}
+                />
             </div>
         )
     }

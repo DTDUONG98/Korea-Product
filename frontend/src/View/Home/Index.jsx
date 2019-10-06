@@ -66,6 +66,9 @@ class Home extends Component {
         let title = name + "-" + soluong
         this.props.history.push(`/Bills/${title}`)
     }
+    ListOrder(){
+        this.props.history.push('/ListOrder/03')
+    }
     // để chạy db.json/database :  json-server --host localhost --port 3333 db.json
     // Khai báo data Products ở file datanbase/db.json
     componentDidMount() {
@@ -168,7 +171,9 @@ class Home extends Component {
                         link={this.props}
                     />
                 </Col>
-                <Footer />
+                <Footer 
+                    link={this.props}
+                />
             </div>
         )
     }

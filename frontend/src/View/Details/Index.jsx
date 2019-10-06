@@ -217,7 +217,9 @@ class Details extends Component {
                         })}
                     </Row>
                 </Col>
-                <Footer />
+                <Footer 
+                    link={this.props}
+                />
             </div>
         )
     }
