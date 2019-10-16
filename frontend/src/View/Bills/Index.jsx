@@ -38,8 +38,12 @@ class Bills extends Component {
     HelthyFood() {
         this.props.history.push('/HelthyFood/02')
     }
-    OK() {
-        const { id, product, price, Name, Address, Phone, quatity } = this.state
+    OK(e) {
+        let data = this.props.match.params.id
+        let product = data.split('-')[0]
+        let quantity = data.split('-')[1]
+        let price = parseInt(quantity) * parseInt(e.currentTarget.value)+ '.000'
+        const { id, Name, Address, Phone } = this.state
         let dem = 0
         if (Name == undefined || Name.length == 0) {
             dem = parseInt(dem) + 1
@@ -89,10 +93,10 @@ class Bills extends Component {
                 },
                 body: JSON.stringify({
                     "id": id,
-                    "prosuct": product,
+                    "product": product,
                     "userName": Name,
                     "phone": Phone,
-                    "quatity": quatity,
+                    "quantity": quantity,
                     "date": moment().format('YYYY-MM-DD'),
                     "price": price,
                     "address": Address,
@@ -112,8 +116,8 @@ class Bills extends Component {
     render() {
         const { classes } = this.props
         const data = this.props.match.params.id
-        const name = data.split('-')[0]
-        const soluong = data.split('-')[1]
+        const product = data.split('-')[0]
+        const quantity = data.split('-')[1]
         return (
             <div>
                 <Header
@@ -122,7 +126,7 @@ class Bills extends Component {
                 <Col xs={12} md={12}>
                     <Row>
                         {this.state.items.slice(0, this.state.visible).map((item, index) => {
-                            if (item.name == name) {
+                            if (item.name == product) {
                                 return (
                                     <div key={index}>
                                         <Col xs="12" md="12">
@@ -205,10 +209,10 @@ class Bills extends Component {
                                                                 Đơn giá: {item.price}đ
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
-                                                                Số Lượng : {`${soluong}`}
+                                                                Số Lượng : {`${quantity}`}
                                                             </Col>
                                                             <Col xs="12" md="12" className={classes.comtents}>
-                                                                <h3 style={{ color: 'red' }}>Tổng: {`${item.price * soluong}`}.000 đ</h3>
+                                                                <h3 style={{ color: 'red' }}>Tổng: {`${item.price * quantity}`}.000 đ</h3>
                                                             </Col>
                                                             <Col xs={{ size: 12 }} md={{ size: 12 }}>
                                                                 <p
@@ -222,8 +226,8 @@ class Bills extends Component {
                                                                     variant="contained"
                                                                     color="secondary"
                                                                     size="large"
-                                                                    value={item.name}
-                                                                    onClick={() => this.OK()}
+                                                                    value={item.price}
+                                                                    onClick={(e) => this.OK(e)}
                                                                 >
                                                                     Đặt hàng
                                                                 </Button>

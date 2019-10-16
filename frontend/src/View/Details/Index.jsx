@@ -70,7 +70,7 @@ class Details extends Component {
         this.props.history.push(`/Details/${name}`)
     }
     Bills(e) {
-        let name = e.title
+        let name = e.currentTarget.value
         let soluong = this.state.soluong
         let title = name + "-" + soluong
         this.props.history.push(`/Bills/${title}`)
@@ -175,7 +175,7 @@ class Details extends Component {
                                                                             color="secondary"
                                                                             size="large"
                                                                             value={e.name}
-                                                                            onClick={() => this.Bills(e)}
+                                                                            onClick={(e) => this.Bills(e)}
                                                                         >Đặt hàng ngay</Button>
                                                                     </Col>
                                                                 </Row>

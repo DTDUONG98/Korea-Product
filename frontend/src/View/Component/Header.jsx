@@ -19,6 +19,8 @@ import { IconButton, Tooltip } from '@material-ui/core'
 import HomeIcon from '@material-ui/icons/Home'
 import ListOrder from '@material-ui/icons/List'
 import LocalGroceryStore from '@material-ui/icons/LocalGroceryStore'
+import Login from '@material-ui/icons/PowerSettingsNewOutlined'
+import Avatar from '@material-ui/core/Avatar'
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -134,6 +136,7 @@ const useStyles = makeStyles(theme => ({
 export default function PersistentDrawerLeft(props) {
     const classes = useStyles();
     const theme = useTheme();
+    const [inputSearch] = React.useState('');
     const [open, setOpen] = React.useState(false);
 
     function handleDrawerOpen() {
@@ -155,11 +158,12 @@ export default function PersistentDrawerLeft(props) {
     function Signin() {
         props.link.history.push('/login/11')
     }
-    function SignUp() {
-        props.link.history.push('/Create/12')
-    }
     function ListBook() {
         props.link.history.push('/ListOrder/03')
+    }
+    function InputSearch(e){
+        let value = e.currentTarget.value
+        console.log('value', value)
     }
     return (
         <div className={classes.root}>
@@ -200,28 +204,12 @@ export default function PersistentDrawerLeft(props) {
                             <div className={classes.searchIcon}>
                                 <FaSistrix style={{ fontSize: '25px' }} />
                             </div>
-                            <InputBase placeholder="Search…" classes={{
+                            <InputBase placeholder="Search…" onChange={InputSearch} value={inputSearch} classes={{
                                 root: classes.inputRoot,
                                 input: classes.inputInput,
-                            }} inputProps={{ 'aria-label': 'Search' }}  />
+                            }} inputProps={{ 'aria-label': 'Search' }} />
                         </div>
                     </Typography>
-                    <Col md="5">
-                        <Row>
-                            <Col md="2" >
-                                {/* <Avatar alt="PTIT" src={img} className={classes.avatar} /> */}
-                                <Typography onClick={Signin}>
-                                    Sign In
-                               </Typography>
-                            </Col>
-                            <Col md="3" >
-                                {/* <Avatar alt="PTIT" src={img} className={classes.avatar} /> */}
-                                <Typography onClick={SignUp}>
-                                    Sign Up
-                                </Typography>
-                            </Col>
-                        </Row>
-                    </Col>
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -239,7 +227,11 @@ export default function PersistentDrawerLeft(props) {
                     </IconButton>
                 </div>
                 <Divider />
-                    <HomeIcon />
+                <Tooltip title="Login" key="Login" onClick={Signin} style={{ textAlign: 'center' }}>
+                    <IconButton >
+                        <Login style={{ fontSize: '40px' }} />
+                    </IconButton>
+                </Tooltip>
                 <Divider />
                 <List>
                     <Tooltip title="Home" key="Home" onClick={Home}>

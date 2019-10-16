@@ -52,11 +52,21 @@ class Index extends Component {
         }
     }
     componentDidMount() {
+        const dataProps = this.props.data
         fetch(`http://localhost:3333/Products`)
             .then(response => response.json())
-            .then(data =>
-                this.setState({ items: data })
-            )
+            .then(data =>{
+                let Data = []
+                data.map((e) => {
+                    if(e.type = dataProps.type) {
+                        console.log('data', e)
+                        Data.push(e)
+                    }
+                })
+                this.setState({
+                    items: Data
+                })
+            })
             .catch(error => console.log('error ', error));
     }
     TabContainer = ({ children, dir }) => {
@@ -74,7 +84,8 @@ class Index extends Component {
         this.props.link.history.push(`/Details/${name}`)
     }
     render() {
-        let dataProps = this.props.data
+        // let dataProps = this.props.data
+        const {items} = this.state || []
         let { classes, theme } = this.props
         const TabContainer = this.TabContainer
         return (
@@ -102,9 +113,7 @@ class Index extends Component {
                             <TabContainer dir={theme.direction}>
                                 <Col xs="12" md="12">
                                     <Row>
-                                        {this.state.items.slice(0, 4).map((item, index) => {
-                                            if (item.type == dataProps.type) {
-                                                return (
+                                        {items.slice(0,4).map((item, index) => 
                                                     <Card className={classes.card} key={index}>
                                                         <CardHeader avatar={<Avatar aria-label="recipe" className={classes.avatarCard}>
                                                             {item.name}
@@ -133,9 +142,7 @@ class Index extends Component {
                                                             </IconButton>
                                                         </CardActions>
                                                     </Card>
-                                                )
-                                            }
-                                        })}
+                                                )}
                                     </Row>
                                 </Col>
                             </TabContainer>
