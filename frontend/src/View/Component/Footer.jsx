@@ -10,6 +10,7 @@ const style = theme => ({
     service: {
         marginTop: '20px',
         marginBottom: '10px',
+        cursor: 'pointer'
     },
     root: {
         flexGrow: 1,
@@ -28,6 +29,9 @@ class Footer extends Component {
     Send(){
         this.props.link.history.push('/Send/123')
     }
+    Questions(){
+        this.props.link.history.push('/Questions/124')
+    }
     render() {
         const { classes } = this.props
         return (
@@ -40,23 +44,23 @@ class Footer extends Component {
                             <span>(Hỗ trợ từ thứ 2 đến thứ 7)</span>
                             <h6 style={{color: 'red', marginTop: '10px'}}>Hotline chăm sóc khách hàng: 0326609183</h6>
                             <p>(Hỗ trợ từ thứ 2 đến thứ 7)</p>
-                            <p><a onClick={() => this.Send()}>Các câu hỏi thường gặp</a></p>
-                            <p>Gửi yêu cầu hỗ trợ</p>
-                            <p>Hướng dẫn đặt hàng</p>
-                            <p>Phương thức vận chuyển</p>
-                            <p>Chính sách đổi trả</p>
-                            <p>Chính sách khách hàng</p>
+                            <p><a onClick={() => this.Questions()} className={classes.service}>Các câu hỏi thường gặp</a></p>
+                            <p className={classes.service}><a onClick={() => this.Send()}>Gửi yêu cầu hỗ trợ</a></p>
+                            <p className={classes.service}><a onClick={() => this.Questions()}>Hướng dẫn đặt hàng</a></p>
+                            <p className={classes.service}><a onClick={() => this.Questions()}>Phương thức vận chuyển</a></p>
+                            <p className={classes.service}><a onClick={() => this.Questions()}>Chính sách đổi trả</a></p>
+                            <p className={classes.service}><a onClick={() => this.Questions()}>Chính sách khách hàng</a></p>
                             <p>Hỗ trợ khách hàng :admin@pro.com</p>
                             <p>Báo lỗi bảo mật : sercurty@pro.com</p>
                         </Grid>
                         <Grid item xs={12} md={3}>
                             <h4>Về PRO</h4>
-                            <p style={{marginTop: '20px'}}>Giới thiệu về PRO</p>
-                            <p>Chính sách bảo mật thanh toán</p>
-                            <p>Chính sách bảo mật thông tin cá nhân</p>
-                            <p>Chính sách giải quyết khiếu nại</p>
-                            <p>Điều khoản sử dụng</p>
-                            <p>PRO tư vấn</p>
+                            <p style={{marginTop: '20px'}} className={classes.service}><a onClick={() => this.Questions()}>Giới thiệu về PRO</a></p>
+                            <p className={classes.service}><a onClick={() => this.Questions()}>Chính sách bảo mật thanh toán</a></p>
+                            <p className={classes.service}><a onClick={() => this.Questions()}>Chính sách bảo mật thông tin cá nhân</a></p>
+                            <p className={classes.service}><a onClick={() => this.Questions()}>Chính sách giải quyết khiếu nại</a></p>
+                            <p className={classes.service}><a onClick={() => this.Questions()}>Điều khoản sử dụng</a></p>
+                            <p className={classes.service}><a onClick={() => this.Questions()}>PRO tư vấn</a></p>
                         </Grid>
                         <Grid item xs={12} md={3}>
                             <h4>Phương Thức Thanh Toán</h4>

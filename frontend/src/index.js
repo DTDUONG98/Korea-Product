@@ -16,6 +16,7 @@ import Bills from './View/Bills/Index'
 import Cart from './View/Cart/Index'
 import ListOrder from './View/Order/ListOrder'
 import Send from './View/ElementFooter/Send'
+import Questions from './View/ElementFooter/Question'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -33,6 +34,7 @@ ReactDOM.render(
         <Route exact path="/Cart/:id" component={Cart} />
         <Route exact path="/ListOrder/:id" component={ListOrder} />
         <Route exact path="/Send/:id" component={Send} />
+        <Route exact path="/Questions/:id" component={Questions} />
     </BrowserRouter>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

@@ -57,10 +57,9 @@ class Index extends Component {
             .then(response => response.json())
             .then(data =>{
                 let Data = []
-                data.map((e) => {
-                    if(e.type = dataProps.type) {
-                        console.log('data', e)
-                        Data.push(e)
+                data.map((item) => {
+                    if(item.type == dataProps.type){
+                        Data.push(item)
                     }
                 })
                 this.setState({

@@ -6,6 +6,7 @@ import { Button } from '@material-ui/core'
 import SendIcon from '@material-ui/icons/Send'
 import { I18n } from 'react-redux-i18n'
 import moment from 'moment'
+import Header from '../Component/Header'
 
 const style = theme => ({
     formContentItemFeedback: {
@@ -121,6 +122,9 @@ class Send extends Component {
         let { classes, theme } = this.props
         return (
                 <div>
+                    <Header 
+                        link={this.props}
+                    />
                     <form className={classes.container} noValidate autoComplete="off">
                         <Grid container spacing={3}>
                             <Grid item xs={12} lg={6}>

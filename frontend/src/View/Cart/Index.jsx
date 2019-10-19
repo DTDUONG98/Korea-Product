@@ -17,6 +17,31 @@ class Index extends Component{
 
         }
     }
+    DeleteJson(event){ // xóa database đi 
+        fetch('/user', {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                firstname: this.state.firstname,
+                lastname: this.state.lastname,
+
+            })
+        }).then((response) => response.json())
+        .then((responseJson) => {
+            this.setState({
+                showUsers: false,
+                users: responseJson
+            });
+            return;
+        })
+        .catch((error) => {
+            throw (error);
+        });
+    event.preventDefault();
+    }
     render(){
         const title = this.props
         console.log('title', title)

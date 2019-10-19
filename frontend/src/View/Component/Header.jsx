@@ -204,7 +204,7 @@ export default function PersistentDrawerLeft(props) {
                             <div className={classes.searchIcon}>
                                 <FaSistrix style={{ fontSize: '25px' }} />
                             </div>
-                            <InputBase placeholder="Search…" onChange={InputSearch} value={inputSearch} classes={{
+                            <InputBase placeholder="Search…" classes={{
                                 root: classes.inputRoot,
                                 input: classes.inputInput,
                             }} inputProps={{ 'aria-label': 'Search' }} />
