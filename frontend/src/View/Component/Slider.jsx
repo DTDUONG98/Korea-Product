@@ -83,12 +83,12 @@ class Index extends Component {
                                     </Typography>
                                 </CardContent>
                                 <CardActions disableSpacing>
-                                    <Tooltip title="Detail Product" key="Detail">
+                                    <Tooltip title="Chi tiết sản phẩm" key="Detail">
                                         <IconButton aria-label="add to favorites" value={item.name} onClick={(e) => this.Details(e)}>
                                             <FavoriteIcon />
                                         </IconButton>
                                     </Tooltip>
-                                    <Tooltip title="Buy now" key="Buy">
+                                    <Tooltip title="Mua ngay" key="Buy">
                                         <IconButton aria-label="share" value={item.name} onClick={(e) => this.Bills(e)}>
                                             <AttachMoney />
                                         </IconButton>

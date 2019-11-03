@@ -1,6 +1,5 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Col, Row } from 'reactstrap'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -20,7 +19,6 @@ import HomeIcon from '@material-ui/icons/Home'
 import ListOrder from '@material-ui/icons/List'
 import LocalGroceryStore from '@material-ui/icons/LocalGroceryStore'
 import Login from '@material-ui/icons/PowerSettingsNewOutlined'
-import Avatar from '@material-ui/core/Avatar'
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -187,16 +185,16 @@ export default function PersistentDrawerLeft(props) {
                     <Typography className={classes.itemLink}>
                         <a
                             onClick={Home}
-                        >HOME</a>
+                        >TRANG CHỦ</a>
                     </Typography>
                     <Typography className={classes.itemLink}>
                         <a onClick={Cosmetics}>
-                            COSMETICS
+                            MỸ PHẨM
                         </a>
                     </Typography>
                     <Typography className={classes.itemLink}>
                         <a onClick={HelthyFood}>
-                            HELTHYFOOD
+                            THỰC PHẨM CHỨC NĂNG
                         </a>
                     </Typography>
                     <Typography>
@@ -234,26 +232,26 @@ export default function PersistentDrawerLeft(props) {
                 </Tooltip>
                 <Divider />
                 <List>
-                    <Tooltip title="Home" key="Home" onClick={Home}>
+                    <Tooltip title="Trang chủ" key="Home" onClick={Home}>
                         <IconButton>
                             <HomeIcon />
                         </IconButton>
-                    </Tooltip> Home <br />
-                    <Tooltip title="Cosmetics" key="Cosmetics" onClick={Cosmetics}>
+                    </Tooltip> Trang chủ <br />
+                    <Tooltip title="Mỹ phẩm" key="Cosmetics" onClick={Cosmetics}>
                         <IconButton>
                             <LocalGroceryStore />
                         </IconButton>
-                    </Tooltip> Cosmetics <br />
-                    <Tooltip title="HelthyFood" key="HelthyFood" onClick={HelthyFood}>
+                    </Tooltip> Mỹ phẩm <br />
+                    <Tooltip title="Thực phẩm chức năng" key="HelthyFood" onClick={HelthyFood}>
                         <IconButton>
                             <LocalGroceryStore />
                         </IconButton>
-                    </Tooltip> HelthyFood <br />
-                    <Tooltip title="ListOrder" key="ListOrder" onClick={ListBook}>
+                    </Tooltip> Thực phẩm chức năng  <br />
+                    <Tooltip title="Danh sách đặt hàng" key="ListOrder" onClick={ListBook}>
                         <IconButton>
                             <ListOrder />
                         </IconButton>
-                    </Tooltip> ListOrder
+                    </Tooltip> Danh sách đặt hàng
                 </List>
                 <Divider />
             </Drawer>

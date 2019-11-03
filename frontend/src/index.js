@@ -13,7 +13,6 @@ import Costetics from './View/Cosmetics/Index'
 import HelthyFood from '../src/View/HelthyFood/Index'
 import Details from './View/Details/Index'
 import Bills from './View/Bills/Index'
-import Cart from './View/Cart/Index'
 import ListOrder from './View/Order/ListOrder'
 import Send from './View/ElementFooter/Send'
 import Questions from './View/ElementFooter/Question'
@@ -31,7 +30,6 @@ ReactDOM.render(
         <Route exact path="/HelthyFood/:id" component={HelthyFood} />
         <Route exact path="/Bills/:id" component={Bills} />
         <Route exact path="/Login/:id"  component={Login}/>
-        <Route exact path="/Cart/:id" component={Cart} />
         <Route exact path="/ListOrder/:id" component={ListOrder} />
         <Route exact path="/Send/:id" component={Send} />
         <Route exact path="/Questions/:id" component={Questions} />

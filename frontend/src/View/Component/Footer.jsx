@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { Col, Row } from 'reactstrap'
 import Grid from '@material-ui/core/Grid'
+import Map from './Map'
 const style = theme => ({
     footer: {
         background: '#3f51b5',
@@ -62,11 +63,8 @@ class Footer extends Component {
                             <p className={classes.service}><a onClick={() => this.Questions()}>Điều khoản sử dụng</a></p>
                             <p className={classes.service}><a onClick={() => this.Questions()}>PRO tư vấn</a></p>
                         </Grid>
-                        <Grid item xs={12} md={3}>
-                            <h4>Phương Thức Thanh Toán</h4>
-                        </Grid>
-                        <Grid item xs={12} md={3}>
-                            <h4>Liên hệ với chúng tôi</h4>
+                        <Grid item xs={12} md={6}>
+                            <Map />
                         </Grid>
                     </Grid>
                 </Col>
